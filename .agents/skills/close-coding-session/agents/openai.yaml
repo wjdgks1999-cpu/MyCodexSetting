@@ -1,0 +1,7 @@
+interface:
+  display_name: "Close Coding Session"
+  short_description: "Validate work and prepare a durable handoff"
+  default_prompt: "Use $close-coding-session to validate this task, preserve durable project knowledge, and prepare a minimal fresh-session handoff."
+
+policy:
+  allow_implicit_invocation: false
