@@ -1,7 +1,7 @@
 # MyCodexSetting 사용 설명서
 
 <!-- source-only:start -->
-이 폴더는 MyCodexSetting의 **개발 원본**입니다. 루트 AGENTS와 index, docs, tests, .superpowers에는 이 설정 도구를 개발한 맥락이 들어 있습니다.
+이 폴더는 MyCodexSetting의 **개발 원본**입니다. 루트 AGENTS와 index에는 이 설정 도구를 개발한 맥락이 들어 있습니다.
 
 실제 전달에는 [깨끗한 배포본 ZIP](dist/MyCodexSetting-0.1.0.zip) 또는 [배포본 폴더](dist/MyCodexSetting-0.1.0/README.md)를 사용하세요. 배포본에는 아래 사용 설명서와 `kit/`만 있습니다. 새 프로젝트의 PRD를 준비한 뒤 배포본의 설치 명령을 실행하면 새 AGENTS와 초기 index가 만들어집니다.
 
