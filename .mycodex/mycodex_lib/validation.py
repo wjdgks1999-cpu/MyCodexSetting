@@ -5,7 +5,7 @@ import posixpath
 import re
 from .documents import parse_index, local_links, handoff_sections
 from .model import Finding, InputError, REQUIRED_ASSETS, KIT_VERSION
-from .paths import checked_path, read_text
+from .paths import checked_path, read_asset, read_text
 
 
 def exit_code(findings: tuple[Finding, ...], *, strict: bool = False) -> int:
@@ -72,23 +72,31 @@ def validate(root: Path) -> tuple[Finding, ...]:
         generated = manifest['generated_agents']
         for name, digest in manifest['files'].items():
             path = checked_path(root, name)
-            if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest() != digest:
+            if not path.is_file() or hashlib.sha256(read_asset(path)).hexdigest() != digest:
                 error('ASSET_MISMATCH', name, 'Restore the installed version; automatic upgrades are not supported.')
     except FileNotFoundError:
         error('MISSING_MANIFEST', '.mycodex/manifest.json', 'Complete installation from the original kit.')
     except (InputError, json.JSONDecodeError, TypeError):
         error('INVALID_MANIFEST', '.mycodex/manifest.json', 'Restore the installation inventory.')
+    agents_name = 'AGENTS.override.md'
     try:
-        agents = read_text(checked_path(root, 'AGENTS.md'))
+        try:
+            override = checked_path(root, agents_name)
+            agents = read_text(override) if override.is_file() else ''
+        except FileNotFoundError:
+            agents = ''
+        if not agents.strip():
+            agents_name = 'AGENTS.md'
+            agents = read_text(checked_path(root, agents_name))
         if '.context/index.md' not in agents:
-            error('AGENTS_INDEX_MISSING', 'AGENTS.md', 'Add a short context-index instruction without replacing existing rules.')
-        if generated and len(agents.splitlines()) > 60:
-            findings.append(Finding('AGENTS_LENGTH', 'warning', 'AGENTS.md', 'Keep generated instructions concise; move details to source documents.'))
-        findings.extend(link_findings(root, 'AGENTS.md', agents))
+            error('AGENTS_INDEX_MISSING', agents_name, 'Add a short context-index instruction without replacing existing rules.')
+        if generated and agents_name == 'AGENTS.md' and len(agents.splitlines()) > 60:
+            findings.append(Finding('AGENTS_LENGTH', 'warning', agents_name, 'Keep generated instructions concise; move details to source documents.'))
+        findings.extend(link_findings(root, agents_name, agents))
     except FileNotFoundError:
-        error('MISSING_AGENTS', 'AGENTS.md', 'Create project instructions.')
+        error('MISSING_AGENTS', agents_name, 'Create project instructions.')
     except InputError:
-        error('INVALID_AGENTS', 'AGENTS.md', 'Check UTF-8 encoding and safe path.')
+        error('INVALID_AGENTS', agents_name, 'Check UTF-8 encoding and safe path.')
     for name in ('project-init', 'session-handoff'):
         base = f'.agents/skills/{name}'
         try:

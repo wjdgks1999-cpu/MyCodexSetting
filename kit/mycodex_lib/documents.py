@@ -1,8 +1,25 @@
+from collections.abc import Iterator
 from datetime import datetime
 from pathlib import Path
 import re
 from urllib.parse import unquote
 from .model import DocRef, IndexData, InputError, OPTIONAL_KEYS, HANDOFF_SECTIONS
+
+
+_REFERENCE_SECTION = '원본과 현재 작업'
+
+
+def _navigation_rows(lines: list[str]) -> Iterator[tuple[int, str, list[str]]]:
+    section = ''
+    for number, line in enumerate(lines):
+        if line.startswith('## '):
+            section = line[3:].strip()
+        if section not in (_REFERENCE_SECTION, '추가 문서') or not line.startswith('|'):
+            continue
+        cells = [c.strip().strip('`') for c in line.strip().strip('|').split('|')]
+        if not cells or cells[0] in ('key', 'path') or cells[0].startswith('-'):
+            continue
+        yield number, section, cells
 
 
 def parse_index(text: str) -> IndexData:
@@ -21,16 +38,8 @@ def parse_index(text: str) -> IndexData:
     if meta != {'schema_version': '1', 'status': meta.get('status')} or meta.get('status') not in ('needs-review', 'ready'):
         raise InputError('Unsupported index schema or status.')
     references = []
-    section = ''
-    for line in text[front.end():].splitlines():
-        if line.startswith('## '):
-            section = line[3:].strip()
-        if section not in ('원본과 현재 작업', '추가 문서') or not line.startswith('|'):
-            continue
-        cells = [c.strip().strip('`') for c in line.strip().strip('|').split('|')]
-        if not cells or cells[0] in ('key', 'path') or cells[0].startswith('-'):
-            continue
-        if section == '원본과 현재 작업':
+    for _, section, cells in _navigation_rows(text[front.end():].splitlines()):
+        if section == _REFERENCE_SECTION:
             if len(cells) != 3 or cells[0] not in ('requirements', *OPTIONAL_KEYS):
                 raise InputError('Invalid navigation row.')
             references.append(DocRef(*cells))
@@ -63,12 +72,20 @@ def update_index_reference(text: str, kind: str, path: str) -> str:
     if kind not in OPTIONAL_KEYS or any(c in path for c in '\r\n|`'):
         raise InputError('Invalid reference update.')
     parse_index(text)
-    pattern = rf'(?m)^(\|[ \t]*{re.escape(kind)}[ \t]*\|[ \t]*`?)[^|`\r\n]+(`?[ \t]*\|[^\r\n]*)(\r?)$'
-    changed, count = re.subn(pattern, lambda m: m[1] + path + m[2] + m[3], text)
-    if count != 1:
-        raise InputError('Reference row must be unique.')
-    parse_index(changed)
-    return changed
+    lines = text.splitlines(keepends=True)
+    for number, section, cells in _navigation_rows(lines):
+        if section != _REFERENCE_SECTION or cells[0] != kind:
+            continue
+        row = lines[number]
+        body = row.lstrip('|')
+        prefix = row[:len(row) - len(body)]
+        key, old_path, remainder = body.split('|', 2)
+        new_path = old_path.replace(cells[1], path, 1)
+        lines[number] = prefix + '|'.join((key, new_path, remainder))
+        changed = ''.join(lines)
+        parse_index(changed)
+        return changed
+    raise InputError('Reference row must be unique.')
 
 
 def local_links(text: str) -> tuple[str, ...]:

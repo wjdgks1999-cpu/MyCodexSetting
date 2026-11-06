@@ -42,6 +42,7 @@ def record_handoff(root: Path, draft: Path, *, now: datetime | None = None) -> P
     folder.mkdir(parents=True, exist_ok=True)
     while True:
         output = checked_path(root, relative, for_write=True)
+        updated = update_index_reference(index_text, 'latest-handoff', relative).encode('utf-8')
         try:
             atomic_create(output, content.encode('utf-8'))
             break
@@ -49,11 +50,8 @@ def record_handoff(root: Path, draft: Path, *, now: datetime | None = None) -> P
             relative = f'.context/handoffs/{name}-{uuid4().hex[:8]}.md'
         except OSError:
             raise HandoffWriteError(None) from None
-    if index.read_bytes() != before:
-        raise InputError('Index changed during recording; snapshot is unlinked at ' + relative)
-    updated = update_index_reference(index_text, 'latest-handoff', relative).encode('utf-8')
-    checked_path(root, '.context/index.md', for_write=True)
     try:
+        checked_path(root, '.context/index.md', for_write=True)
         guarded_update(index, updated, before)
     except InputError as error:
         raise InputError(str(error) + ' Snapshot retained at ' + relative) from None

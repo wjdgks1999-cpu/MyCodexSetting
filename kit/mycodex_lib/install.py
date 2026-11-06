@@ -6,7 +6,7 @@ from pathlib import Path
 import tempfile
 from .documents import render_index
 from .model import DocRef, IndexData, FileChange, InstallPlan, Finding, InputError, OPTIONAL_KEYS, REQUIRED_ASSETS, KIT_VERSION
-from .paths import checked_path, read_text
+from .paths import checked_path, read_asset, read_text
 
 
 def _write_temp(path: Path, content: bytes) -> Path:
@@ -94,7 +94,7 @@ def build_install_plan(bundle_root: Path, root: Path, requirements: tuple[str, .
         source = _source(bundle_root, name)
         if not source.is_file():
             raise InputError('Source kit is incomplete; use the original distribution.')
-        contents[name] = source.read_bytes()
+        contents[name] = read_asset(source)
     original_manifest = None
     try:
         manifest_path = checked_path(root, '.mycodex/manifest.json', for_write=True)
@@ -104,9 +104,10 @@ def build_install_plan(bundle_root: Path, root: Path, requirements: tuple[str, .
                 raise InputError('Existing installation requires manual review.')
     except (InputError, ValueError, TypeError):
         fail('MANIFEST_CONFLICT', '.mycodex/manifest.json', 'Preserve the existing installation and review its version/inventory.')
+    agents_template = read_asset(bundle_root / 'templates/AGENTS.md')
     try:
         agents = checked_path(root, 'AGENTS.md', for_write=True)
-        generated = original_manifest['generated_agents'] if original_manifest else (not agents.exists() or (agents.is_file() and agents.read_bytes() == (bundle_root / 'templates/AGENTS.md').read_bytes()))
+        generated = original_manifest['generated_agents'] if original_manifest else (not agents.exists() or (agents.is_file() and read_asset(agents) == agents_template))
     except InputError:
         generated = False
     manifest = dict(schema_version=1, kit_version=KIT_VERSION, generated_agents=generated, files={name: hashlib.sha256(content).hexdigest() for name, content in contents.items()})
@@ -115,7 +116,7 @@ def build_install_plan(bundle_root: Path, root: Path, requirements: tuple[str, .
     refs.extend(DocRef(k, 'none', '') for k in OPTIONAL_KEYS)
     if requirements:
         contents['.context/index.md'] = render_index(IndexData(1, 'needs-review', tuple(refs))).encode('utf-8')
-    contents['AGENTS.md'] = (bundle_root / 'templates/AGENTS.md').read_bytes()
+    contents['AGENTS.md'] = agents_template
     for name, content in contents.items():
         try:
             path = checked_path(root, name, for_write=True)
@@ -131,7 +132,7 @@ def build_install_plan(bundle_root: Path, root: Path, requirements: tuple[str, .
                 if name in ('AGENTS.md', '.context/index.md'):
                     action = 'preserve'
                 else:
-                    action = 'skip' if path.read_bytes() == content else 'conflict'
+                    action = 'skip' if read_asset(path) == content else 'conflict'
             else:
                 action = 'create'
             changes.append(FileChange(name, action, content))
@@ -151,7 +152,7 @@ def apply_install_plan(plan: InstallPlan) -> None:
         path = checked_path(plan.root, change.path, for_write=True)
         if change.action == 'create' and path.exists():
             raise InputError('Destination changed after preflight; re-run dry-run.')
-        if change.action == 'skip' and (not path.is_file() or path.read_bytes() != change.content):
+        if change.action == 'skip' and (not path.is_file() or read_asset(path) != change.content):
             raise InputError('Asset changed after preflight; re-run dry-run.')
     # Manifest last makes interrupted installations recoverable on re-run.
     ordered = sorted(plan.changes, key=lambda c: c.path == '.mycodex/manifest.json')

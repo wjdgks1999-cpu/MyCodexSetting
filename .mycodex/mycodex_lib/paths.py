@@ -49,6 +49,11 @@ def checked_path(root: Path, relative: str, *, for_write: bool = False) -> Path:
     return resolved
 
 
+def read_asset(path: Path) -> bytes:
+    """Read a kit text asset independently of Git's LF/CRLF conversion."""
+    return path.read_bytes().replace(b"\r\n", b"\n")
+
+
 def read_text(path: Path) -> str:
     try:
         return path.read_text(encoding='utf-8-sig')

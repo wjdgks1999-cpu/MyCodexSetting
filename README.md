@@ -1,12 +1,10 @@
 # MyCodexSetting 사용 설명서
 
 <!-- source-only:start -->
-이 폴더는 MyCodexSetting의 **개발 원본**입니다. 루트 AGENTS와 index에는 이 설정 도구를 개발한 맥락이 들어 있습니다.
-
-실제 전달에는 [깨끗한 배포본 ZIP](dist/MyCodexSetting-0.1.0.zip) 또는 [배포본 폴더](dist/MyCodexSetting-0.1.0/README.md)를 사용하세요. 배포본에는 아래 사용 설명서와 `kit/`만 있습니다. 새 프로젝트의 PRD를 준비한 뒤 배포본의 설치 명령을 실행하면 새 AGENTS와 초기 index가 만들어집니다.
-
-배포본 재생성: `python -B tools/build_release.py`. 아래 설치 명령은 배포본을 풀어 놓은 폴더에서 실행할 수 있습니다.
+배포 원본은 `kit/`입니다. [0.1.2 배포 ZIP](dist/MyCodexSetting-0.1.2.zip) 또는 [배포 폴더](dist/MyCodexSetting-0.1.2/README.md)에는 이 설명서와 설치에 필요한 `kit/`가 들어 있습니다.
 <!-- source-only:end -->
+
+MyCodexSetting은 Codex가 프로젝트의 작업 지침과 요구사항을 찾고, 새 세션에서 작업을 이어갈 수 있도록 문서 탐색과 인계 흐름을 설치합니다.
 
 ## 준비사항
 
@@ -56,7 +54,7 @@ python kit/mycodex.py init --target "C:/work/나의 프로젝트" --requirements
 $project-init PRD.md를 기준으로 프로젝트 세팅을 초기화해 주세요.
 ```
 
-스킬은 기존 지침·요구사항·코드·문서를 조사하고 Superpowers의 실제 사용 가능 여부를 확인합니다. 필요한 원본을 index에 연결하고 AGENTS에 짧은 작업 지침을 반영합니다. 코드가 없는 경우 기술 스택과 빌드·테스트 명령을 추정하지 않습니다.
+스킬은 기존 지침·요구사항·코드·문서를 조사하고 Superpowers의 실제 사용 가능 여부를 확인합니다. 필요한 원본을 index에 연결하고, 적용되는 루트 지침 파일에 index 탐색 규칙을 반영합니다. 내용이 있는 `AGENTS.override.md`가 있으면 그 파일을 사용합니다. 코드가 없는 경우 기술 스택과 빌드·테스트 명령을 추정하지 않습니다.
 
 조사와 구조 검증이 끝나면 index는 `ready`가 됩니다. **ready는 세팅 조사 완료이며 제품 개발 완료나 애플리케이션 테스트 통과가 아닙니다.** 스킬이 목록에 없으면 새 세션에서 `.agents/skills/` 설치 경로와 검색 여부를 확인하세요.
 
@@ -95,7 +93,7 @@ $session-handoff 현재 작업과 검증 결과를 정리하고 다음 세션에
 
 ## 충돌과 기존 파일
 
-기존 요구사항·코드·설정과 AGENTS는 설치 스크립트가 덮어쓰지 않습니다. 같은 입력의 설치 재실행은 동일 자산을 건너뜁니다. 다른 배포 자산이 있으면 전체 사전 검사에서 멈추며 강제 교체·자동 업데이트 옵션은 없습니다. 다른 버전으로의 이전은 별도 검토가 필요합니다.
+기존 요구사항·코드·설정과 AGENTS는 설치 스크립트가 덮어쓰지 않습니다. 같은 입력의 설치 재실행은 동일 자산을 건너뜁니다. 다른 배포 자산이 있으면 전체 사전 검사에서 멈추며 강제 교체·자동 업데이트 옵션은 없습니다. 다른 버전으로의 이전은 별도 검토가 필요합니다. 새 배포본을 받아도 기존 프로젝트의 AGENTS와 인덱스는 자동으로 갱신되지 않습니다.
 
 설치 도중 I/O가 실패하면 부분 설치가 남을 수 있습니다. 원인을 해결한 뒤 같은 원본 kit으로 dry-run을 다시 확인하세요. Handoff 포인터 교체가 실패해 연결되지 않은 스냅샷이 남으면 보고된 경로를 확인합니다. 기존 이력이나 사용자 파일을 일괄 삭제하지 마세요.
 
@@ -105,19 +103,9 @@ Handoff 도구의 동시 기록은 index 잠금으로 조정합니다. 잠금에
 
 사용자 전역 설정·기억과 기존 `.codex/config.toml`은 변경하지 않습니다. 모델·추론 강도·권한·네트워크·자동 기억 설정은 사용자 환경에서 선택할 값이며 다른 프로젝트로 복제하는 공통 필수값이 아닙니다. 비밀 파일과 원문 전문은 프로젝트 기억에 복사하지 않습니다.
 
-도구는 형식을 확인하며 사실의 의미나 애플리케이션 동작을 증명하지 않습니다. 스킬 판단과 실제 검증이 필요합니다. 자동 컨텍스트 주입·사용량 측정·토큰 절감률 보장·자동 종료 훅은 제공하지 않습니다.
-
-<!-- source-only:start -->
-실제 실행 범위는 [검증 기록](docs/validation/2026-11-04-acceptance.md)을 확인하세요.
-<!-- source-only:end -->
+구조 검증이 통과해도 문서의 내용과 최신성은 현재 원본과 대조해야 합니다. 애플리케이션 동작은 프로젝트에서 별도로 검증합니다. 자동 컨텍스트 주입·사용량 측정·토큰 절감률 보장·자동 종료 훅은 제공하지 않습니다.
 
 ## 참고 문서
 
-<!-- source-only:start -->
-- [요구사항 원본](docs/requirements.md)
-- [승인된 설계](docs/superpowers/specs/2026-11-04-mycodexsetting-design.md)
-- [구현 계획](docs/superpowers/plans/2026-11-04-mycodexsetting.md)
-- [실제 스킬 수용 시나리오](tests/SKILL_SCENARIOS.md)
-<!-- source-only:end -->
 - [Codex AGENTS.md 공식 문서](https://learn.chatgpt.com/docs/agent-configuration/agents-md)
 - [Codex Skills 공식 문서](https://learn.chatgpt.com/docs/build-skills)

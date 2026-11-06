@@ -11,7 +11,7 @@ description: Initialize project context from an existing PRD or GDD when the use
 
 1. index의 PRD/GDD를 읽고 기존 문서·관련 코드·구성을 조사한다. 비밀 파일·의존성 폴더·다른 작업의 원장 전체는 읽지 않는다. 기존 사용자 지침을 유지하고 충돌을 보고한다.
 2. 실제 사용 가능한 Superpowers 스킬을 확인하고 확인한 이름·경로 또는 환경의 근거를 index의 초기화 확인 사항에 남긴다. 전역 제공도 인정한다. 디렉터리 존재만 확인되거나 실제 사용 가능 여부를 확인하지 못하면 needs-review를 유지한다. 자동 설치하지 않는다.
-3. index는 원본의 위치와 용도만 연결한다. AGENTS에는 짧은 지속적 지침만 추가하며 기존 규칙을 보존한다. 긴 설명은 기존 원본을 우선하고 실제 필요가 있을 때만 주제별 문서를 만든다. project.md나 빈 결정·지식 문서를 생성하지 않는다.
+3. index는 원본의 위치와 용도만 연결한다. 루트에 내용이 있는 `AGENTS.override.md`가 있으면 그 파일에, 그렇지 않으면 `AGENTS.md`에 `.context/index.md`를 찾아 읽는 짧은 지침을 둔다. 기존 규칙은 보존한다. 긴 설명은 기존 원본을 우선하고 실제 필요가 있을 때만 주제별 문서를 만든다. project.md나 빈 결정·지식 문서를 생성하지 않는다.
 4. 코드가 없는 PRD-only 프로젝트는 정상이다. 코드·스택·명령이 아직 미정임을 구분하고 명령을 만들어 넣지 않는다. 명령을 기록할 때는 코드/구성 근거와 실행 여부를 구분한다.
 5. 루트에서 `python .mycodex/mycodex.py validate --target . --json`을 실행한다. 유일한 오류가 INIT_REVIEW_REQUIRED이고 설정 조사가 끝났다면 index의 status만 ready로 바꾸고 다시 검증한다. 실패하면 needs-review로 되돌린다. 기존 메모와 참조는 보존한다.
 
