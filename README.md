@@ -1,7 +1,7 @@
 # MyCodexSetting 사용 설명서
 
 <!-- source-only:start -->
-배포 원본은 `kit/`입니다. [0.1.2 배포 ZIP](dist/MyCodexSetting-0.1.2.zip) 또는 [배포 폴더](dist/MyCodexSetting-0.1.2/README.md)에는 이 설명서와 설치에 필요한 `kit/`가 들어 있습니다.
+배포 원본은 `kit/`입니다. [0.1.2 배포 ZIP](dist/MyCodexSetting-0.1.2.zip) 또는 [배포 폴더](dist/MyCodexSetting-0.1.2/README.md)에는 사용 설명서, 변경 이력과 설치에 필요한 `kit/`가 들어 있습니다.
 <!-- source-only:end -->
 
 MyCodexSetting은 Codex가 프로젝트의 작업 지침과 요구사항을 찾고, 새 세션에서 작업을 이어갈 수 있도록 문서 탐색과 인계 흐름을 설치합니다.
@@ -16,7 +16,7 @@ MyCodexSetting은 Codex가 프로젝트의 작업 지침과 요구사항을 찾�
 | Superpowers | 실제 사용할 수 있도록 미리 준비. 이 도구가 설치하지 않음 |
 | 대상 폴더 | PRD만 있어도 가능. 기존 프로젝트도 파일을 보존하며 적용 |
 
-이 README는 **MyCodexSetting 자체의 설명서**입니다. 실제 프로젝트에 적용한 뒤 삭제할 수 있고, 설치 도구는 대상 프로젝트에 이 설명서를 복사하지 않습니다. 대상 프로젝트의 기존 README는 유지합니다.
+이 README와 [버전별 변경 이력](CHANGELOG.md)은 MyCodexSetting의 배포 문서입니다. 설치 대상에는 포함되지 않으므로 프로젝트에 적용한 뒤 배포 사본에서 삭제할 수 있습니다. 대상 프로젝트의 기존 README는 설치 시 보존합니다.
 
 ## 파일과 역할
 

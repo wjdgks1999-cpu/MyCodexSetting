@@ -19,3 +19,4 @@ status: ready
 
 | path | purpose |
 |---|---|
+| `CHANGELOG.md` | 배포 버전별 변경 이력 |
