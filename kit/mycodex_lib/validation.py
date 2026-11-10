@@ -3,8 +3,9 @@ import json
 from pathlib import Path
 import posixpath
 import re
+from urllib.parse import unquote
 from .documents import parse_index, local_links, handoff_sections
-from .model import Finding, InputError, REQUIRED_ASSETS, KIT_VERSION
+from .model import Finding, InputError, REQUIRED_ASSETS, KIT_VERSION, SKILL_NAMES
 from .paths import checked_path, read_asset, read_text
 
 
@@ -12,10 +13,18 @@ def exit_code(findings: tuple[Finding, ...], *, strict: bool = False) -> int:
     return int(any(f.severity == 'error' or strict for f in findings))
 
 
+def is_human_document(name: str) -> bool:
+    path = posixpath.normpath(unquote(name).replace('\\', '/'))
+    return path.split('/', 1)[0].casefold() == '.human-docs'
+
+
 def link_findings(root: Path, relative: str, text: str, *, historical: bool = False) -> list[Finding]:
     findings = []
     for link in local_links(text):
         name = posixpath.normpath(posixpath.join(posixpath.dirname(relative), link.replace('\\', '/')))
+        if is_human_document(name):
+            findings.append(Finding('HUMAN_DOC_REFERENCE', 'error', relative, 'Use an original source outside .human-docs; generated HTML is excluded from context.'))
+            continue
         try:
             path = checked_path(root, name)
             if not path.is_file():
@@ -46,6 +55,9 @@ def validate(root: Path) -> tuple[Finding, ...]:
     findings.extend(link_findings(root, '.context/index.md', text))
     for ref in data.references:
         if ref.path == 'none':
+            continue
+        if is_human_document(ref.path):
+            error('HUMAN_DOC_REFERENCE', ref.path, 'Remove generated HTML from context references; use its original sources.')
             continue
         try:
             path = checked_path(root, ref.path)
@@ -97,7 +109,7 @@ def validate(root: Path) -> tuple[Finding, ...]:
         error('MISSING_AGENTS', agents_name, 'Create project instructions.')
     except InputError:
         error('INVALID_AGENTS', agents_name, 'Check UTF-8 encoding and safe path.')
-    for name in ('project-init', 'session-handoff'):
+    for name in SKILL_NAMES:
         base = f'.agents/skills/{name}'
         try:
             policy = read_text(checked_path(root, base + '/agents/openai.yaml'))

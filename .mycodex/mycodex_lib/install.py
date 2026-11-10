@@ -117,6 +117,7 @@ def build_install_plan(bundle_root: Path, root: Path, requirements: tuple[str, .
     if requirements:
         contents['.context/index.md'] = render_index(IndexData(1, 'needs-review', tuple(refs))).encode('utf-8')
     contents['AGENTS.md'] = agents_template
+    contents['.codex/config.toml'] = read_asset(bundle_root / 'templates/config.toml')
     for name, content in contents.items():
         try:
             path = checked_path(root, name, for_write=True)
@@ -129,7 +130,7 @@ def build_install_plan(bundle_root: Path, root: Path, requirements: tuple[str, .
             if path.exists():
                 if not path.is_file():
                     raise InputError('Destination is not a file.')
-                if name in ('AGENTS.md', '.context/index.md'):
+                if name in ('AGENTS.md', '.context/index.md', '.codex/config.toml'):
                     action = 'preserve'
                 else:
                     action = 'skip' if read_asset(path) == content else 'conflict'

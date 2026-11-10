@@ -2,15 +2,18 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Literal
 
-KIT_VERSION = '0.1.2'
+KIT_VERSION = '0.2.0'
 SCHEMA_VERSION = 1
 OPTIONAL_KEYS = ('decisions', 'active-spec', 'active-plan', 'active-ledger', 'latest-handoff')
 HANDOFF_SECTIONS = ('목표', '작성 시점', '관련 원본', '작업 상태', '검증', '다음 행동', '재확인 사항')
+SKILL_NAMES = ('project-init', 'session-handoff', 'human-html')
 REQUIRED_ASSETS = {
     '.mycodex/mycodex.py', '.mycodex/context-policy.md',
     *('.mycodex/mycodex_lib/' + n + '.py' for n in ('__init__', 'model', 'paths', 'documents', 'validation', 'install', 'handoff')),
     *('.mycodex/templates/' + n + '.md' for n in ('AGENTS', 'index', 'decision', 'handoff')),
-    *('.agents/skills/' + n + '/' + f for n in ('project-init', 'session-handoff') for f in ('SKILL.md', 'agents/openai.yaml')),
+    '.mycodex/templates/config.toml',
+    *('.agents/skills/' + n + '/' + f for n in SKILL_NAMES for f in ('SKILL.md', 'agents/openai.yaml')),
+    '.agents/skills/human-html/scripts/save_html.py',
 }
 
 
