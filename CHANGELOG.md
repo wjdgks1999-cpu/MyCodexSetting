@@ -2,6 +2,26 @@
 
 이 문서는 MyCodexSetting 배포본의 버전별 변경을 기록합니다. 대상 프로젝트에 적용한 뒤에는 사용 설명서와 함께 배포 사본에서 삭제할 수 있습니다.
 
+## 0.4.0 — 2026-11-12
+
+- Codex CLI에서도 `compression codex`로 문맥 압축 실행을 선택할 수 있습니다. 기존 고정 runtime을 사용하며 터미널·인자·출력·종료 코드를 전달합니다. `--apply`가 없으면 실행하지 않고 인자 본문도 출력하지 않습니다.
+- `compression doctor --client codex`로 Paseo 설치 없이 진단합니다. 원격 서버 연결은 압축 경유를 보장할 수 없어 거절합니다. 전역 alias·설정·기존 Paseo 제공자는 변경하지 않습니다.
+- CLI의 준비·실행·resume·exec 안내를 추가했습니다. 기존 프로젝트와 runtime은 자동 업그레이드하지 않으며, 이전 시 관리 자산 충돌을 검토해야 합니다. Codex 앱은 이번 지원 범위에 포함하지 않습니다.
+
+## 0.3.1 — 2026-11-12
+
+- billion-context를 Windows/Paseo용 정식 선택 기능으로 승격했습니다. `compression doctor`와 관리 스킬의 제공 상태도 일치시켰습니다. 연결은 여전히 명시적으로 선택하며, 미검증 호환성 항목은 그대로 공개합니다.
+- README를 소개·빠른 시작·주요 스킬 중심으로 줄였습니다. 일반 상세 사용법은 `docs/usage.md`, 압축 명령·호환 범위·이전 안내는 `kit/integrations/billion-context/README.md`에서 관리합니다.
+- 상세 사용 안내를 배포 ZIP에도 포함하고, ZIP만 풀었을 때 문서 링크가 연결되는지 검사합니다. 기존 0.3.0 배포본과 자동 업그레이드 없는 설치 계약은 유지합니다.
+
+## 0.3.0 — 2026-11-12
+
+- 선택 기능인 billion-context 0.1.213의 **실험 연동**을 추가했습니다. 고정 npm lock·자동 업데이트 비활성 정책·Paseo app-server bridge·명시적 context-compression 스킬을 포함합니다.
+- `compression doctor/prepare/paseo-enable/paseo-disable/export` 명령을 추가했습니다. 변경 명령은 기본 dry-run이며 기존 제공자와 동시 편집을 보존합니다. 설정 저장과 실제 reload를 구분합니다.
+- Windows Paseo 0.15.4 / Codex 0.167.0에서 실제 경유·압축·복원·MCP 공존과 합성 개발·인계·native 재개를 검증했습니다. 역할 격리·기본 compaction·전체 장애 시나리오 등은 미검증이므로 정식 호환 완료를 선언하지 않습니다.
+- 기본 설치·검증은 Python 표준 라이브러리만 사용합니다. 기존 0.2.0 설치의 자동 업그레이드는 제공하지 않습니다. AGENTS/config/Superpowers 기본 자산은 변경하지 않습니다.
+- 동일 배포 폴더가 CRLF checkout된 경우 LF와 동일하게 비교해 보존합니다. 실제 내용 변경·추가 파일·링크·다른 ZIP은 계속 충돌로 처리합니다.
+
 ## 0.2.0 — 2026-11-10
 
 - 프로젝트 `config.toml`을 설치 템플릿에 포함했습니다. 대상에 `.codex/config.toml`이 없을 때 생성하며 기존 설정과 설치 후 사용자 수정은 보존합니다.

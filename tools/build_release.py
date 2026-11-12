@@ -25,7 +25,9 @@ def release_files() -> dict[str, bytes]:
     manual = re.sub(r'(?ms)^<!-- source-only:start -->\n.*?^<!-- source-only:end -->\n\n?', '', manual)
     if '<!-- source-only:' in manual:
         raise ValueError('README source-only block is malformed.')
-    files = {'README.md': manual.encode('utf-8'), 'CHANGELOG.md': read_asset(ROOT / 'CHANGELOG.md')}
+    files = {'README.md': manual.encode('utf-8'),
+             'CHANGELOG.md': read_asset(ROOT / 'CHANGELOG.md'),
+             'docs/usage.md': read_asset(ROOT / 'docs/usage.md')}
     for destination in sorted(REQUIRED_ASSETS):
         source = _source(ROOT / 'kit', destination)
         files['kit/' + source.relative_to(ROOT / 'kit').as_posix()] = read_asset(source)
@@ -57,7 +59,7 @@ def folder_matches(folder: Path, files: dict[str, bytes]) -> bool:
             if relative not in directories:
                 return False
         elif path.is_file():
-            found[relative] = path.read_bytes()
+            found[relative] = read_asset(path)
         else:
             return False
     return found == files

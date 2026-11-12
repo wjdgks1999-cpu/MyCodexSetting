@@ -7,6 +7,8 @@ description: Initialize project context from an existing PRD or GDD when the use
 
 명시적 호출로 설치된 세팅을 프로젝트에 맞게 완성한다. 기술 스택 선택·제품 설계·구현은 이후 Superpowers 작업이다.
 
+선택 기능인 context-compression의 미설치·비활성 상태는 ready를 막지 않는다. project-init 중 패키지 설치나 Paseo 제공자 설정은 하지 않는다.
+
 대상 프로젝트 루트를 확인하고 적용되는 AGENTS/override, `.context/index.md`, `.mycodex/context-policy.md`를 읽는다. 정책과 아래 도구는 설치된 MyCodexSetting에 포함된다. 필수 자산이 없으면 초기화 도구로 설치할 필요를 보고하고 임의로 빈 파일을 만들지 않는다.
 
 1. index의 PRD/GDD를 읽고 기존 문서·관련 코드·구성을 조사한다. 비밀 파일·의존성 폴더·다른 작업의 원장 전체와 `.human-docs/` 산출물은 읽지 않는다. 기존 사용자 지침을 유지하고 충돌을 보고한다.

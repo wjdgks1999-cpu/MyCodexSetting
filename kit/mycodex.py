@@ -25,9 +25,41 @@ def main(argv: list[str] | None = None) -> int:
     handoff = subs.add_parser('record-handoff')
     handoff.add_argument('--target', required=True)
     handoff.add_argument('--draft', required=True)
+    compression = subs.add_parser('compression')
+    actions = compression.add_subparsers(dest='compression_action', required=True)
+    for name in ('doctor', 'prepare', 'paseo-enable', 'paseo-disable', 'export', 'codex'):
+        action = actions.add_parser(name)
+        action.add_argument('--target', required=True)
+        action.add_argument('--runtime', type=Path)
+        action.add_argument('--paseo-home', type=Path, default=Path.home() / '.paseo')
+        action.add_argument('--json', action='store_true')
+        if name != 'doctor': action.add_argument('--apply', action='store_true')
+        if name == 'export': action.add_argument('--session', required=True)
+        if name == 'doctor': action.add_argument('--client', choices=('paseo', 'codex'), default='paseo')
+        if name == 'codex': action.add_argument('codex_args', nargs=argparse.REMAINDER)
     args = parser.parse_args(argv)
     try:
         root = resolve_root(args.target)
+        if args.command == 'compression':
+            from mycodex_lib.compression import (default_runtime, inspect_compression, prepare_runtime,
+                plan_paseo_provider, apply_paseo_provider, public_plan, export_compression_summary, run_codex)
+            runtime = args.runtime or default_runtime()
+            if args.compression_action == 'doctor':
+                output = inspect_compression(root, runtime, args.paseo_home, client=args.client)
+            elif args.compression_action == 'codex':
+                native_args = args.codex_args
+                if native_args[:1] == ['--']: native_args = native_args[1:]
+                output = run_codex(root, runtime, native_args, apply=args.apply)
+                if args.apply: return output
+            elif args.compression_action == 'prepare':
+                output = prepare_runtime(root, runtime, apply=args.apply)
+            elif args.compression_action == 'export':
+                output = export_compression_summary(runtime,args.session,apply=args.apply)
+            else:
+                plan = plan_paseo_provider(args.paseo_home,runtime,enabled=args.compression_action == 'paseo-enable')
+                output = apply_paseo_provider(plan) if args.apply else public_plan(plan)
+            print(json.dumps(output, ensure_ascii=True))
+            return 0
         if args.command == 'record-handoff':
             from mycodex_lib.handoff import record_handoff
             from mycodex_lib.paths import checked_path

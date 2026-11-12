@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+import re
 import subprocess
 import sys
 from tempfile import TemporaryDirectory
@@ -35,7 +36,7 @@ class ReleaseTests(unittest.TestCase):
 
     def test_zip_is_clean_and_can_install_without_source_tree(self):
         folder, archive = self.built_paths()
-        self.assertEqual({path.name for path in folder.iterdir()}, {'README.md', 'CHANGELOG.md', 'kit'})
+        self.assertEqual({path.name for path in folder.iterdir()}, {'README.md', 'CHANGELOG.md', 'docs', 'kit'})
         manual = (folder / 'README.md').read_text(encoding='utf-8')
         self.assertNotIn('source-only', manual)
         self.assertNotIn('dist/MyCodexSetting-', manual)
@@ -48,6 +49,14 @@ class ReleaseTests(unittest.TestCase):
                                  for name in zipped.namelist() for part in Path(name).parts))
             zipped.extractall(unpacked)
         release = unpacked / folder.name
+        for relative in ('README.md', 'docs/usage.md', 'kit/integrations/billion-context/README.md'):
+            document = release / relative
+            for link in re.findall(r'\[[^\]]+\]\(([^)]+)\)', document.read_text(encoding='utf-8')):
+                if '://' in link or link.startswith('#'):
+                    continue
+                destination = (document.parent / link.split('#', 1)[0]).resolve()
+                self.assertTrue(destination.is_relative_to(release.resolve()), (relative, link))
+                self.assertTrue(destination.is_file(), (relative, link))
         target = self.workspace / 'project'
         target.mkdir()
         (target / 'PRD.md').write_text('Explain this service.\n', encoding='utf-8')
@@ -120,6 +129,22 @@ class ReleaseTests(unittest.TestCase):
         self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
         self.assertEqual(archive.read_bytes(), b'preserve user archive')
         self.assertEqual((folder / 'README.md').read_bytes(), manual)
+
+    def test_crlf_checkout_rebuild_preserves_folder_and_zip(self):
+        folder, archive = self.built_paths()
+        for path in folder.rglob('*'):
+            if path.is_file(): path.write_bytes(path.read_bytes().replace(b'\r\n',b'\n').replace(b'\n',b'\r\n'))
+        before={p.relative_to(folder).as_posix():p.read_bytes() for p in folder.rglob('*') if p.is_file()}
+        zipped=archive.read_bytes()
+        result=self.build();self.assertEqual(0,result.returncode,result.stderr)
+        self.assertEqual(before,{p.relative_to(folder).as_posix():p.read_bytes() for p in folder.rglob('*') if p.is_file()})
+        self.assertEqual(zipped,archive.read_bytes())
+
+    def test_actual_content_change_still_conflicts(self):
+        folder,archive=self.built_paths();manual=folder/'README.md'
+        manual.write_bytes(manual.read_bytes()+b'changed\r\n')
+        before=manual.read_bytes();result=self.build()
+        self.assertEqual(1,result.returncode);self.assertEqual(before,manual.read_bytes())
 
 
 if __name__ == '__main__':

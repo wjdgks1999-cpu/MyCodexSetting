@@ -1,141 +1,99 @@
-# MyCodexSetting 사용 설명서
+# MyCodexSetting
+
+Codex 프로젝트를 시작할 때 필요한 작업 지침, 설정, 문서 탐색과 세션 인계 흐름을 준비하는 도구입니다. 개발은 Superpowers 절차로 진행하고, 필요할 때 HTML 설명 문서와 Codex CLI·Paseo 문맥 압축을 함께 사용합니다.
 
 <!-- source-only:start -->
-배포 원본은 `kit/`입니다. [0.2.0 배포 ZIP](dist/MyCodexSetting-0.2.0.zip) 또는 [배포 폴더](dist/MyCodexSetting-0.2.0/README.md)에는 사용 설명서, 변경 이력과 설치에 필요한 `kit/`가 들어 있습니다. 이번 버전에는 `human-html`, 프로젝트 `config.toml` 설치와 축약된 컨텍스트 정책이 모두 반영되어 있습니다.
+**최신 버전 0.4.0** · [배포 ZIP](dist/MyCodexSetting-0.4.0.zip) · [배포 폴더](dist/MyCodexSetting-0.4.0/README.md)
 
-개발 저장소에서는 `python tools/build_release.py`로 배포본을 다시 만들 수 있습니다. 같은 내용이면 기존 산출물을 유지하며, 같은 버전의 내용이 다르면 덮어쓰지 않고 충돌을 보고합니다.
+배포 원본은 `kit/`입니다. `python tools/build_release.py`로 배포본을 만들며, 같은 버전의 내용이 다르면 기존 산출물을 보존하고 충돌을 보고합니다. 실제 검증 기록은 [CLI](docs/superpowers/validation/2026-11-12-billion-context-cli.md)와 [Paseo](docs/superpowers/validation/2026-11-12-billion-context-paseo.md)에 있습니다.
 <!-- source-only:end -->
 
-MyCodexSetting은 Codex가 프로젝트의 작업 지침과 요구사항을 찾고, 새 세션에서 작업을 이어갈 수 있도록 문서 탐색과 인계 흐름을 설치합니다.
+## 제공하는 기능
 
-## 준비사항
-
-| 항목 | 준비할 내용 |
+| 기능 | 역할 |
 |---|---|
-| 요구사항 | 대상 프로젝트 내부의 UTF-8 Markdown 또는 텍스트 PRD/GDD |
-| Python | 3.11 이상. 실행 라이브러리는 Python 표준 라이브러리만 사용 |
-| Codex | 대상 폴더에서 파일과 스킬을 사용할 수 있는 환경 |
-| Superpowers | 실제 사용할 수 있도록 미리 준비. 이 도구가 설치하지 않음 |
-| 대상 폴더 | PRD만 있어도 가능. 기존 프로젝트도 파일을 보존하며 적용 |
+| 작업 지침·설정 | `AGENTS.md` 초안과 `.codex/config.toml` 기본값 준비 |
+| 문서 탐색 | `.context/index.md`로 현재 요청에 필요한 원본만 찾는 JIT Retrieval |
+| 프로젝트 초기 조사 | 요구사항·코드·기존 문서를 확인하고 인덱스 구성 |
+| 세션 인계 | 현재 상태·검증 근거·다음 행동을 기록하고 새 세션에서 재확인 |
+| 사람용 HTML | 사용자가 지정한 주제를 독립 HTML로 설명 |
+| 문맥 압축 | **정식 선택 기능**인 billion-context로 Codex CLI·Paseo의 모델 전달 문맥 압축·복원 |
 
-이 README와 [버전별 변경 이력](CHANGELOG.md)은 MyCodexSetting의 배포 문서입니다. 설치 대상에는 포함되지 않으므로 프로젝트에 적용한 뒤 배포 사본에서 삭제할 수 있습니다. 대상 프로젝트의 기존 README는 설치 시 보존합니다.
+설계·계획·구현은 준비된 Superpowers를 사용합니다. MyCodexSetting은 원본 문서와 개발 절차를 연결하며, Superpowers 자체를 설치하지는 않습니다.
 
-## 파일과 역할
+## 빠른 시작
 
-| 대상 프로젝트의 파일 | 역할 | 갱신 시점 |
-|---|---|---|
-| `AGENTS.md` | 짧은 작업 지침과 문서 탐색 안내 | 확인된 명령·작업 규칙 변경 |
-| `.codex/config.toml` | 프로젝트의 Codex 기본 설정; 기존 파일은 보존 | 최초 설치 시 없을 때 생성; 이후 사용자가 조정 |
-| `.context/index.md` | 원본 문서의 경로·용도와 설정 상태 | 초기화, 문서 이동, 작업 전환 |
-| 기존 PRD/GDD·설계·운영 문서 | 해당 정보의 원본 | 해당 요구사항·설계·사실 변경 |
-| `.context/decisions.md` | 기존 원본이 없는 확인된 장기 결정 | 필요할 때 처음 생성 |
-| `.context/handoffs/*.md` | 작성 시점의 상태·근거·다음 행동 | 명시적 Handoff 호출 |
-| `.mycodex/` | 실행 도구·정책·템플릿·설치 목록 | 최초 설치; 자동 업데이트 없음 |
-| `.agents/skills/project-init/` | 프로젝트 설정 조사 스킬 | 설치 버전 기준 |
-| `.agents/skills/session-handoff/` | 세션 인계 스킬 | 설치 버전 기준 |
-| `.agents/skills/human-html/` | 사용자가 지정한 주제를 HTML로 설명하는 스킬·저장 도구 | 설치 버전 기준 |
-| `.human-docs/` | 일반 개발 탐색에서 제외하는 사람용 HTML 산출물 | 명시적 HTML 생성·수정 요청 |
+Python **3.11 이상**, Codex에서 열 수 있는 대상 폴더, 그 안의 UTF-8 PRD/GDD, 사용 가능한 Superpowers를 준비합니다. PRD만 있는 폴더와 기존 프로젝트 모두에 적용할 수 있습니다.
 
-`project.md`와 빈 지식 문서는 기본 생성하지 않습니다. 긴 설명은 기존 원본을 우선하고 필요한 주제별 문서만 추가합니다. Superpowers가 관리하는 설계·계획·진행 원장을 별도 진행 문서로 복제하지 않습니다.
-
-## 1. 설치 변경안 확인과 적용
-
-MyCodexSetting 폴더에서 실행합니다. 아래 대상 경로는 예시이므로 실제 경로로 바꾸세요. 공백·한글이 있으면 따옴표로 감쌉니다.
+**1. 설치할 변경안을 확인한 뒤 적용합니다.** 아래 명령은 배포 폴더 또는 이 저장소에서 실행합니다. `--requirements`는 대상 폴더 기준 경로입니다.
 
 ```powershell
 python kit/mycodex.py init --target "C:/work/나의 프로젝트" --requirements PRD.md
 python kit/mycodex.py init --target "C:/work/나의 프로젝트" --requirements PRD.md --apply
 ```
 
-첫 명령은 파일을 쓰지 않는 dry-run입니다. 두 번째 명령이 설치합니다. 요구사항이 여러 개면 `--requirements docs/GDD.md`처럼 옵션을 반복합니다. 요구사항 경로는 대상 프로젝트 루트 기준입니다.
+첫 명령은 파일을 쓰지 않습니다. 기존 문서·설정은 보존하며, 다른 버전의 설치 자산이 있으면 충돌로 중단합니다. 자동 업그레이드는 제공하지 않습니다.
 
-새 설치는 `AGENTS.md`와 `.context/index.md`만 프로젝트 문서로 만들고 index 상태를 `needs-review`로 둡니다. 기존 AGENTS/index는 보존합니다. Git 저장소가 없어도 설치할 수 있으며 Git을 대신 초기화하지 않습니다.
+**2. 사용하는 환경에서 Codex 대화를 시작하고 초기 조사를 요청합니다.**
 
-프로젝트 설정 `.codex/config.toml`도 파일이 없을 때 함께 생성합니다. 기본값의 원본은 `kit/templates/config.toml`이며, 이 저장소에서 사용하던 모델·추론 강도·검색·권한·기억·에이전트 설정을 담았습니다. 대상에 기존 파일이 있으면 그대로 보존합니다. 설치 후 설정을 바꿔도 재설치가 덮어쓰거나 구조 검증이 자산 충돌로 보고하지 않습니다.
+- **Paseo:** 대상 프로젝트 폴더를 작업 경로로 지정해 Codex chat을 시작합니다.
+- **터미널의 Codex CLI:** 대상 프로젝트 루트의 터미널에서 `codex`를 실행합니다.
 
-설정 템플릿은 `.mycodex/templates/config.toml`에도 설치되어 무결성 검증을 받습니다. 실제 프로젝트 설정은 사용자가 관리합니다. [Codex 프로젝트 설정 공식 문서](https://learn.chatgpt.com/docs/config-file/config-basic)에 따라 프로젝트를 신뢰한 경우 프로젝트 설정이 로드되며, 파일 생성과 현재 세션의 설정 적용은 구분해야 합니다.
-
-## 2. 프로젝트 설정 조사
-
-대상 프로젝트를 Codex에서 열고 명시적으로 호출합니다.
+열린 Codex 대화에 아래 요청을 입력합니다.
 
 ```text
 $project-init PRD.md를 기준으로 프로젝트 세팅을 초기화해 주세요.
 ```
 
-스킬은 기존 지침·요구사항·코드·문서를 조사하고 Superpowers의 실제 사용 가능 여부를 확인합니다. 필요한 원본을 index에 연결하고, 적용되는 루트 지침 파일에 index 탐색 규칙을 반영합니다. 내용이 있는 `AGENTS.override.md`가 있으면 그 파일을 사용합니다. 코드가 없는 경우 기술 스택과 빌드·테스트 명령을 추정하지 않습니다.
+조사가 끝나면 인덱스가 `ready`가 됩니다. 이는 세팅 조사 완료를 뜻하며 제품 개발이나 애플리케이션 테스트 완료를 뜻하지 않습니다.
 
-조사와 구조 검증이 끝나면 index는 `ready`가 됩니다. **ready는 세팅 조사 완료이며 제품 개발 완료나 애플리케이션 테스트 통과가 아닙니다.** 스킬이 목록에 없으면 새 세션에서 `.agents/skills/` 설치 경로와 검색 여부를 확인하세요.
-
-## 3. 구조 검증
-
-대상 프로젝트 루트에서 실행합니다.
+**3. 대상 프로젝트 루트에서 구조를 검증합니다.**
 
 ```powershell
-python .mycodex/mycodex.py validate --target .
 python .mycodex/mycodex.py validate --target . --strict --json
 ```
 
-| 종료 코드 | 의미 |
+## 작업 중 사용하는 스킬
+
+| 명시적 호출 | 사용 시점 |
 |---|---|
-| 0 | 검증 오류 없음. 기본 모드에서는 경고가 있을 수 있음 |
-| 1 | 구조·경로·설치 충돌 등의 검증 오류. strict에서는 경고도 포함 |
-| 2 | 잘못된 CLI 인자 또는 I/O로 실행 불가 |
+| `$project-init` | 처음 세팅하거나 프로젝트 구조를 조사할 때 |
+| `$session-handoff` | 다음 세션을 위한 상태·근거·다음 행동을 남길 때 |
+| `$human-html` | 지정한 주제를 사람이 읽기 쉬운 HTML로 만들 때 |
+| `$context-compression` | CLI·Paseo 문맥 압축을 준비·진단하거나 사용 방법과 요약 추출을 요청할 때 |
 
-검증은 읽기 전용입니다. 설치 파일 해시, 명시적 스킬 정책, index와 등록된 파일 경로, 필수 Handoff 항목을 확인합니다. 출력은 진단 코드·경로·조치이며 문서 본문을 출력하지 않습니다. 사라진 임시 원장은 경고로 보고하며 완료를 추정하지 않습니다.
+새 세션에서는 대상 프로젝트를 열고 이어서 할 일을 요청하면 됩니다. Codex는 인덱스에서 관련 원본과 최신 인계를 찾아 현재 상태와 대조합니다. `.human-docs/`의 HTML은 일반 개발 탐색과 인계 원본에서 제외합니다.
 
-## 4. 개발과 세션 인계
+## 문맥 압축 선택
 
-제품 설계·계획·구현은 준비된 Superpowers 절차로 진행합니다. Git이 없는 폴더라면 Git 기반 구현·복구를 사용하기 전에 해당 개발 작업에서 준비합니다. 문서 생성·이동과 작업 전환 시 index의 해당 경로를 갱신합니다.
+[billion-context](https://github.com/ranxianglei/billion-context)는 필요한 호스트에서 선택해 사용하는 정식 기능입니다. Node **20 이상**·npm·Codex가 필요하며, Paseo 방식은 Paseo도 준비합니다.
 
-인계할 때 명시적으로 호출합니다.
+### Paseo에서 사용할 때
 
-```text
-$session-handoff 현재 작업과 검증 결과를 정리하고 다음 세션에서 이어갈 문서를 만들어 주세요.
-```
-
-스킬은 지속적인 지식을 적절한 원본에 반영하고, 날짜가 있는 Handoff와 최신 포인터를 기록합니다. 일반 상태 질문이나 종료 인사만으로 실행하지 않습니다. 기록 실패 시 남은 초안·스냅샷·장기 지식 반영 상태를 구분해 보고합니다.
-
-## 5. 새 세션에서 이어가기
-
-대상 프로젝트를 열고 이어서 할 작업을 요청합니다. Codex는 AGENTS → index → 관련 Handoff·계획·원본을 찾아 현재 파일/Git 상태와 대조합니다. 과거 테스트 통과는 현재 변경 이후의 결과로 재사용하지 않습니다. 모든 과거 세션 문서를 한꺼번에 읽도록 요구하지 않습니다.
-
-## 사람이 읽는 HTML 문서
-
-설치한 프로젝트에서 스킬을 명시적으로 호출하고, 무엇을 문서로 만들지 직접 적습니다.
+대상 프로젝트의 Codex chat에서 준비·연결을 요청합니다.
 
 ```text
-$human-html
-현재 프로젝트에서 개발하고 있는 앱 서비스의 구조를 html 문서로 정리해줘.
+$context-compression Paseo에서 문맥 압축을 사용할 수 있도록 준비하고 연결해 주세요.
 ```
 
-스킬은 필요한 원본만 조사하고 설명·표·도식을 활용한 독립 HTML을 만듭니다. 주제가 없으면 먼저 질문합니다. CSS와 도식을 내부에 넣어 브라우저에서 오프라인으로 읽을 수 있으며, 생성 결과에는 파일 링크와 실제 검증 결과를 보고합니다.
+연결 후 Paseo에서 **Codex 문맥 압축**을 선택해 새 chat을 시작합니다. 압축 없이 사용하려면 기존 Codex 제공자를 선택합니다.
 
-문서는 처음 생성할 때 준비하는 `.human-docs/`에 고유한 파일명으로 저장합니다. 폴더 내부의 `.gitignore`와 `.ignore`는 Git과 ignore 규칙을 따르는 검색에서 본문을 제외합니다. Git이 없는 폴더의 ripgrep 검색에도 `.ignore`가 적용됩니다. 기존 루트 제외 파일은 변경하지 않습니다. 같은 위치에 맞춤형 제외 파일이 있으면 보존하고 충돌을 보고합니다.
+### 터미널에서 Codex CLI로 사용할 때
 
-일반 개발에서는 이 폴더를 읽기·검색 대상에서 제외하며, 인덱스나 인계의 원본으로 연결하지 않습니다. `--no-ignore` 검색에서도 `-g '!.human-docs/**'`를 지정합니다. 명시적인 HTML 생성·수정·검증 때는 해당 파일에 접근할 수 있습니다. **일반 탐색 제외이며 파일 접근 차단이나 생성 시 토큰 사용량 0을 보장하지 않습니다.**
-
-저장 도구는 UTF-8 stdin을 받아 경로만 반환합니다. 직접 점검하려면 다음처럼 실행합니다. 이 검사는 기본 HTML 구조만 확인하며, 내용의 사실성·화면 가독성은 별도 확인 대상입니다.
+대상 프로젝트 루트의 터미널에서 최초 한 번 runtime을 준비하고, 압축을 사용할 세션을 시작합니다.
 
 ```powershell
-python .agents/skills/human-html/scripts/save_html.py --target . --check .human-docs/생성된-파일명.html
+python .mycodex/mycodex.py compression prepare --target . --apply
+python .mycodex/mycodex.py compression codex --target . --apply
 ```
 
-## 충돌과 기존 파일
+이후에는 두 번째 명령으로 압축 세션을 시작합니다. 압축 없이 사용하려면 평소처럼 `codex`를 실행합니다.
 
-기존 요구사항·코드·설정과 AGENTS는 설치 스크립트가 덮어쓰지 않습니다. 같은 입력의 설치 재실행은 동일 자산을 건너뜁니다. 다른 배포 자산이 있으면 전체 사전 검사에서 멈추며 강제 교체·자동 업데이트 옵션은 없습니다. 다른 버전으로의 이전은 별도 검토가 필요합니다. 새 배포본을 받아도 기존 프로젝트의 AGENTS와 인덱스는 자동으로 갱신되지 않습니다.
+두 방식의 상세 준비·인자 전달·재개·이전 버전 충돌 처리는 [문맥 압축 사용 안내](kit/integrations/billion-context/README.md)를 따릅니다. 원본 문서·인덱스·인계는 계속 관리합니다.
 
-설치 도중 I/O가 실패하면 부분 설치가 남을 수 있습니다. 원인을 해결한 뒤 같은 원본 kit으로 dry-run을 다시 확인하세요. Handoff 포인터 교체가 실패해 연결되지 않은 스냅샷이 남으면 보고된 경로를 확인합니다. 기존 이력이나 사용자 파일을 일괄 삭제하지 마세요.
+## 상세 안내
 
-Handoff 도구의 동시 기록은 index 잠금으로 조정합니다. 잠금에 협력하지 않는 외부 편집기의 모든 경쟁까지 보장하지는 않습니다. `.context/.index.lock`이 남으면 다른 기록 작업이 끝났는지 확인한 후 처리하세요.
-
-## 설정 범위와 검증 한계
-
-사용자 전역 설정·기억과 기존 `.codex/config.toml`은 변경하지 않습니다. 대상 설정이 없을 때만 배포 템플릿으로 생성하며, 설치 후 모델·추론 강도·권한·네트워크·기억 설정은 대상 프로젝트의 `.codex/config.toml`에서 조정할 수 있습니다. 현재 저장소의 개발용 설정을 이후 설치 때마다 읽어 복사하지 않으므로, 배포 기본값을 바꾸려면 `kit/templates/config.toml`을 수정합니다. 비밀 파일과 원문 전문은 프로젝트 기억에 복사하지 않습니다.
-
-구조 검증이 통과해도 문서의 내용과 최신성은 현재 원본과 대조해야 합니다. 애플리케이션 동작은 프로젝트에서 별도로 검증합니다. 자동 컨텍스트 주입·사용량 측정·토큰 절감률 보장·자동 종료 훅은 제공하지 않습니다.
-
-## 참고 문서
-
-- [Codex AGENTS.md 공식 문서](https://learn.chatgpt.com/docs/agent-configuration/agents-md)
-- [Codex Skills 공식 문서](https://learn.chatgpt.com/docs/build-skills)
+- [설치·파일 역할·인계·설정·문제 해결](docs/usage.md)
+- [CLI·Paseo 문맥 압축 사용 안내와 호환 범위](kit/integrations/billion-context/README.md)
+- [버전별 변경 이력](CHANGELOG.md)
+- [billion-context·acp-kernel 출처와 라이선스](kit/integrations/billion-context/THIRD_PARTY_NOTICES.md)
