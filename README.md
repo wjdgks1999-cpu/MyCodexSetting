@@ -3,7 +3,7 @@
 Codex 프로젝트를 시작할 때 필요한 작업 지침, 설정, 문서 탐색과 세션 인계 흐름을 준비하는 도구입니다. 개발은 Superpowers 절차로 진행하고, 필요할 때 HTML 설명 문서와 Codex CLI·Paseo 문맥 압축을 함께 사용합니다.
 
 <!-- source-only:start -->
-**최신 버전 0.4.0** · [배포 ZIP](dist/MyCodexSetting-0.4.0.zip) · [배포 폴더](dist/MyCodexSetting-0.4.0/README.md)
+**최신 버전 0.5.0** · [배포 ZIP](dist/MyCodexSetting-0.5.0.zip) · [배포 폴더](dist/MyCodexSetting-0.5.0/README.md)
 
 배포 원본은 `kit/`입니다. `python tools/build_release.py`로 배포본을 만들며, 같은 버전의 내용이 다르면 기존 산출물을 보존하고 충돌을 보고합니다. 실제 검증 기록은 [CLI](docs/superpowers/validation/2026-11-12-billion-context-cli.md)와 [Paseo](docs/superpowers/validation/2026-11-12-billion-context-paseo.md)에 있습니다.
 <!-- source-only:end -->
@@ -18,6 +18,7 @@ Codex 프로젝트를 시작할 때 필요한 작업 지침, 설정, 문서 탐�
 | 세션 인계 | 현재 상태·검증 근거·다음 행동을 기록하고 새 세션에서 재확인 |
 | 사람용 HTML | 사용자가 지정한 주제를 독립 HTML로 설명 |
 | 문맥 압축 | **정식 선택 기능**인 billion-context로 Codex CLI·Paseo의 모델 전달 문맥 압축·복원 |
+| React UI 지원 | **선택 기능**인 Astryx를 명시 호출하여 호환성 확인·컴포넌트·템플릿 활용 |
 
 설계·계획·구현은 준비된 Superpowers를 사용합니다. MyCodexSetting은 원본 문서와 개발 절차를 연결하며, Superpowers 자체를 설치하지는 않습니다.
 
@@ -61,6 +62,7 @@ python .mycodex/mycodex.py validate --target . --strict --json
 | `$session-handoff` | 다음 세션을 위한 상태·근거·다음 행동을 남길 때 |
 | `$human-html` | 지정한 주제를 사람이 읽기 쉬운 HTML로 만들 때 |
 | `$context-compression` | CLI·Paseo 문맥 압축을 준비·진단하거나 사용 방법과 요약 추출을 요청할 때 |
+| `$astryx` | 호환되는 React 프로젝트에서 Astryx 설치 조건을 확인하거나 UI를 구현할 때 |
 
 새 세션에서는 대상 프로젝트를 열고 이어서 할 일을 요청하면 됩니다. Codex는 인덱스에서 관련 원본과 최신 인계를 찾아 현재 상태와 대조합니다. `.human-docs/`의 HTML은 일반 개발 탐색과 인계 원본에서 제외합니다.
 
@@ -91,9 +93,22 @@ python .mycodex/mycodex.py compression codex --target . --apply
 
 두 방식의 상세 준비·인자 전달·재개·이전 버전 충돌 처리는 [문맥 압축 사용 안내](kit/integrations/billion-context/README.md)를 따릅니다. 원본 문서·인덱스·인계는 계속 관리합니다.
 
+## Astryx 선택 설치
+
+연결 스킬과 안내는 MyCodexSetting에 포함되며, Astryx 패키지는 원하는 **React 19 이상 프로젝트에만** 별도로 설치합니다. 기본 MyCodexSetting 설치에는 Node가 필요하지 않습니다. 설계·계획은 기존 Superpowers 절차를 따릅니다.
+
+대상 프로젝트의 Codex CLI 대화에서 먼저 조건을 확인할 수 있습니다.
+
+```text
+$astryx 현재 프로젝트에서 사용할 수 있는지 확인해 주세요. 파일 수정이나 패키지 설치는 하지 마세요.
+```
+
+선택 후 설치·실제 활용은 [Astryx 설치·사용 안내](kit/integrations/astryx/README.md)를 따릅니다. 안내에는 고정 버전의 프로젝트 로컬 npm 명령, 사용 예시, 기존 디자인 보존, 사용 중지·이전 버전 충돌 처리가 있습니다. 실측 호스트는 Windows Codex CLI이며 앱/Paseo 조합은 미검증입니다.
+
 ## 상세 안내
 
 - [설치·파일 역할·인계·설정·문제 해결](docs/usage.md)
 - [CLI·Paseo 문맥 압축 사용 안내와 호환 범위](kit/integrations/billion-context/README.md)
+- [Astryx 선택 설치·React UI 사용 안내와 호환 범위](kit/integrations/astryx/README.md)
 - [버전별 변경 이력](CHANGELOG.md)
 - [billion-context·acp-kernel 출처와 라이선스](kit/integrations/billion-context/THIRD_PARTY_NOTICES.md)

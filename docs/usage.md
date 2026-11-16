@@ -13,7 +13,7 @@
 | `.context/decisions.md` | 기존 원본에 둘 곳이 없는 확인된 장기 결정. 필요할 때 처음 생성 |
 | `.context/handoffs/*.md` | 작성 시점의 상태·근거·다음 행동. 명시적 인계 요청 시 생성 |
 | `.mycodex/` | 실행 도구·정책·템플릿·설치 목록. 설치 버전 기준으로 관리 |
-| `.agents/skills/` | `project-init`, `session-handoff`, `human-html`, `context-compression` 스킬 |
+| `.agents/skills/` | `project-init`, `session-handoff`, `human-html`, `context-compression`, `astryx` 명시 호출 스킬 |
 | `.human-docs/` | 명시적인 요청으로 만드는 사람용 HTML. 일반 개발 탐색에서 제외 |
 
 `project.md`와 빈 지식 문서는 기본 생성하지 않습니다. 기존 원본을 우선하며 필요한 주제별 문서만 추가합니다. Superpowers의 설계·계획·진행 원장을 별도 진행 문서로 복제하지 않습니다.
@@ -89,6 +89,8 @@ python .agents/skills/human-html/scripts/save_html.py --target . --check .human-
 ```
 
 ## 설정과 기존 파일 보존
+
+Astryx를 사용하려면 [선택 설치·사용 안내](../kit/integrations/astryx/README.md)를 따릅니다. 대상 프로젝트에도 `.mycodex/integrations/astryx/README.md`가 설치됩니다. 연결 스킬 제공과 React 앱의 npm 패키지 설치는 별개이며, 기본 `init`은 package.json·lockfile·Node·전역 플러그인을 추가하거나 바꾸지 않습니다. `$astryx`로 조건만 확인한 뒤 원하는 호환 프로젝트에 설치할 수 있습니다. React18·비React 프로젝트의 스택은 자동 전환하지 않습니다.
 
 Codex 기본 설정의 원본은 `kit/templates/config.toml`입니다. 모델·추론 강도·검색·권한·기억·에이전트 기본값을 담고 있으며 대상에 `.codex/config.toml`이 없을 때만 생성합니다. 설치 후 실제 설정을 바꿔도 재설치가 덮어쓰거나 구조 검증이 자산 충돌로 보고하지 않습니다. 무결성 검증 대상인 `.mycodex/templates/config.toml`과 구분합니다.
 

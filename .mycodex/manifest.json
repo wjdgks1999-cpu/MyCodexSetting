@@ -1,5 +1,7 @@
 {
   "files": {
+    ".agents/skills/astryx/SKILL.md": "94d20334d4f495b105cdea210476231ace19b665a48dff089c7e8b6e1ceb3ba5",
+    ".agents/skills/astryx/agents/openai.yaml": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94",
     ".agents/skills/context-compression/SKILL.md": "f46a7ffbe93f7d48eb27acd7bcee11e2615fc2c4c67dd78f22434a5d2f3898a6",
     ".agents/skills/context-compression/agents/openai.yaml": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94",
     ".agents/skills/human-html/SKILL.md": "d4c8c4a73ab0332f5e2ba886112eb7f11d5bfb025ff3ecec90ad2cd85dea3a2c",
@@ -10,6 +12,9 @@
     ".agents/skills/session-handoff/SKILL.md": "846378eda39dd53d89d5175385e5734475a2768b9b876c4f717f0a5cf16ec055",
     ".agents/skills/session-handoff/agents/openai.yaml": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94",
     ".mycodex/context-policy.md": "520fc5cbf3d4d7fa0657bca7c88776e433bcf6e92c0421877e03f3f0524d97f1",
+    ".mycodex/integrations/astryx/LICENSE": "a6855be541fc8f446acd1bc4f2f8efce1ace6dce71dba32fcd8da553ee54b473",
+    ".mycodex/integrations/astryx/README.md": "99804d7695742683e572ed53c93ae6c222fc3fbffb01f14a1fb9dbbc594923e0",
+    ".mycodex/integrations/astryx/THIRD_PARTY_NOTICES.md": "08b66c2e46201e75c6e58241728a4a2eae2018df10468095b5647fc8726344ac",
     ".mycodex/integrations/billion-context/README.md": "f4ea1807dcf0c52d8e7cc38ab1c825752c3b5ff68751aa7937677426981a28b3",
     ".mycodex/integrations/billion-context/THIRD_PARTY_NOTICES.md": "caded675f6cda959a9f6224e4ec765406bb401b2308e4079f6e8a030206f8696",
     ".mycodex/integrations/billion-context/package-lock.json": "f101edf4a9e96df5ce2f1ef5593fbfb62f4a3ebeb537178b09802527335510ad",
@@ -22,7 +27,7 @@
     ".mycodex/mycodex_lib/documents.py": "74ff02674d694781612704b0f90f21fab4603afffc284ddf17d1f8c8e6f7d54d",
     ".mycodex/mycodex_lib/handoff.py": "a02e70081ad5a7564881e66199c16f1b85869aa91ea8b85600255f449f594a65",
     ".mycodex/mycodex_lib/install.py": "5b6a1652a12983ae122cdfdd37143a242088e13e7d7fd631aecd726548d74160",
-    ".mycodex/mycodex_lib/model.py": "7309f268b19a31ceab8becd4a8eaa19bb950ed777d28cd2cb59e7678813ec4ef",
+    ".mycodex/mycodex_lib/model.py": "1f1a25c425fe240ff17065d6b68aafcca87802797ee4731b7c8258d14a9ae381",
     ".mycodex/mycodex_lib/paths.py": "9a622affac76ac3064541111075577d69569b30485f6f8f278e55c7647ef8c5f",
     ".mycodex/mycodex_lib/validation.py": "d7dfd4cb8cca279bd24c4a78f8f0c9626691a10d9efbda095ae4d13f3cc0f08e",
     ".mycodex/templates/AGENTS.md": "f5f1cb12895e6879ca2aecbe31c456edbaa055fd914ad8bc317997fd60b86b94",
@@ -32,6 +37,6 @@
     ".mycodex/templates/index.md": "46592430259079717a9cb9bc670e6da81e265bf58c3d1ffb30a50f86de01ae85"
   },
   "generated_agents": true,
-  "kit_version": "0.4.0",
+  "kit_version": "0.5.0",
   "schema_version": 1
 }

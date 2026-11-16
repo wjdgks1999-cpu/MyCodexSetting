@@ -1,0 +1,13 @@
+{
+  "autoUpdate": false,
+  "autoRestartOnUpdate": false,
+  "advisoryCheck": false,
+  "releaseNotesCheck": false,
+  "debug": false,
+  "log": "warn",
+  "native": {
+    "attachExternal": false,
+    "attachPolicy": "own-lane",
+    "attachLanePriority": []
+  }
+}

@@ -1,0 +1,283 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-16",
+  "kit_version": "0.5.0",
+  "evidence_root": "C:\\Users\\jhyoon\\AppData\\Local\\Temp\\mycodex-astryx-optin-20261116",
+  "status": "PASS_IN_TESTED_SCOPE",
+  "checks": {
+    "all_four_exit_zero": true,
+    "approval_gate_no_files": true,
+    "unrelated_css_no_astryx_read": true,
+    "css_exact_requested_change": true,
+    "css_only_requested_file": true,
+    "zip_query_files_unchanged": true,
+    "explicit_skill_and_cli_observed": true,
+    "existing_non_target_files_preserved": true,
+    "final_ui_matches_independent_test_source": true,
+    "independent_build_exit_zero": true,
+    "independent_browser_checks": true,
+    "no_http_js_or_external_errors": true,
+    "measured_existing_style_preserved": true,
+    "real_astryx_rendered": true
+  },
+  "model": "gpt-6.1-sol",
+  "effort": "xhigh",
+  "cli": "0.167.0",
+  "runs": [
+    {
+      "id": "SA/A01/1",
+      "configuration": {
+        "revision": "plugin-isolation-v2",
+        "plugins": false,
+        "apps": false,
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh"
+      },
+      "turns": 1,
+      "exit_codes": [
+        0
+      ],
+      "seconds": 177.76,
+      "changed": [],
+      "astryx_skill_reads": [],
+      "successful_astryx_commands": [],
+      "sites_reads": [],
+      "final_messages": [
+        "**‘공공데이터 길잡이’** 브랜드로 다음 구성을 제안합니다.\n\n- 남색·민트색의 서비스 소개 화면\n- 분야별 데이터 카드와 로컬 검색 체험\n- 이용 안내와 모바일 대응\n\n이 설계로 진행할까요? “알아서 바로 만들어줘”라고 하시면 세부 사항도 정해 제작하겠습니다.\n\n적용된 [brainstorming 스킬](C:/Users/jhyoon/AppData/Local/Temp/mycodex-astryx-optin-20261116/runs/SA/A01/1/project/.agents/skills/superpowers/brainstorming/SKILL.md)의 “Nothing gets built until your human partner approves the design doc” 지침에 따라 구현 전 설계 확인이 필요합니다."
+      ],
+      "evidence_sha256": {
+        "events-1.jsonl": "0c9f1640a6078a3347ad4da975c8c237174e9af214be94fac5fb25a5d67b8027",
+        "turn-1.json": "f19ce43b20830fd95374dedcb3725ca0f5cd94cc037d69e82be8ac9df7ea80ed",
+        "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "baseline.json": "92076cd33b5287f12632ffb3bdbf00e4880f1f7c99029c4e5f5ed3d12fc0d1f5",
+        "configuration.json": "e9c0613947aac3885a2e402f42757b0ebd3eef79b5887bfd18a42ccfe8e2b382"
+      }
+    },
+    {
+      "id": "SA/A02/1",
+      "configuration": {
+        "revision": "plugin-isolation-v2",
+        "plugins": false,
+        "apps": false,
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh"
+      },
+      "turns": 1,
+      "exit_codes": [
+        0
+      ],
+      "seconds": 815.36,
+      "changed": [
+        ".context/index.md",
+        ".superpowers/sdd/plan/after-desktop.png",
+        ".superpowers/sdd/plan/after-mobile.png",
+        ".superpowers/sdd/plan/after-narrow.png",
+        ".superpowers/sdd/plan/baseline.json",
+        ".superpowers/sdd/plan/before-desktop.png",
+        ".superpowers/sdd/plan/before-mobile.png",
+        ".superpowers/sdd/plan/before-narrow.png",
+        ".superpowers/sdd/plan/build.log",
+        ".superpowers/sdd/plan/verification.json",
+        "dist/assets/Tooltip-DQm9b5cb.js",
+        "dist/assets/index-ND9BsLDT.css",
+        "dist/assets/index-inbok8QW.js",
+        "dist/index.html",
+        "docs/implementation.md",
+        "src/App.jsx",
+        "src/style.css"
+      ],
+      "astryx_skill_reads": [
+        "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath '.agents/skills/astryx/SKILL.md' -Encoding UTF8\""
+      ],
+      "successful_astryx_commands": [
+        "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \".\\\\node_modules\\\\.bin\\\\astryx.cmd component TextInput\"",
+        "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \".\\\\node_modules\\\\.bin\\\\astryx.cmd component Button\""
+      ],
+      "sites_reads": [],
+      "final_messages": [
+        "검색 입력과 검색 버튼만 Astryx `TextInput`·`Button`으로 교체했습니다. 기존 한국어 문구, 검색·필터·문의 동작, 로고·브랜드 색상·바깥 레이아웃을 보존했습니다.\n\n- `npm.cmd run build` 성공. `use client` 번들링 경고가 있습니다.\n- Chrome 검증 82개 통과, 독립 검토 지적 사항 없음.\n- 실제 Windows IME·스크린리더·다른 브라우저는 미검증입니다.\n\n초기 커밋이 없어 원본 스냅샷으로 비교했고, 별도 테스트 스위트 대신 브라우저로 검증했습니다. 커밋하지 않았습니다. [구현·검증 기록](/C:/Users/jhyoon/AppData/Local/Temp/mycodex-astryx-optin-20261116/runs/SA/A02/1/project/docs/implementation.md)"
+      ],
+      "evidence_sha256": {
+        "events-1.jsonl": "4727af0f1842257504d0fd15be6bee97536d7724105f841132327e162cd32fb2",
+        "turn-1.json": "c28c3f6d02135cb9cae3dad91e940ed22689bd9a912a16c45af4cc7557fc27cb",
+        "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "baseline.json": "cb1560308ef6d956603e03dc7dfa857aade97c420a0ee5e000e2c3350ad236ba",
+        "configuration.json": "e9c0613947aac3885a2e402f42757b0ebd3eef79b5887bfd18a42ccfe8e2b382"
+      }
+    },
+    {
+      "id": "SA/A04-css/1",
+      "configuration": {
+        "revision": "plugin-isolation-v2",
+        "plugins": false,
+        "apps": false,
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh"
+      },
+      "turns": 1,
+      "exit_codes": [
+        0
+      ],
+      "seconds": 108.09,
+      "changed": [
+        "site/styles.css"
+      ],
+      "astryx_skill_reads": [],
+      "successful_astryx_commands": [],
+      "sites_reads": [],
+      "final_messages": [
+        "[site/styles.css](C:/Users/jhyoon/AppData/Local/Temp/mycodex-astryx-optin-20261116/runs/SA/A04-css/1/project/site/styles.css)의 검색 버튼 `margin-left`만 `8px`에서 `12px`로 수정했습니다.\n\n다른 내용은 변경하지 않았음을 파일 비교로 확인했습니다. 브라우저 검증은 미실행입니다."
+      ],
+      "evidence_sha256": {
+        "events-1.jsonl": "fdd9bc205d18da94af218be85efff90e139096f6790414bfba0207f36ef59723",
+        "turn-1.json": "0908677806b36d6223eb9ab9cba4adfa864763f483ba3aee9a9daf9ce544b049",
+        "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "baseline.json": "4474e42d0abd60a9b3c55fc3b995595dcab17818f54d80851ffed68f54e407e9",
+        "configuration.json": "e9c0613947aac3885a2e402f42757b0ebd3eef79b5887bfd18a42ccfe8e2b382"
+      }
+    },
+    {
+      "id": "SA/A08-zip/1",
+      "configuration": {
+        "revision": "plugin-isolation-v2",
+        "plugins": false,
+        "apps": false,
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh"
+      },
+      "turns": 1,
+      "exit_codes": [
+        0
+      ],
+      "seconds": 155.96,
+      "changed": [],
+      "astryx_skill_reads": [
+        "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath '.agents/skills/astryx/SKILL.md' -Encoding UTF8\""
+      ],
+      "successful_astryx_commands": [
+        "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \".\\\\node_modules\\\\.bin\\\\astryx.cmd component Button\""
+      ],
+      "sites_reads": [],
+      "final_messages": [
+        "**현재 프로젝트는 Astryx Button `0.7.16`의 버전 요구사항과 호환됩니다.**\n\n로컬 CLI로 실제 조회했으며 두 명령 모두 성공했습니다.\n\n```powershell\n.\\node_modules\\.bin\\astryx.cmd --version\n# 0.7.16\n\n.\\node_modules\\.bin\\astryx.cmd component Button\n# Button 문서 출력, 종료 코드 0\n```\n\n| 항목 | 현재 버전 | 요구사항 | 판정 |\n|---|---|---|---|\n| React / react-dom | 모두 `19.3.1` | 각각 `>=19.0.0` | 충족 |\n| Node | `26.13.0` | `>=22.13.0` | 충족 |\n| StyleX runtime | `0.19.0` | `^0.19.0` | 충족 |\n\nAstryx CLI/core는 모두 `0.7.16`이며, package.json·lockfile·실제 설치본의 버전도 일치합니다.\n\n조회한 Button 문서는 `@astryxdesign/core/Button`에서 가져오며, `label`이 필수입니다. `variant`는 `primary`, `secondary`, `ghost`, `destructive`를 지원합니다.\n\n파일 변경이나 설치는 하지 않았습니다. 판단 범위는 버전 호환성이며, 빌드·브라우저 동작 검증은 미실행입니다."
+      ],
+      "evidence_sha256": {
+        "events-1.jsonl": "76c37e981b4cdcf9ec34561735ab7d120d967631acee61f92474ce687b9e291b",
+        "turn-1.json": "f8bdfb430699e9e7471387b2468b43c57a9bbb7d7e32ce83155dc3438dfd894c",
+        "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "baseline.json": "cb1560308ef6d956603e03dc7dfa857aade97c420a0ee5e000e2c3350ad236ba",
+        "configuration.json": "e9c0613947aac3885a2e402f42757b0ebd3eef79b5887bfd18a42ccfe8e2b382"
+      }
+    }
+  ],
+  "accessibility": {
+    "violations": [],
+    "incomplete": [
+      "color-contrast"
+    ]
+  },
+  "limitations": [
+    "OS IME and screen readers NOT_RUN",
+    "Codex app and Paseo NOT_RUN",
+    "Other OS and unrestricted plugin combinations NOT_RUN",
+    "color-contrast incomplete; no full accessibility conformance"
+  ],
+  "evidence_sha256": {
+    "evidence/a02-browser-source.json": "b61761b7f6a9648d138322f074827b91c37f20e86820b1ce8ad00780a11ff91d",
+    "evidence/browser-tool-install.json": "2a5357df773a2a2f79abf02d4e928cf5c67eddf555f3cae608c0f32e539fdb72",
+    "evidence/existing-react-fixture.json": "7f28545d15155977497ab436cba722d36aec25194e63eeeb2e24ce0602d98074",
+    "evidence/guide-build.json": "e77bae8556a9beb666cc28b165678e036e1321bd996f3ff8ea7da1416a61057d",
+    "evidence/guide-button.json": "26ac2a43c6bb931ccc9906ccdb92e46dcbcacc93ed2653b5dfeda077c4ff53fa",
+    "evidence/guide-cli-install.json": "79773ffe445136bf8ebc3c065d34669540c7b31e79db505ed8969000b3faedfa",
+    "evidence/guide-core-install.json": "b1865ab1c8680eeacc3a536ef44d63dd07203ee6aadbc8f8478e8dc0e6822e36",
+    "evidence/guide-input.json": "dc8908cbf06e1166ddf0e5775e49261f5fec236ec0f557a2f790360ad527103c",
+    "evidence/guide-lock.json": "2fc9ceca5e4a923b2585377160f6f841696356214fc01744b047469fdd129ba3",
+    "evidence/guide-package.json": "d112e0c4c140d45870e2001c0206044295cec5a5d5e0794576cd3185717b8220",
+    "evidence/guide-search.json": "f415f5c85726dc809f97c2da000b38bee1842ddcdd622017e86a49e7b1e22dd0",
+    "evidence/guide-tailwind.json": "f6fead9e0b65af444add8aa5265f96e64afdfe25bac6ef6bec0ca1f3769db97e",
+    "evidence/guide-version.json": "603c77cfeab7072b999e8b73f0c3b1046240f02977cf2229460d0bc14f53cb05",
+    "evidence/independent-final.json": "925379d99dbbd95518bbfbbb01a5a0310ab9f1fd64e71b87c54ee5c8f1ea80cb",
+    "evidence/old-0.4-install.json": "73958b8d4bf9b7ac4749a60e61b118e90c6db37dab6a02880f77f228841cc89b",
+    "evidence/old-0.4-new-0.5-apply.json": "5e3ea11135109b126d7793b152ccc6c8a0a757f39fdde5f385f5adf633d967a2",
+    "evidence/old-0.4-new-0.5-dry.json": "7893ca9684f7a78e187d58aa6ce5efd6f9ac6009e621865a519e472cac230ba5",
+    "evidence/prepared.json": "c4628974bc0b1ae6cae0ed97fe5464372b62ca332611c52a9e3e8f301e51064c",
+    "evidence/release-build.json": "3b2b843d6088b55d9ffee6006314e33622bce4fbe532ad212d7ce66eeeba7816",
+    "evidence/SA-dry.json": "7873fd2f74e6a564d8ee749292c584980ec821df798e970369174827ed2bed30",
+    "evidence/SA-install.json": "3d1863f6932d548ba200de9fd18ad5be0290009dd64a63638095fc4cc9fed02b",
+    "evidence/SA-repeat.json": "a9aa97ba146c52e0114ce812820e10dd4e257d319519129bbaa460b752df0d84",
+    "evidence/source.json": "dec6e6eceedba864d915f1a208b5559976de6e10967b4243815e4d9ed0d047e3",
+    "evidence/ui/vite-baseline/browser/1280.png": "44dab6e8cd27fb6f68d19ae4862ddcd73404a4f5ed0f0056563c1fb0c8a42fbd",
+    "evidence/ui/vite-baseline/browser/1920.png": "ddbfcbb77a53bb6a01de72d482c69ffba0692e5bd80bb986ead9689c737d817d",
+    "evidence/ui/vite-baseline/browser/360.png": "221c37881f4b5b43a2099374f7f113dcbce2f6e1df5fc3bcf2d7196e9e0c423e",
+    "evidence/ui/vite-baseline/browser/768.png": "eaece1a1a8ce4b187342cd746e73975a14ffe5f042bd089e3026b19d230334f5",
+    "evidence/ui/vite-baseline/browser/browser.json": "24d885efda28b28dc824b101164055c5c7c78f7149d0039f82549c979ab14666",
+    "evidence/ui/vite-baseline/browser-process.json": "9646ae52b9d9e2d3cd31242d8b3f7e79ea2f53f0ca72843a6efba1b26b13d9a3",
+    "evidence/ui/vite-baseline/build.json": "1db25ccc57ec5b522ab6a05fc9830ba21ee47da3d30b59a764515817cbcae1df",
+    "evidence/ui/vite-baseline/server.txt": "54c557c60855e412533821270c53469d748dd66e470b8775edabb02adb06f04c",
+    "evidence/ui/vite-shipped-model/browser/1280.png": "9b0f06e4091af273c57c9d2374e920e7d302b2527e1dca7028e883d4e43d7235",
+    "evidence/ui/vite-shipped-model/browser/1920.png": "6258023892b55b7141081ab62ea827d1414fd1348fd2f11ec3a4dd5ba2409c85",
+    "evidence/ui/vite-shipped-model/browser/360.png": "7499d3d26ed1077c86c9290d6f9d7f7451e921204de446d69482109a850570ce",
+    "evidence/ui/vite-shipped-model/browser/768.png": "0a6dbaca9c1afeda3328ffbbf80e85af9c1dbc493f26d5398b629a1d072f9ec7",
+    "evidence/ui/vite-shipped-model/browser/browser.json": "ce0b6a195daec561c70f13bcc7f0f9ff0141c5c867ceffff333e5d7991b02850",
+    "evidence/ui/vite-shipped-model/browser-process.json": "e9fcb186ce718970fae5c0e0249166b7d3a563b30f8f4dba740570edc0157cda",
+    "evidence/ui/vite-shipped-model/build.json": "b9afb19674fdb9c4b28544d4e17fabd68390cb4ed220b4cd3d4102ec34e6cf26",
+    "evidence/ui/vite-shipped-model/server.txt": "dca42953b86249f016dd1467e95f70471390a4b953803018098aef72b122a898",
+    "evidence/upgrade-preservation.json": "dad5dd1de3ca2fdd75f5d15f815fc28088eec4c90dde533393db72a3e82caeda",
+    "evidence/zip-dry.json": "228e3751cae49a8d85793ea040d80347dae427d8a79a951fc7f3d2de26968749",
+    "evidence/zip-install.json": "75a6fa2ee5faba6383e7cd9042c47e0c27014f250772e420d1da554ae62624dc",
+    "evidence/zip-repeat.json": "1604cfd906773bcc686b6b893f66cc9d27b3096aaa0102d9a60e0d549ad97c3f",
+    "evidence/release-final-audit.json": "1e77523dab9dca9cde65ac20df941ad03202f29ec236e2802994ed686fe3c672",
+    "evidence/release-rebuild-final.json": "f88150f9cd5b3133ecb6d243c025d0f08f6a328003a07021584e0101ec780005",
+    "evidence/release-rebuild.json": "3c2bb1a5f2e257a09cc9e571587c5a488b968ec3a7c6d3fc056e1fe03d35aa77"
+  },
+  "release": {
+    "release_rebuild_exit_zero": true,
+    "same_archive_after_rebuild": true,
+    "matches_reviewed_stage_zip": true,
+    "zip_crc_ok": true,
+    "release_files": 38,
+    "all_previous_dist_preserved": true,
+    "development_agents_and_active_config_preserved": true,
+    "global_config_and_skills_preserved": true,
+    "superpowers_preserved": true,
+    "archive_sha256": "c504527d2610f1cb30b4370cf088d59420483736fe1d75766bd7931bb9c63f53"
+  },
+  "final_review": {
+    "model": "gpt-6-astra",
+    "critical": 0,
+    "important": 0,
+    "minor": 0,
+    "assessment": "ready for promotion; post-promotion checks by implementer"
+  },
+  "promotion": {
+    "version": "0.5.0",
+    "changed": [
+      "kit/mycodex_lib/model.py",
+      "kit/skills/astryx/SKILL.md",
+      "kit/skills/astryx/agents/openai.yaml",
+      "kit/integrations/astryx/README.md",
+      "kit/integrations/astryx/LICENSE",
+      "kit/integrations/astryx/THIRD_PARTY_NOTICES.md",
+      "README.md",
+      "docs/usage.md",
+      "CHANGELOG.md",
+      "tests/test_astryx.py",
+      "tests/test_release.py",
+      ".agents/skills/astryx/SKILL.md",
+      ".agents/skills/astryx/agents/openai.yaml",
+      ".mycodex/integrations/astryx/LICENSE",
+      ".mycodex/integrations/astryx/README.md",
+      ".mycodex/integrations/astryx/THIRD_PARTY_NOTICES.md",
+      ".mycodex/mycodex_lib/model.py",
+      ".mycodex/manifest.json"
+    ],
+    "manifest_assets": 35,
+    "hashes_match": true
+  },
+  "promoted_product_tests": {
+    "count": 69,
+    "exit": 0,
+    "elapsed_seconds": 50.0,
+    "evidence_sha256": "cdc6384b30cc01687b631f43c837b643f6096420cbd5e95e9efbebf6dcc8ce16"
+  }
+}

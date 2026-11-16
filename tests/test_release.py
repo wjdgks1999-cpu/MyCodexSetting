@@ -42,6 +42,9 @@ class ReleaseTests(unittest.TestCase):
         self.assertNotIn('dist/MyCodexSetting-', manual)
         self.assertTrue((folder / 'kit/templates/config.toml').is_file())
         self.assertTrue((folder / 'kit/skills/human-html/scripts/save_html.py').is_file())
+        self.assertTrue((folder / 'kit/skills/astryx/agents/openai.yaml').is_file())
+        self.assertIn('Copyright (c) 2026 Meta Platforms, Inc.',
+                      (folder / 'kit/integrations/astryx/LICENSE').read_text(encoding='utf-8'))
         unpacked = self.workspace / 'unpacked'
         with ZipFile(archive) as zipped:
             self.assertTrue(all(name.startswith(folder.name + '/') for name in zipped.namelist()))
@@ -49,7 +52,8 @@ class ReleaseTests(unittest.TestCase):
                                  for name in zipped.namelist() for part in Path(name).parts))
             zipped.extractall(unpacked)
         release = unpacked / folder.name
-        for relative in ('README.md', 'docs/usage.md', 'kit/integrations/billion-context/README.md'):
+        for relative in ('README.md', 'docs/usage.md', 'kit/integrations/billion-context/README.md',
+                         'kit/integrations/astryx/README.md', 'kit/integrations/astryx/THIRD_PARTY_NOTICES.md'):
             document = release / relative
             for link in re.findall(r'\[[^\]]+\]\(([^)]+)\)', document.read_text(encoding='utf-8')):
                 if '://' in link or link.startswith('#'):

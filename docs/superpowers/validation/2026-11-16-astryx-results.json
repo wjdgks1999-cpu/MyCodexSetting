@@ -1,0 +1,2071 @@
+{
+  "schema_version": 1,
+  "final_review": {
+    "model": "gpt-6-astra",
+    "mode": "fresh-context read-only review",
+    "critical": 0,
+    "important": 0,
+    "minor_deferred": ["browser_check.cjs collects httpErrors but does not directly include them in PASS calculation. All final recorded HTTP error arrays were independently verified empty."],
+    "assessment": "Scoped evidence and adoption judgment supported; not approval of universal default integration."
+  },
+  "date": "2026-11-16",
+  "evidence_root": "C:\\Users\\jhyoon\\AppData\\Local\\Temp\\mycodex-astryx-b5941c288e",
+  "upstream_commit": "5051ea96a35307183e9f3fab7fadcc7b0d649e45",
+  "dependencies": {
+    "@astryxdesign/cli": "0.7.16",
+    "@astryxdesign/core": "0.7.16",
+    "@astryxdesign/theme-neutral": "0.7.16",
+    "@stylexjs/stylex": "0.19.0",
+    "@tailwindcss/postcss": "4.3.5",
+    "axe-core": "4.10.3",
+    "next": "16.4.6",
+    "puppeteer-core": "25.17.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "tailwindcss": "4.3.5",
+    "vite": "8.3.8"
+  },
+  "dev_dependencies": {},
+  "lockfile_sha256": "5c65cb480a8c206e4181c588ef03d1d54a61277fe0661b1625a6b5728bf00c02",
+  "model": "gpt-6.1-sol",
+  "effort": "xhigh",
+  "codex_cli": "0.167.0",
+  "case_instances": 29,
+  "cli_turns": 33,
+  "additional_real_compression_turns": 3,
+  "manual_case_counts": {
+    "PASS": 28,
+    "FAIL": 1
+  },
+  "judgment_method": "Manual log/file review, backed by independent checks; process exit zero alone is not PASS.",
+  "adoption": {
+    "explicit_react19_cli_candidate": "SUPPORTED_IN_TESTED_SCOPE",
+    "all_hosts_default_feature": "DEFERRED",
+    "raw_plugin_drop_in": "FAIL_CURRENT_MANAGED_METADATA_CONTRACT",
+    "production_integrated": false,
+    "unrestricted_host_plugins": "INCONCLUSIVE_ATTRIBUTION_WITH_ONE_OBSERVED_APPROVAL_GATE_FAILURE"
+  },
+  "limitations": [
+    "OS Korean IME NOT_RUN",
+    "Codex app and Paseo NOT_RUN",
+    "No unrestricted global plugin matrix",
+    "Not all Astryx components or screen readers tested",
+    "Full CSS reset/Theme integration recipe changes existing styles",
+    "Next/template tests are authored fixtures, not model workflow trials",
+    "Guard forbids global installs and external services in every model group",
+    "Synthetic compression blocks are not a general token/cost savings benchmark",
+    "Raw logs live in a local temporary directory, not in the repository"
+  ],
+  "runs": [
+    {
+      "id": "S/A01/1",
+      "configuration": {
+        "revision": "initial-host-plugins-present"
+      },
+      "turns": 1,
+      "exit_codes": [
+        0
+      ],
+      "seconds": 112.03,
+      "changed": [],
+      "astryx_skill_reads": [],
+      "successful_astryx_commands": [],
+      "sites_reads": [
+        "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'C:/Users/jhyoon/.codex/plugins/cache/openai-curated-remote/sites/1.1.6/skills/sites/SKILL.md' -Encoding UTF8\"",
+        "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'C:/Users/jhyoon/.codex/plugins/cache/openai-curated-remote/sites/1.1.6/skills/sites/references/design/presentation-led.md' -Encoding UTF8\"",
+        "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'C:/Users/jhyoon/.codex/plugins/cache/openai-curated-remote/sites/1.1.6/skills/sites/references/preview/local.md' -Encoding UTF8\""
+      ],
+      "evidence_sha256": {
+        "events-1.jsonl": "be16e7cb99ac1f1ce8d110011abbbff0377a946597c1eb469beb721a9c637a58",
+        "turn-1.json": "2945536b65f80ae29924e5014221ee66be17dae9ed12144bc0a64b5799ca9bda",
+        "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "baseline.json": "82d42755e0b55604231a802952941c2e6ae959b81d85cc68e74c9c06ec53c5e3"
+      },
+      "manual_scope_judgment": {
+        "status": "PASS",
+        "scope": "case-specific behavior only, not universal compatibility",
+        "attribution": "observed test configuration"
+      }
+    },
+    {
+      "id": "S/A01/2",
+      "configuration": {
+        "revision": "plugin-isolation-v2",
+        "plugins": false,
+        "apps": false,
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh"
+      },
+      "turns": 1,
+      "exit_codes": [
+        0
+      ],
+      "seconds": 115.05,
+      "changed": [],
+      "astryx_skill_reads": [],
+      "successful_astryx_commands": [],
+      "sites_reads": [],
+      "evidence_sha256": {
+        "events-1.jsonl": "5f1f0756448169693ec49e43c46b788a07044e3c7805b8d6f161b8448c48c090",
+        "turn-1.json": "a9503b74d2809b67c760bfc7d872a0a3c6bdcca9b8d47717ac257c67e34952e3",
+        "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "baseline.json": "82d42755e0b55604231a802952941c2e6ae959b81d85cc68e74c9c06ec53c5e3",
+        "configuration.json": "e9c0613947aac3885a2e402f42757b0ebd3eef79b5887bfd18a42ccfe8e2b382"
+      },
+      "manual_scope_judgment": {
+        "status": "PASS",
+        "scope": "case-specific behavior only, not universal compatibility",
+        "attribution": "observed test configuration"
+      }
+    },
+    {
+      "id": "S/A01/3",
+      "configuration": {
+        "revision": "plugin-isolation-v2",
+        "plugins": false,
+        "apps": false,
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh"
+      },
+      "turns": 1,
+      "exit_codes": [
+        0
+      ],
+      "seconds": 182.95,
+      "changed": [
+        ".context/index.md",
+        "docs/superpowers/specs/2026-11-16-public-data-guide-design.md"
+      ],
+      "astryx_skill_reads": [],
+      "successful_astryx_commands": [],
+      "sites_reads": [],
+      "evidence_sha256": {
+        "events-1.jsonl": "a81f5961763e1615bbf0d3c68325b5dbf0cb7230869d0568ff63582ce590f98e",
+        "turn-1.json": "ac6e648317d59e5e380f0c16e3bf28baf685a86ee040b3b2d9692c38f283fe48",
+        "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "baseline.json": "82d42755e0b55604231a802952941c2e6ae959b81d85cc68e74c9c06ec53c5e3",
+        "configuration.json": "e9c0613947aac3885a2e402f42757b0ebd3eef79b5887bfd18a42ccfe8e2b382"
+      },
+      "manual_scope_judgment": {
+        "status": "PASS",
+        "scope": "case-specific behavior only, not universal compatibility",
+        "attribution": "observed test configuration"
+      }
+    },
+    {
+      "id": "S/A02/1",
+      "configuration": {
+        "revision": "plugin-isolation-v2",
+        "plugins": false,
+        "apps": false,
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh"
+      },
+      "turns": 1,
+      "exit_codes": [
+        0
+      ],
+      "seconds": 689.09,
+      "changed": [
+        ".context/index.md",
+        ".superpowers/sdd/plan/App.before.jsx",
+        ".superpowers/sdd/plan/browser-verification.json",
+        ".superpowers/sdd/plan/build.log",
+        ".superpowers/sdd/plan/progress.md",
+        ".superpowers/sdd/plan/style.before.css",
+        "dist/assets/Tooltip-XY8lMlsh.js",
+        "dist/assets/index-Brp0FDaj.css",
+        "dist/assets/index-DqDnBqQ2.js",
+        "dist/index.html",
+        "src/App.jsx",
+        "src/style.css"
+      ],
+      "astryx_skill_reads": [],
+      "successful_astryx_commands": [
+        "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \".\\\\node_modules\\\\.bin\\\\astryx.cmd --dense component TextInput Button\""
+      ],
+      "sites_reads": [],
+      "evidence_sha256": {
+        "events-1.jsonl": "14fcab63473dfc738b23492a8842714798c870222cf75dc3b4e27e2256413315",
+        "turn-1.json": "8e4d8ef59ff25bc37b5fa6085602e10227daac926896362bb81e894eea8d09d3",
+        "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "baseline.json": "b3bdc0dd3457021643fdf45fe1b672538665bebccbed8dde17f704ce3014025c",
+        "configuration.json": "e9c0613947aac3885a2e402f42757b0ebd3eef79b5887bfd18a42ccfe8e2b382"
+      },
+      "manual_scope_judgment": {
+        "status": "PASS",
+        "scope": "case-specific behavior only, not universal compatibility",
+        "attribution": "observed test configuration"
+      }
+    },
+    {
+      "id": "S/A04-css/1",
+      "configuration": {
+        "revision": "initial-host-plugins-present"
+      },
+      "turns": 1,
+      "exit_codes": [
+        0
+      ],
+      "seconds": 101.04,
+      "changed": [
+        "site/styles.css"
+      ],
+      "astryx_skill_reads": [],
+      "successful_astryx_commands": [],
+      "sites_reads": [],
+      "evidence_sha256": {
+        "events-1.jsonl": "0792c24eb189a8ca0e1b5008bd31e20de01667f4043a04b2c1ddf5212aafe16a",
+        "turn-1.json": "de77b1d37bf90483fe1f9e6c88f92fe22f0e5e753c822b3d78d46db50f6da4e5",
+        "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "baseline.json": "b6e2412d1d8d91bf5d20b842b9694f3d50e94db197c5727eb815c49f8e7aaa96"
+      },
+      "manual_scope_judgment": {
+        "status": "PASS",
+        "scope": "case-specific behavior only, not universal compatibility",
+        "attribution": "observed test configuration"
+      }
+    },
+    {
+      "id": "S/A04-css/2",
+      "configuration": {
+        "revision": "plugin-isolation-v2",
+        "plugins": false,
+        "apps": false,
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh"
+      },
+      "turns": 1,
+      "exit_codes": [
+        0
+      ],
+      "seconds": 83.61,
+      "changed": [
+        "site/styles.css"
+      ],
+      "astryx_skill_reads": [],
+      "successful_astryx_commands": [],
+      "sites_reads": [],
+      "evidence_sha256": {
+        "events-1.jsonl": "f1321925a099d6588045b2da47fc5dddf8aad306d56f13f2e1539e40af1393b7",
+        "turn-1.json": "75036dfe9acc7610a917ed018e66d164c0e13bb423c5ad8cee0bb5fd06c09a16",
+        "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "baseline.json": "b6e2412d1d8d91bf5d20b842b9694f3d50e94db197c5727eb815c49f8e7aaa96",
+        "configuration.json": "e9c0613947aac3885a2e402f42757b0ebd3eef79b5887bfd18a42ccfe8e2b382"
+      },
+      "manual_scope_judgment": {
+        "status": "PASS",
+        "scope": "case-specific behavior only, not universal compatibility",
+        "attribution": "observed test configuration"
+      }
+    },
+    {
+      "id": "S/A04-nonreact/1",
+      "configuration": {
+        "revision": "plugin-isolation-v2",
+        "plugins": false,
+        "apps": false,
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh"
+      },
+      "turns": 1,
+      "exit_codes": [
+        0
+      ],
+      "seconds": 80.23,
+      "changed": [],
+      "astryx_skill_reads": [],
+      "successful_astryx_commands": [],
+      "sites_reads": [],
+      "evidence_sha256": {
+        "events-1.jsonl": "0e880243f8b5f4027f99c60a26b45a7eec7c1f209ba923fb53a0ada14daad362",
+        "turn-1.json": "1e752abcd614e4a35214432a9f3e97f35d03a007df6d1824ea270e48c937bfb9",
+        "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "baseline.json": "b6e2412d1d8d91bf5d20b842b9694f3d50e94db197c5727eb815c49f8e7aaa96",
+        "configuration.json": "e9c0613947aac3885a2e402f42757b0ebd3eef79b5887bfd18a42ccfe8e2b382"
+      },
+      "manual_scope_judgment": {
+        "status": "PASS",
+        "scope": "case-specific behavior only, not universal compatibility",
+        "attribution": "observed test configuration"
+      }
+    },
+    {
+      "id": "S/A04-python/1",
+      "configuration": {
+        "revision": "initial-host-plugins-present"
+      },
+      "turns": 1,
+      "exit_codes": [
+        0
+      ],
+      "seconds": 191.21,
+      "changed": [
+        "search.py"
+      ],
+      "astryx_skill_reads": [],
+      "successful_astryx_commands": [],
+      "sites_reads": [],
+      "evidence_sha256": {
+        "events-1.jsonl": "6d0ac12afe2241efe69241c78b7ea0b7b6aaba85529401eaa86eb602285b9dbc",
+        "turn-1.json": "67d273a5cab67e61cdcdba46bdc651f2589b9f56ad73ec162f934418ddc5173c",
+        "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "baseline.json": "7ac41206d5bb044949d640ca4f1917b79d6598eef0306c3533de7af830af0748"
+      },
+      "manual_scope_judgment": {
+        "status": "PASS",
+        "scope": "case-specific behavior only, not universal compatibility",
+        "attribution": "observed test configuration"
+      }
+    },
+    {
+      "id": "S/A04-react18/1",
+      "configuration": {
+        "revision": "plugin-isolation-v2",
+        "plugins": false,
+        "apps": false,
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh"
+      },
+      "turns": 1,
+      "exit_codes": [
+        0
+      ],
+      "seconds": 101.86,
+      "changed": [],
+      "astryx_skill_reads": [],
+      "successful_astryx_commands": [],
+      "sites_reads": [],
+      "evidence_sha256": {
+        "events-1.jsonl": "edf47d53d0b1b2ec713d1dd27faf29f19a6ccabadf02c755921345ae5b4e96b4",
+        "turn-1.json": "6802cb96f8d34b0f7b137fe4644876248921e74f3bdcc0b55cd29272b973571a",
+        "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "baseline.json": "6e97a8d60347ce500c7170e5cbb8b5d8ab3257d7be9358cf5c4a61fdb7347652",
+        "configuration.json": "e9c0613947aac3885a2e402f42757b0ebd3eef79b5887bfd18a42ccfe8e2b382"
+      },
+      "manual_scope_judgment": {
+        "status": "PASS",
+        "scope": "case-specific behavior only, not universal compatibility",
+        "attribution": "observed test configuration"
+      }
+    },
+    {
+      "id": "S/A05-doctor/1",
+      "configuration": {
+        "revision": "plugin-isolation-v2",
+        "plugins": false,
+        "apps": false,
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh"
+      },
+      "turns": 1,
+      "exit_codes": [
+        0
+      ],
+      "seconds": 122.9,
+      "changed": [],
+      "astryx_skill_reads": [],
+      "successful_astryx_commands": [],
+      "sites_reads": [],
+      "evidence_sha256": {
+        "events-1.jsonl": "95a7a6058288d701dd95284fbea0ba111b442a4f542a94fb423d057795402a85",
+        "turn-1.json": "b95f2362b03fd9dff5f0c6dfbe3b8eb0af764dc1cb70e54c4d5f7d568efdbda6",
+        "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "baseline.json": "b6e2412d1d8d91bf5d20b842b9694f3d50e94db197c5727eb815c49f8e7aaa96",
+        "configuration.json": "e9c0613947aac3885a2e402f42757b0ebd3eef79b5887bfd18a42ccfe8e2b382"
+      },
+      "manual_scope_judgment": {
+        "status": "PASS",
+        "scope": "case-specific behavior only, not universal compatibility",
+        "attribution": "observed test configuration"
+      }
+    },
+    {
+      "id": "S/A05-handoff/1",
+      "configuration": {
+        "revision": "plugin-isolation-v2",
+        "plugins": false,
+        "apps": false,
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh"
+      },
+      "turns": 3,
+      "exit_codes": [
+        0,
+        0,
+        0
+      ],
+      "seconds": 1105.52,
+      "changed": [
+        ".context/handoffs/2026-11-16-164740.md",
+        ".context/handoffs/draft-20261116T162640-6e16e9ff.md",
+        ".context/index.md"
+      ],
+      "astryx_skill_reads": [],
+      "successful_astryx_commands": [],
+      "sites_reads": [],
+      "evidence_sha256": {
+        "events-1.jsonl": "57817c772550090fdb1f58c8efc53850e5c56064e27007b255a7282eb2e70bb0",
+        "events-2.jsonl": "06c7db3f1baa2ad81ffc3ed58a5b9e36436531ca890e261c0c680a7d6379327c",
+        "events-3.jsonl": "86d9b8f1ce135788025b9c037ad7d5bc31e7284dd421ad54e85484c709fa329d",
+        "turn-1.json": "315fc28531257da6be667cffb4bc3ea708526e18433277fbfc1e423c1ecef39a",
+        "turn-2.json": "fae18369daeb9997e7dd0c2e49a95fe5d1b790d9cedb26df662fd0b99681b499",
+        "turn-3.json": "20e885cc35d4fae5005ea41c973bdd7f29df114ca077da60cfdf9b4cf0f524dd",
+        "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr-2.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr-3.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "baseline.json": "b6e2412d1d8d91bf5d20b842b9694f3d50e94db197c5727eb815c49f8e7aaa96",
+        "configuration.json": "e9c0613947aac3885a2e402f42757b0ebd3eef79b5887bfd18a42ccfe8e2b382"
+      },
+      "manual_scope_judgment": {
+        "status": "PASS",
+        "scope": "case-specific behavior only, not universal compatibility",
+        "attribution": "observed test configuration"
+      }
+    },
+    {
+      "id": "S/A05-html/1",
+      "configuration": {
+        "revision": "plugin-isolation-v2",
+        "plugins": false,
+        "apps": false,
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh"
+      },
+      "turns": 1,
+      "exit_codes": [
+        0
+      ],
+      "seconds": 324.07,
+      "changed": [
+        ".human-docs/.gitignore",
+        ".human-docs/.ignore",
+        ".human-docs/2026-11-16-161948-service-structure-9a30ba48-desktop-structure.png",
+        ".human-docs/2026-11-16-161948-service-structure-9a30ba48-desktop.png",
+        ".human-docs/2026-11-16-161948-service-structure-9a30ba48-mobile-structure.png",
+        ".human-docs/2026-11-16-161948-service-structure-9a30ba48-mobile.png",
+        ".human-docs/2026-11-16-161948-service-structure-9a30ba48-validation.json",
+        ".human-docs/2026-11-16-161948-service-structure-9a30ba48.html"
+      ],
+      "astryx_skill_reads": [],
+      "successful_astryx_commands": [],
+      "sites_reads": [],
+      "evidence_sha256": {
+        "events-1.jsonl": "f0a326740eb76d6df8a402e7501c11ba180026bc3e9a286d81043e8cbfae42e1",
+        "turn-1.json": "b1bd8550a209cbd0c6bd30635ede120c75a829c82c320efa1e11993daffaaa5d",
+        "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "baseline.json": "353228158c1b2c179601318d7997f8b9cecbab1104dbe3648e1ed6457f4300c9",
+        "configuration.json": "e9c0613947aac3885a2e402f42757b0ebd3eef79b5887bfd18a42ccfe8e2b382"
+      },
+      "manual_scope_judgment": {
+        "status": "PASS",
+        "scope": "case-specific behavior only, not universal compatibility",
+        "attribution": "observed test configuration"
+      }
+    },
+    {
+      "id": "S/A05-init/1",
+      "configuration": {
+        "revision": "plugin-isolation-v2",
+        "plugins": false,
+        "apps": false,
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh"
+      },
+      "turns": 1,
+      "exit_codes": [
+        0
+      ],
+      "seconds": 233.08,
+      "changed": [
+        ".context/index.md"
+      ],
+      "astryx_skill_reads": [],
+      "successful_astryx_commands": [],
+      "sites_reads": [],
+      "evidence_sha256": {
+        "events-1.jsonl": "4fc7ff51896a6fff98bfd4c32145d26f23e3be051173caa7dff03c59d3a24de7",
+        "turn-1.json": "ac3b2ddf2ee44e14d33859ff73b8603a2bb26f65c042ed1e1e0b9ae06e3fd15c",
+        "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "baseline.json": "82d42755e0b55604231a802952941c2e6ae959b81d85cc68e74c9c06ec53c5e3",
+        "configuration.json": "e9c0613947aac3885a2e402f42757b0ebd3eef79b5887bfd18a42ccfe8e2b382"
+      },
+      "manual_scope_judgment": {
+        "status": "PASS",
+        "scope": "case-specific behavior only, not universal compatibility",
+        "attribution": "observed test configuration"
+      }
+    },
+    {
+      "id": "SA/A01/1",
+      "configuration": {
+        "revision": "initial-host-plugins-present"
+      },
+      "turns": 1,
+      "exit_codes": [
+        1
+      ],
+      "seconds": 257.06,
+      "changed": [
+        ".context/index.md",
+        ".superpowers/sdd/2026-11-16-public-data/progress.md",
+        "docs/superpowers/plans/2026-11-16-public-data.md",
+        "docs/superpowers/specs/2026-11-16-public-data-design.md",
+        "tests/catalog.test.cjs"
+      ],
+      "astryx_skill_reads": [],
+      "successful_astryx_commands": [],
+      "sites_reads": [
+        "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'C:/Users/jhyoon/.codex/plugins/cache/openai-curated-remote/sites/1.1.6/skills/sites/SKILL.md' -Encoding UTF8\"",
+        "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'C:/Users/jhyoon/.codex/plugins/cache/openai-curated-remote/sites/1.1.6/skills/sites/references/design/presentation-led.md' -Encoding UTF8\"",
+        "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'C:/Users/jhyoon/.codex/plugins/cache/openai-curated-remote/sites/1.1.6/skills/sites/references/preview/local.md' -Encoding UTF8; git rev-parse --show-toplevel; git rev-parse --git-dir; git rev-parse --git-common-dir; git branch --show-current; Get-Command node, python, chrome, msedge -ErrorAction SilentlyContinue | Select-Object Name, Source\""
+      ],
+      "evidence_sha256": {
+        "events-1.jsonl": "b93e0a925b758b1bab3b6b399bf73374db0b29dcff554aef70491209d6676b1f",
+        "turn-1.json": "fb73560564a656f637286ae92dfbc7ba1b9404eb3c0df37813a146e7422c8349",
+        "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "baseline.json": "2ae9605e844f504238fcc47133ff7bba2bb00c06a778d30ab1696121b4c62da3"
+      },
+      "manual_scope_judgment": {
+        "status": "FAIL",
+        "scope": "case-specific behavior only, not universal compatibility",
+        "attribution": "INCONCLUSIVE: Sites read, no Astryx body or CLI read"
+      }
+    },
+    {
+      "id": "SA/A01/2",
+      "configuration": {
+        "revision": "plugin-isolation-v2",
+        "plugins": false,
+        "apps": false,
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh"
+      },
+      "turns": 1,
+      "exit_codes": [
+        0
+      ],
+      "seconds": 221.38,
+      "changed": [
+        ".context/index.md",
+        "docs/superpowers/specs/2026-11-16-public-data-guide-design.md"
+      ],
+      "astryx_skill_reads": [],
+      "successful_astryx_commands": [],
+      "sites_reads": [],
+      "evidence_sha256": {
+        "events-1.jsonl": "c1c6d7abee103c7977107054ad7227012796ae1fe5a9557fd3597599295797a6",
+        "turn-1.json": "3a4844d137b94c194df7a1bdc08bd9d29496b0d7b9105967c553bdd5475866ac",
+        "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "baseline.json": "2ae9605e844f504238fcc47133ff7bba2bb00c06a778d30ab1696121b4c62da3",
+        "configuration.json": "e9c0613947aac3885a2e402f42757b0ebd3eef79b5887bfd18a42ccfe8e2b382"
+      },
+      "manual_scope_judgment": {
+        "status": "PASS",
+        "scope": "case-specific behavior only, not universal compatibility",
+        "attribution": "observed test configuration"
+      }
+    },
+    {
+      "id": "SA/A01/3",
+      "configuration": {
+        "revision": "plugin-isolation-v2",
+        "plugins": false,
+        "apps": false,
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh"
+      },
+      "turns": 1,
+      "exit_codes": [
+        0
+      ],
+      "seconds": 169.84,
+      "changed": [
+        ".context/index.md",
+        "docs/superpowers/specs/2026-11-16-public-data-page-design.md"
+      ],
+      "astryx_skill_reads": [],
+      "successful_astryx_commands": [],
+      "sites_reads": [],
+      "evidence_sha256": {
+        "events-1.jsonl": "6df0a04dc5bcd1f050bfcb437d6a24069e1c55419e0a231538c15a4517a2f6b7",
+        "turn-1.json": "5f8e8a04a6ed807d4abf5bb6eb28e6f7f6525335e4469a1529fbf2b31d37bf93",
+        "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "baseline.json": "2ae9605e844f504238fcc47133ff7bba2bb00c06a778d30ab1696121b4c62da3",
+        "configuration.json": "e9c0613947aac3885a2e402f42757b0ebd3eef79b5887bfd18a42ccfe8e2b382"
+      },
+      "manual_scope_judgment": {
+        "status": "PASS",
+        "scope": "case-specific behavior only, not universal compatibility",
+        "attribution": "observed test configuration"
+      }
+    },
+    {
+      "id": "SA/A02/1",
+      "configuration": {
+        "revision": "plugin-isolation-v2",
+        "plugins": false,
+        "apps": false,
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh"
+      },
+      "turns": 1,
+      "exit_codes": [
+        0
+      ],
+      "seconds": 914.83,
+      "changed": [
+        ".context/index.md",
+        ".superpowers/sdd/.gitignore",
+        ".superpowers/sdd/plan/App.before.jsx",
+        ".superpowers/sdd/plan/after-1280.png",
+        ".superpowers/sdd/plan/after-320.png",
+        ".superpowers/sdd/plan/after-375.png",
+        ".superpowers/sdd/plan/after-768.png",
+        ".superpowers/sdd/plan/before-1280.png",
+        ".superpowers/sdd/plan/before-375.png",
+        ".superpowers/sdd/plan/browser-after.json",
+        ".superpowers/sdd/plan/browser-before.json",
+        ".superpowers/sdd/plan/build.log",
+        ".superpowers/sdd/plan/plan-path",
+        ".superpowers/sdd/plan/progress.md",
+        ".superpowers/sdd/plan/style.before.css",
+        ".superpowers/sdd/plan/verify-browser.cjs",
+        "dist/assets/Tooltip-CAJ5ENUP.js",
+        "dist/assets/index-BndWwU9q.js",
+        "dist/assets/index-YhIsEk_7.css",
+        "dist/index.html",
+        "src/App.jsx",
+        "src/style.css"
+      ],
+      "astryx_skill_reads": [
+        "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath '.agents/skills/astryx/SKILL.md' -Encoding UTF8\""
+      ],
+      "successful_astryx_commands": [
+        "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"& '.\\\\node_modules\\\\.bin\\\\astryx.cmd' component TextInput\"",
+        "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"& '.\\\\node_modules\\\\.bin\\\\astryx.cmd' component Button\"",
+        "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"& '.\\\\node_modules\\\\.bin\\\\astryx.cmd' component Button\""
+      ],
+      "sites_reads": [],
+      "evidence_sha256": {
+        "events-1.jsonl": "6d310cbfd93f59b22eb34f3e0ce94bff83a2acb23e4a24c19b7abf6b9c329e16",
+        "turn-1.json": "e8dd5b21f4487442ce43b31b1d1515bf753811d0149b99bcc5e035e8d1f40af7",
+        "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "baseline.json": "ebb38471901fbac081210afb2e974741c916fafdd0747fb14c1507cd1c0034ca",
+        "configuration.json": "e9c0613947aac3885a2e402f42757b0ebd3eef79b5887bfd18a42ccfe8e2b382"
+      },
+      "manual_scope_judgment": {
+        "status": "PASS",
+        "scope": "case-specific behavior only, not universal compatibility",
+        "attribution": "observed test configuration"
+      }
+    },
+    {
+      "id": "SA/A04-css/1",
+      "configuration": {
+        "revision": "initial-host-plugins-present"
+      },
+      "turns": 1,
+      "exit_codes": [
+        0
+      ],
+      "seconds": 130.12,
+      "changed": [
+        "site/styles.css"
+      ],
+      "astryx_skill_reads": [],
+      "successful_astryx_commands": [],
+      "sites_reads": [],
+      "evidence_sha256": {
+        "events-1.jsonl": "a3c7059479dd401f9b7da6135aceb19d8d6053a14a2cc223e28c3d1a4f06f99b",
+        "turn-1.json": "8b144f03a329e27c7280cd0b23f028dbf3605a8c5761031b09770dee3e0aed76",
+        "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "baseline.json": "9c553d9213d888d6f2dd59da5b6c5ed4e2c9eb23b2730da4a9aaa0e0d74b382e"
+      },
+      "manual_scope_judgment": {
+        "status": "PASS",
+        "scope": "case-specific behavior only, not universal compatibility",
+        "attribution": "observed test configuration"
+      }
+    },
+    {
+      "id": "SA/A04-css/2",
+      "configuration": {
+        "revision": "plugin-isolation-v2",
+        "plugins": false,
+        "apps": false,
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh"
+      },
+      "turns": 1,
+      "exit_codes": [
+        0
+      ],
+      "seconds": 131.55,
+      "changed": [
+        "site/styles.css"
+      ],
+      "astryx_skill_reads": [],
+      "successful_astryx_commands": [],
+      "sites_reads": [],
+      "evidence_sha256": {
+        "events-1.jsonl": "0eb74f662ad770e491d369888040f1e5ff927c56debf63c6cee6dcb1f6e06965",
+        "turn-1.json": "0e48a5573163e644777111bad297f35b96eaca72b7a4d6eeb147583ffa1a2cf0",
+        "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "baseline.json": "9c553d9213d888d6f2dd59da5b6c5ed4e2c9eb23b2730da4a9aaa0e0d74b382e",
+        "configuration.json": "e9c0613947aac3885a2e402f42757b0ebd3eef79b5887bfd18a42ccfe8e2b382"
+      },
+      "manual_scope_judgment": {
+        "status": "PASS",
+        "scope": "case-specific behavior only, not universal compatibility",
+        "attribution": "observed test configuration"
+      }
+    },
+    {
+      "id": "SA/A04-nonreact/1",
+      "configuration": {
+        "revision": "plugin-isolation-v2",
+        "plugins": false,
+        "apps": false,
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh"
+      },
+      "turns": 1,
+      "exit_codes": [
+        0
+      ],
+      "seconds": 129.42,
+      "changed": [],
+      "astryx_skill_reads": [
+        "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath '.agents/skills/astryx/SKILL.md' -Encoding UTF8\""
+      ],
+      "successful_astryx_commands": [],
+      "sites_reads": [],
+      "evidence_sha256": {
+        "events-1.jsonl": "fe8bd9be9badbfc4fa85857dfacb4b440e250695da2b5509a23487672dce49e1",
+        "turn-1.json": "61ea60baf8ef5877fa9ca1ff5a9a2ebca331cd1ed85ce8a196c94d703a98a43f",
+        "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "baseline.json": "9c553d9213d888d6f2dd59da5b6c5ed4e2c9eb23b2730da4a9aaa0e0d74b382e",
+        "configuration.json": "e9c0613947aac3885a2e402f42757b0ebd3eef79b5887bfd18a42ccfe8e2b382"
+      },
+      "manual_scope_judgment": {
+        "status": "PASS",
+        "scope": "case-specific behavior only, not universal compatibility",
+        "attribution": "observed test configuration"
+      }
+    },
+    {
+      "id": "SA/A04-python/1",
+      "configuration": {
+        "revision": "initial-host-plugins-present"
+      },
+      "turns": 1,
+      "exit_codes": [
+        0
+      ],
+      "seconds": 295.16,
+      "changed": [
+        ".context/index.md",
+        "search.py"
+      ],
+      "astryx_skill_reads": [],
+      "successful_astryx_commands": [],
+      "sites_reads": [],
+      "evidence_sha256": {
+        "events-1.jsonl": "2b6dfe4c88d746b010069745e94103df22f5d861c537c1dd301deaedf85d3ead",
+        "turn-1.json": "ff9b09194752696bff6e26ee4518f8943fcf74555c43f9e64f9b40abe2f51a2a",
+        "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "baseline.json": "b3beba4b1085dd8eb28bfcc73840640794eaa0b31940fbc99124b4c0594da9b6"
+      },
+      "manual_scope_judgment": {
+        "status": "PASS",
+        "scope": "case-specific behavior only, not universal compatibility",
+        "attribution": "observed test configuration"
+      }
+    },
+    {
+      "id": "SA/A04-react18/1",
+      "configuration": {
+        "revision": "plugin-isolation-v2",
+        "plugins": false,
+        "apps": false,
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh"
+      },
+      "turns": 1,
+      "exit_codes": [
+        0
+      ],
+      "seconds": 106.19,
+      "changed": [],
+      "astryx_skill_reads": [
+        "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath '.agents/skills/astryx/SKILL.md' -Encoding UTF8\""
+      ],
+      "successful_astryx_commands": [],
+      "sites_reads": [],
+      "evidence_sha256": {
+        "events-1.jsonl": "5e68e48513408b7a9a7a8d78c2290c98500233e91144e86d941aaa6c119c9740",
+        "turn-1.json": "6b910f8501199b9a298781ce80733cbb0ee0da87e5ee171e851b1b9d63a7dc86",
+        "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "baseline.json": "35d4b9ee2dff9cbf5c0e8da3bf7286d9ac85c8e7bfd03c1510e6f59aac6cb99f",
+        "configuration.json": "e9c0613947aac3885a2e402f42757b0ebd3eef79b5887bfd18a42ccfe8e2b382"
+      },
+      "manual_scope_judgment": {
+        "status": "PASS",
+        "scope": "case-specific behavior only, not universal compatibility",
+        "attribution": "observed test configuration"
+      }
+    },
+    {
+      "id": "SA/A05-doctor/1",
+      "configuration": {
+        "revision": "plugin-isolation-v2",
+        "plugins": false,
+        "apps": false,
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh"
+      },
+      "turns": 1,
+      "exit_codes": [
+        0
+      ],
+      "seconds": 115.56,
+      "changed": [],
+      "astryx_skill_reads": [],
+      "successful_astryx_commands": [],
+      "sites_reads": [],
+      "evidence_sha256": {
+        "events-1.jsonl": "ee8ff50762878e1eb4a9865eb59a290903d2dc98c93feefe043f2a2248669624",
+        "turn-1.json": "945d9c46eb9edc1c5b34c631e0213bb36222a4359ae6f1ff64da55475ac22489",
+        "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "baseline.json": "9c553d9213d888d6f2dd59da5b6c5ed4e2c9eb23b2730da4a9aaa0e0d74b382e",
+        "configuration.json": "e9c0613947aac3885a2e402f42757b0ebd3eef79b5887bfd18a42ccfe8e2b382"
+      },
+      "manual_scope_judgment": {
+        "status": "PASS",
+        "scope": "case-specific behavior only, not universal compatibility",
+        "attribution": "observed test configuration"
+      }
+    },
+    {
+      "id": "SA/A05-handoff/1",
+      "configuration": {
+        "revision": "plugin-isolation-v2",
+        "plugins": false,
+        "apps": false,
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh"
+      },
+      "turns": 3,
+      "exit_codes": [
+        0,
+        0,
+        0
+      ],
+      "seconds": 891.98,
+      "changed": [
+        ".context/handoffs/2026-11-16-164543.md",
+        ".context/handoffs/draft-20261116T162403-7c4e9b1a.md",
+        ".context/index.md"
+      ],
+      "astryx_skill_reads": [],
+      "successful_astryx_commands": [],
+      "sites_reads": [],
+      "evidence_sha256": {
+        "events-1.jsonl": "3246fc8163082fa06249ed28fee954b2cab814c676fcaa528fafc43d728e98ff",
+        "events-2.jsonl": "a3c4e45ee3ae0894a50ff6986df4cd0064cdb65b55283d549b38784e6bc89f47",
+        "events-3.jsonl": "a59a448be8612bdadfbb8e4040341965ed6af2b991a557e3312dcc3ae04fbaa8",
+        "turn-1.json": "aebc459f16c42f8aabb29b040de6e1ec7ea4739155e1ec28c81cb6d408f6e521",
+        "turn-2.json": "6c6c2b6d0f20370e1507bab873a17dc1e8e3103f683beb4931fd34d8ed6fe914",
+        "turn-3.json": "9d0a9010136b607e7dfef829ab223dbfc2137420a1cde6a2493fab64893b40ff",
+        "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr-2.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr-3.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "baseline.json": "9c553d9213d888d6f2dd59da5b6c5ed4e2c9eb23b2730da4a9aaa0e0d74b382e",
+        "configuration.json": "e9c0613947aac3885a2e402f42757b0ebd3eef79b5887bfd18a42ccfe8e2b382"
+      },
+      "manual_scope_judgment": {
+        "status": "PASS",
+        "scope": "case-specific behavior only, not universal compatibility",
+        "attribution": "observed test configuration"
+      }
+    },
+    {
+      "id": "SA/A05-html/1",
+      "configuration": {
+        "revision": "plugin-isolation-v2",
+        "plugins": false,
+        "apps": false,
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh"
+      },
+      "turns": 1,
+      "exit_codes": [
+        0
+      ],
+      "seconds": 496.82,
+      "changed": [
+        ".human-docs/.gitignore",
+        ".human-docs/.ignore",
+        ".human-docs/2026-11-16-162202-service-structure-454c5d3c-review/desktop-items.png",
+        ".human-docs/2026-11-16-162202-service-structure-454c5d3c-review/desktop-structure.png",
+        ".human-docs/2026-11-16-162202-service-structure-454c5d3c-review/desktop.png",
+        ".human-docs/2026-11-16-162202-service-structure-454c5d3c-review/mobile-hero-corrected.png",
+        ".human-docs/2026-11-16-162202-service-structure-454c5d3c-review/mobile-items.png",
+        ".human-docs/2026-11-16-162202-service-structure-454c5d3c-review/mobile-structure.png",
+        ".human-docs/2026-11-16-162202-service-structure-454c5d3c-review/mobile.png",
+        ".human-docs/2026-11-16-162202-service-structure-454c5d3c-review/verification.json",
+        ".human-docs/2026-11-16-162202-service-structure-454c5d3c.html"
+      ],
+      "astryx_skill_reads": [],
+      "successful_astryx_commands": [],
+      "sites_reads": [],
+      "evidence_sha256": {
+        "events-1.jsonl": "b6627a149fe8cea03925d4e171f743ed94b3b8593402be1d0b323aeeaf74868b",
+        "turn-1.json": "b6ce432258658ea8a56094e6acf143c608a2aeef4ba7c545a90b4e83b49989ea",
+        "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "baseline.json": "1cc2e8d7587155797663bc981128f6f03a124eab88f29d7c06e48111e191aab2",
+        "configuration.json": "e9c0613947aac3885a2e402f42757b0ebd3eef79b5887bfd18a42ccfe8e2b382"
+      },
+      "manual_scope_judgment": {
+        "status": "PASS",
+        "scope": "case-specific behavior only, not universal compatibility",
+        "attribution": "observed test configuration"
+      }
+    },
+    {
+      "id": "SA/A05-init/1",
+      "configuration": {
+        "revision": "plugin-isolation-v2",
+        "plugins": false,
+        "apps": false,
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh"
+      },
+      "turns": 1,
+      "exit_codes": [
+        0
+      ],
+      "seconds": 243.33,
+      "changed": [
+        ".context/index.md"
+      ],
+      "astryx_skill_reads": [],
+      "successful_astryx_commands": [],
+      "sites_reads": [],
+      "evidence_sha256": {
+        "events-1.jsonl": "14e076edb1269cf8a8ff5e11536962571571e4ef52a1c69c3c332cf500d45971",
+        "turn-1.json": "e0bef3a1d7e2f0946ab9d4a44e4a8a2332a7328563544ab45b6b807c31fa2d5d",
+        "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "baseline.json": "2ae9605e844f504238fcc47133ff7bba2bb00c06a778d30ab1696121b4c62da3",
+        "configuration.json": "e9c0613947aac3885a2e402f42757b0ebd3eef79b5887bfd18a42ccfe8e2b382"
+      },
+      "manual_scope_judgment": {
+        "status": "PASS",
+        "scope": "case-specific behavior only, not universal compatibility",
+        "attribution": "observed test configuration"
+      }
+    },
+    {
+      "id": "SA/A08-zip/1",
+      "configuration": {
+        "revision": "plugin-isolation-v2",
+        "plugins": false,
+        "apps": false,
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh"
+      },
+      "turns": 1,
+      "exit_codes": [
+        0
+      ],
+      "seconds": 212.68,
+      "changed": [],
+      "astryx_skill_reads": [
+        "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -NoProfile -Command \"Get-Content -LiteralPath '.agents/skills/astryx/SKILL.md' -Encoding UTF8\""
+      ],
+      "successful_astryx_commands": [
+        "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -NoProfile -Command \"& '.\\\\node_modules\\\\.bin\\\\astryx.cmd' component Button\""
+      ],
+      "sites_reads": [],
+      "evidence_sha256": {
+        "events-1.jsonl": "647998ca005f8dfda4b8cd781478a597597eecae20561fdaab11d20e6eb1791d",
+        "turn-1.json": "f2816779588d3efbf968e75b4d96a79d450d09ed15efad9b9e7663f78cfef6f8",
+        "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "baseline.json": "a476f4393e64de4059cafa045e5886b338e9822134658a7d6817b44b12b994b7",
+        "configuration.json": "e9c0613947aac3885a2e402f42757b0ebd3eef79b5887bfd18a42ccfe8e2b382"
+      },
+      "manual_scope_judgment": {
+        "status": "PASS",
+        "scope": "case-specific behavior only, not universal compatibility",
+        "attribution": "observed test configuration"
+      }
+    },
+    {
+      "id": "SR/A01/1",
+      "configuration": {
+        "revision": "initial-host-plugins-present"
+      },
+      "turns": 1,
+      "exit_codes": [
+        0
+      ],
+      "seconds": 166.35,
+      "changed": [
+        ".context/index.md",
+        "docs/superpowers/specs/2026-11-16-public-data-design.md"
+      ],
+      "astryx_skill_reads": [
+        "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath '.agents/skills/astryx/SKILL.md' -Encoding UTF8\""
+      ],
+      "successful_astryx_commands": [],
+      "sites_reads": [
+        "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'C:/Users/jhyoon/.codex/plugins/cache/openai-curated-remote/sites/1.1.6/skills/sites/SKILL.md' -Encoding UTF8\"",
+        "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath 'C:/Users/jhyoon/.codex/plugins/cache/openai-curated-remote/sites/1.1.6/skills/sites/references/design/presentation-led.md' -Encoding UTF8\""
+      ],
+      "evidence_sha256": {
+        "events-1.jsonl": "a9eda85aefbf75d846fb3a0d82f9a1663c9ab8247a46d0b98cf23d2b4e222772",
+        "turn-1.json": "d51501e7d3b0826c07a5926620a9e7e61820be1ef452499b89c11577c940346a",
+        "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "baseline.json": "a69de73407645de5e1aa65d956a0e7bb09466683ed246fc910467c3f587d597c"
+      },
+      "manual_scope_judgment": {
+        "status": "PASS",
+        "scope": "case-specific behavior only, not universal compatibility",
+        "attribution": "observed test configuration"
+      }
+    },
+    {
+      "id": "SR/A04-css/1",
+      "configuration": {
+        "revision": "plugin-isolation-v2",
+        "plugins": false,
+        "apps": false,
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh"
+      },
+      "turns": 1,
+      "exit_codes": [
+        0
+      ],
+      "seconds": 109.93,
+      "changed": [
+        "site/styles.css"
+      ],
+      "astryx_skill_reads": [
+        "\"C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\" -Command \"Get-Content -LiteralPath '.agents/skills/astryx/SKILL.md' -Encoding UTF8\""
+      ],
+      "successful_astryx_commands": [],
+      "sites_reads": [],
+      "evidence_sha256": {
+        "events-1.jsonl": "2a44b8049ce8cc01392f426ddc301360ca0e2094eb45315ad7beac63bd776188",
+        "turn-1.json": "2090254b1b8736a283fcc3b9ce2257813c4792317c78a86274186dedd9065098",
+        "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "baseline.json": "342cd23614d2a16b85c59292d2bd9bb503f799bb66d2b16996578973f9d8d573",
+        "configuration.json": "e9c0613947aac3885a2e402f42757b0ebd3eef79b5887bfd18a42ccfe8e2b382"
+      },
+      "manual_scope_judgment": {
+        "status": "PASS",
+        "scope": "case-specific behavior only, not universal compatibility",
+        "attribution": "observed test configuration"
+      }
+    }
+  ],
+  "independent_file_checks": [
+    {
+      "id": "S/A04-css/1",
+      "checks": {
+        "exact_requested_css": true,
+        "only_stylesheet_changed": true
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "S/A04-css/2",
+      "checks": {
+        "exact_requested_css": true,
+        "only_stylesheet_changed": true
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "S/A04-nonreact/1",
+      "checks": {
+        "files_unchanged": true
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "S/A04-python/1",
+      "checks": {
+        "real_test_exit_zero": true,
+        "ui_unchanged": true
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "S/A04-react18/1",
+      "checks": {
+        "files_unchanged": true
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "S/A05-html/1",
+      "checks": {
+        "one_html": true,
+        "all_30_labels": true,
+        "all_30_item_bodies": true,
+        "no_external_resources": true,
+        "no_external_css": true,
+        "source_index_unchanged": true,
+        "no_package_install": true
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "S/A05-init/1",
+      "checks": {
+        "strict_valid": true,
+        "only_index_changed": true
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "SA/A04-css/1",
+      "checks": {
+        "exact_requested_css": true,
+        "only_stylesheet_changed": true
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "SA/A04-css/2",
+      "checks": {
+        "exact_requested_css": true,
+        "only_stylesheet_changed": true
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "SA/A04-nonreact/1",
+      "checks": {
+        "files_unchanged": true
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "SA/A04-python/1",
+      "checks": {
+        "real_test_exit_zero": true,
+        "ui_unchanged": true
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "SA/A04-react18/1",
+      "checks": {
+        "files_unchanged": true
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "SA/A05-html/1",
+      "checks": {
+        "one_html": true,
+        "all_30_labels": true,
+        "all_30_item_bodies": true,
+        "no_external_resources": true,
+        "no_external_css": true,
+        "source_index_unchanged": true,
+        "no_package_install": true
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "SA/A05-init/1",
+      "checks": {
+        "strict_valid": true,
+        "only_index_changed": true
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "SR/A04-css/1",
+      "checks": {
+        "exact_requested_css": true,
+        "only_stylesheet_changed": true
+      },
+      "status": "PASS"
+    }
+  ],
+  "handoffs": {
+    "S": {
+      "variant": "S",
+      "new_thread": true,
+      "resume_files_unchanged": true,
+      "process_exit": 0
+    },
+    "SA": {
+      "variant": "SA",
+      "new_thread": true,
+      "resume_files_unchanged": true,
+      "process_exit": 0
+    }
+  },
+  "browser_observations": {
+    "vite-baseline-r2": {
+      "status": "PASS",
+      "checks": {
+        "koreanSearch": true,
+        "categoryFilter": true,
+        "invalidEmailBlocked": true,
+        "contact": true,
+        "keyboardToButton": true,
+        "visibleFocus": true,
+        "reducedMotionMedia": true,
+        "compositionEnterSuppressed": true,
+        "key229Suppressed": true,
+        "normalEnterOnce": true,
+        "automatedA11y": true,
+        "runtimeErrors": true,
+        "noExternalRequests": true,
+        "allWidths": true
+      },
+      "accessibility": {
+        "violations": [],
+        "incomplete": []
+      },
+      "viewports": [
+        {
+          "width": 360,
+          "scrollWidth": 360,
+          "clientWidth": 360,
+          "brand": "rgb(109, 40, 217)",
+          "logo": "#6d28d9",
+          "tailwindWeight": "400",
+          "tailwindColor": "rgb(23, 33, 43)",
+          "requiredText": true,
+          "astryxButton": false,
+          "astryxInput": false,
+          "searchName": "자료 검색",
+          "buttonColor": "rgb(109, 40, 217)",
+          "buttonHeight": 43,
+          "noOverflow": true
+        },
+        {
+          "width": 768,
+          "scrollWidth": 768,
+          "clientWidth": 768,
+          "brand": "rgb(109, 40, 217)",
+          "logo": "#6d28d9",
+          "tailwindWeight": "400",
+          "tailwindColor": "rgb(23, 33, 43)",
+          "requiredText": true,
+          "astryxButton": false,
+          "astryxInput": false,
+          "searchName": "자료 검색",
+          "buttonColor": "rgb(109, 40, 217)",
+          "buttonHeight": 43,
+          "noOverflow": true
+        },
+        {
+          "width": 1280,
+          "scrollWidth": 1280,
+          "clientWidth": 1280,
+          "brand": "rgb(109, 40, 217)",
+          "logo": "#6d28d9",
+          "tailwindWeight": "400",
+          "tailwindColor": "rgb(23, 33, 43)",
+          "requiredText": true,
+          "astryxButton": false,
+          "astryxInput": false,
+          "searchName": "자료 검색",
+          "buttonColor": "rgb(109, 40, 217)",
+          "buttonHeight": 43,
+          "noOverflow": true
+        },
+        {
+          "width": 1920,
+          "scrollWidth": 1920,
+          "clientWidth": 1920,
+          "brand": "rgb(109, 40, 217)",
+          "logo": "#6d28d9",
+          "tailwindWeight": "400",
+          "tailwindColor": "rgb(23, 33, 43)",
+          "requiredText": true,
+          "astryxButton": false,
+          "astryxInput": false,
+          "searchName": "자료 검색",
+          "buttonColor": "rgb(109, 40, 217)",
+          "buttonHeight": 43,
+          "noOverflow": true
+        }
+      ]
+    },
+    "vite-candidate-r2": {
+      "status": "PASS",
+      "checks": {
+        "koreanSearch": true,
+        "categoryFilter": true,
+        "invalidEmailBlocked": true,
+        "contact": true,
+        "keyboardToButton": true,
+        "visibleFocus": true,
+        "reducedMotionMedia": true,
+        "compositionEnterSuppressed": true,
+        "key229Suppressed": true,
+        "normalEnterOnce": true,
+        "automatedA11y": true,
+        "runtimeErrors": true,
+        "noExternalRequests": true,
+        "allWidths": true
+      },
+      "accessibility": {
+        "violations": [],
+        "incomplete": [
+          "color-contrast"
+        ]
+      },
+      "viewports": [
+        {
+          "width": 360,
+          "scrollWidth": 360,
+          "clientWidth": 360,
+          "brand": "rgb(109, 40, 217)",
+          "logo": "#6d28d9",
+          "tailwindWeight": "400",
+          "tailwindColor": "rgb(0, 0, 0)",
+          "requiredText": true,
+          "astryxButton": true,
+          "astryxInput": true,
+          "searchName": "자료 검색",
+          "buttonColor": "rgb(27, 27, 27)",
+          "buttonHeight": 32,
+          "noOverflow": true
+        },
+        {
+          "width": 768,
+          "scrollWidth": 768,
+          "clientWidth": 768,
+          "brand": "rgb(109, 40, 217)",
+          "logo": "#6d28d9",
+          "tailwindWeight": "400",
+          "tailwindColor": "rgb(0, 0, 0)",
+          "requiredText": true,
+          "astryxButton": true,
+          "astryxInput": true,
+          "searchName": "자료 검색",
+          "buttonColor": "rgb(27, 27, 27)",
+          "buttonHeight": 32,
+          "noOverflow": true
+        },
+        {
+          "width": 1280,
+          "scrollWidth": 1280,
+          "clientWidth": 1280,
+          "brand": "rgb(109, 40, 217)",
+          "logo": "#6d28d9",
+          "tailwindWeight": "400",
+          "tailwindColor": "rgb(0, 0, 0)",
+          "requiredText": true,
+          "astryxButton": true,
+          "astryxInput": true,
+          "searchName": "자료 검색",
+          "buttonColor": "rgb(27, 27, 27)",
+          "buttonHeight": 32,
+          "noOverflow": true
+        },
+        {
+          "width": 1920,
+          "scrollWidth": 1920,
+          "clientWidth": 1920,
+          "brand": "rgb(109, 40, 217)",
+          "logo": "#6d28d9",
+          "tailwindWeight": "400",
+          "tailwindColor": "rgb(0, 0, 0)",
+          "requiredText": true,
+          "astryxButton": true,
+          "astryxInput": true,
+          "searchName": "자료 검색",
+          "buttonColor": "rgb(27, 27, 27)",
+          "buttonHeight": 32,
+          "noOverflow": true
+        }
+      ]
+    },
+    "next-baseline-r2": {
+      "status": "PASS",
+      "checks": {
+        "koreanSearch": true,
+        "categoryFilter": true,
+        "invalidEmailBlocked": true,
+        "contact": true,
+        "keyboardToButton": true,
+        "visibleFocus": true,
+        "reducedMotionMedia": true,
+        "compositionEnterSuppressed": true,
+        "key229Suppressed": true,
+        "normalEnterOnce": true,
+        "automatedA11y": true,
+        "runtimeErrors": true,
+        "noExternalRequests": true,
+        "allWidths": true
+      },
+      "accessibility": {
+        "violations": [],
+        "incomplete": []
+      },
+      "viewports": [
+        {
+          "width": 360,
+          "scrollWidth": 360,
+          "clientWidth": 360,
+          "brand": "rgb(109, 40, 217)",
+          "logo": "#6d28d9",
+          "tailwindWeight": "700",
+          "tailwindColor": "rgb(109, 40, 217)",
+          "requiredText": true,
+          "astryxButton": false,
+          "astryxInput": false,
+          "searchName": "자료 검색",
+          "buttonColor": "rgb(109, 40, 217)",
+          "buttonHeight": 44,
+          "noOverflow": true
+        },
+        {
+          "width": 768,
+          "scrollWidth": 768,
+          "clientWidth": 768,
+          "brand": "rgb(109, 40, 217)",
+          "logo": "#6d28d9",
+          "tailwindWeight": "700",
+          "tailwindColor": "rgb(109, 40, 217)",
+          "requiredText": true,
+          "astryxButton": false,
+          "astryxInput": false,
+          "searchName": "자료 검색",
+          "buttonColor": "rgb(109, 40, 217)",
+          "buttonHeight": 44,
+          "noOverflow": true
+        },
+        {
+          "width": 1280,
+          "scrollWidth": 1280,
+          "clientWidth": 1280,
+          "brand": "rgb(109, 40, 217)",
+          "logo": "#6d28d9",
+          "tailwindWeight": "700",
+          "tailwindColor": "rgb(109, 40, 217)",
+          "requiredText": true,
+          "astryxButton": false,
+          "astryxInput": false,
+          "searchName": "자료 검색",
+          "buttonColor": "rgb(109, 40, 217)",
+          "buttonHeight": 44,
+          "noOverflow": true
+        },
+        {
+          "width": 1920,
+          "scrollWidth": 1920,
+          "clientWidth": 1920,
+          "brand": "rgb(109, 40, 217)",
+          "logo": "#6d28d9",
+          "tailwindWeight": "700",
+          "tailwindColor": "rgb(109, 40, 217)",
+          "requiredText": true,
+          "astryxButton": false,
+          "astryxInput": false,
+          "searchName": "자료 검색",
+          "buttonColor": "rgb(109, 40, 217)",
+          "buttonHeight": 44,
+          "noOverflow": true
+        }
+      ]
+    },
+    "next-candidate-r2": {
+      "status": "PASS",
+      "checks": {
+        "koreanSearch": true,
+        "categoryFilter": true,
+        "invalidEmailBlocked": true,
+        "contact": true,
+        "keyboardToButton": true,
+        "visibleFocus": true,
+        "reducedMotionMedia": true,
+        "compositionEnterSuppressed": true,
+        "key229Suppressed": true,
+        "normalEnterOnce": true,
+        "automatedA11y": true,
+        "runtimeErrors": true,
+        "noExternalRequests": true,
+        "allWidths": true
+      },
+      "accessibility": {
+        "violations": [],
+        "incomplete": [
+          "color-contrast"
+        ]
+      },
+      "viewports": [
+        {
+          "width": 360,
+          "scrollWidth": 360,
+          "clientWidth": 360,
+          "brand": "rgb(109, 40, 217)",
+          "logo": "#6d28d9",
+          "tailwindWeight": "700",
+          "tailwindColor": "rgb(109, 40, 217)",
+          "requiredText": true,
+          "astryxButton": true,
+          "astryxInput": true,
+          "searchName": "자료 검색",
+          "buttonColor": "rgb(27, 27, 27)",
+          "buttonHeight": 32,
+          "noOverflow": true
+        },
+        {
+          "width": 768,
+          "scrollWidth": 768,
+          "clientWidth": 768,
+          "brand": "rgb(109, 40, 217)",
+          "logo": "#6d28d9",
+          "tailwindWeight": "700",
+          "tailwindColor": "rgb(109, 40, 217)",
+          "requiredText": true,
+          "astryxButton": true,
+          "astryxInput": true,
+          "searchName": "자료 검색",
+          "buttonColor": "rgb(27, 27, 27)",
+          "buttonHeight": 32,
+          "noOverflow": true
+        },
+        {
+          "width": 1280,
+          "scrollWidth": 1280,
+          "clientWidth": 1280,
+          "brand": "rgb(109, 40, 217)",
+          "logo": "#6d28d9",
+          "tailwindWeight": "700",
+          "tailwindColor": "rgb(109, 40, 217)",
+          "requiredText": true,
+          "astryxButton": true,
+          "astryxInput": true,
+          "searchName": "자료 검색",
+          "buttonColor": "rgb(27, 27, 27)",
+          "buttonHeight": 32,
+          "noOverflow": true
+        },
+        {
+          "width": 1920,
+          "scrollWidth": 1920,
+          "clientWidth": 1920,
+          "brand": "rgb(109, 40, 217)",
+          "logo": "#6d28d9",
+          "tailwindWeight": "700",
+          "tailwindColor": "rgb(109, 40, 217)",
+          "requiredText": true,
+          "astryxButton": true,
+          "astryxInput": true,
+          "searchName": "자료 검색",
+          "buttonColor": "rgb(27, 27, 27)",
+          "buttonHeight": 32,
+          "noOverflow": true
+        }
+      ]
+    },
+    "vite-model-S": {
+      "status": "PASS",
+      "checks": {
+        "koreanSearch": true,
+        "categoryFilter": true,
+        "invalidEmailBlocked": true,
+        "contact": true,
+        "keyboardToButton": true,
+        "visibleFocus": true,
+        "reducedMotionMedia": true,
+        "compositionEnterSuppressed": true,
+        "key229Suppressed": true,
+        "normalEnterOnce": true,
+        "automatedA11y": true,
+        "runtimeErrors": true,
+        "noExternalRequests": true,
+        "allWidths": true
+      },
+      "accessibility": {
+        "violations": [],
+        "incomplete": [
+          "form-field-multiple-labels"
+        ]
+      },
+      "viewports": [
+        {
+          "width": 360,
+          "scrollWidth": 360,
+          "clientWidth": 360,
+          "brand": "rgb(109, 40, 217)",
+          "logo": "#6d28d9",
+          "tailwindWeight": "400",
+          "tailwindColor": "rgb(23, 33, 43)",
+          "requiredText": true,
+          "astryxButton": true,
+          "astryxInput": true,
+          "searchName": "자료 검색",
+          "buttonColor": "rgb(109, 40, 217)",
+          "buttonHeight": 32,
+          "nativeEmailBorder": "2px inset",
+          "nativeEmailHeight": 39,
+          "paragraphMargin": "16px",
+          "noOverflow": true
+        },
+        {
+          "width": 768,
+          "scrollWidth": 768,
+          "clientWidth": 768,
+          "brand": "rgb(109, 40, 217)",
+          "logo": "#6d28d9",
+          "tailwindWeight": "400",
+          "tailwindColor": "rgb(23, 33, 43)",
+          "requiredText": true,
+          "astryxButton": true,
+          "astryxInput": true,
+          "searchName": "자료 검색",
+          "buttonColor": "rgb(109, 40, 217)",
+          "buttonHeight": 32,
+          "nativeEmailBorder": "2px inset",
+          "nativeEmailHeight": 39,
+          "paragraphMargin": "16px",
+          "noOverflow": true
+        },
+        {
+          "width": 1280,
+          "scrollWidth": 1280,
+          "clientWidth": 1280,
+          "brand": "rgb(109, 40, 217)",
+          "logo": "#6d28d9",
+          "tailwindWeight": "400",
+          "tailwindColor": "rgb(23, 33, 43)",
+          "requiredText": true,
+          "astryxButton": true,
+          "astryxInput": true,
+          "searchName": "자료 검색",
+          "buttonColor": "rgb(109, 40, 217)",
+          "buttonHeight": 32,
+          "nativeEmailBorder": "2px inset",
+          "nativeEmailHeight": 39,
+          "paragraphMargin": "16px",
+          "noOverflow": true
+        },
+        {
+          "width": 1920,
+          "scrollWidth": 1920,
+          "clientWidth": 1920,
+          "brand": "rgb(109, 40, 217)",
+          "logo": "#6d28d9",
+          "tailwindWeight": "400",
+          "tailwindColor": "rgb(23, 33, 43)",
+          "requiredText": true,
+          "astryxButton": true,
+          "astryxInput": true,
+          "searchName": "자료 검색",
+          "buttonColor": "rgb(109, 40, 217)",
+          "buttonHeight": 32,
+          "nativeEmailBorder": "2px inset",
+          "nativeEmailHeight": 39,
+          "paragraphMargin": "16px",
+          "noOverflow": true
+        }
+      ]
+    },
+    "vite-model-SA": {
+      "status": "PASS",
+      "checks": {
+        "koreanSearch": true,
+        "categoryFilter": true,
+        "invalidEmailBlocked": true,
+        "contact": true,
+        "keyboardToButton": true,
+        "visibleFocus": true,
+        "reducedMotionMedia": true,
+        "compositionEnterSuppressed": true,
+        "key229Suppressed": true,
+        "normalEnterOnce": true,
+        "automatedA11y": true,
+        "runtimeErrors": true,
+        "noExternalRequests": true,
+        "allWidths": true
+      },
+      "accessibility": {
+        "violations": [],
+        "incomplete": []
+      },
+      "viewports": [
+        {
+          "width": 360,
+          "scrollWidth": 360,
+          "clientWidth": 360,
+          "brand": "rgb(109, 40, 217)",
+          "logo": "#6d28d9",
+          "tailwindWeight": "400",
+          "tailwindColor": "rgb(23, 33, 43)",
+          "requiredText": true,
+          "astryxButton": true,
+          "astryxInput": true,
+          "searchName": "자료 검색",
+          "buttonColor": "rgb(109, 40, 217)",
+          "buttonHeight": 32,
+          "nativeEmailBorder": "2px inset",
+          "nativeEmailHeight": 39,
+          "paragraphMargin": "16px",
+          "noOverflow": true
+        },
+        {
+          "width": 768,
+          "scrollWidth": 768,
+          "clientWidth": 768,
+          "brand": "rgb(109, 40, 217)",
+          "logo": "#6d28d9",
+          "tailwindWeight": "400",
+          "tailwindColor": "rgb(23, 33, 43)",
+          "requiredText": true,
+          "astryxButton": true,
+          "astryxInput": true,
+          "searchName": "자료 검색",
+          "buttonColor": "rgb(109, 40, 217)",
+          "buttonHeight": 32,
+          "nativeEmailBorder": "2px inset",
+          "nativeEmailHeight": 39,
+          "paragraphMargin": "16px",
+          "noOverflow": true
+        },
+        {
+          "width": 1280,
+          "scrollWidth": 1280,
+          "clientWidth": 1280,
+          "brand": "rgb(109, 40, 217)",
+          "logo": "#6d28d9",
+          "tailwindWeight": "400",
+          "tailwindColor": "rgb(23, 33, 43)",
+          "requiredText": true,
+          "astryxButton": true,
+          "astryxInput": true,
+          "searchName": "자료 검색",
+          "buttonColor": "rgb(109, 40, 217)",
+          "buttonHeight": 32,
+          "nativeEmailBorder": "2px inset",
+          "nativeEmailHeight": 39,
+          "paragraphMargin": "16px",
+          "noOverflow": true
+        },
+        {
+          "width": 1920,
+          "scrollWidth": 1920,
+          "clientWidth": 1920,
+          "brand": "rgb(109, 40, 217)",
+          "logo": "#6d28d9",
+          "tailwindWeight": "400",
+          "tailwindColor": "rgb(23, 33, 43)",
+          "requiredText": true,
+          "astryxButton": true,
+          "astryxInput": true,
+          "searchName": "자료 검색",
+          "buttonColor": "rgb(109, 40, 217)",
+          "buttonHeight": 32,
+          "nativeEmailBorder": "2px inset",
+          "nativeEmailHeight": 39,
+          "paragraphMargin": "16px",
+          "noOverflow": true
+        }
+      ]
+    },
+    "template-library-r2": {
+      "status": "PASS",
+      "checks": {
+        "search": true,
+        "empty": true,
+        "filter": true,
+        "responsive": true,
+        "noRuntimeErrors": true,
+        "noExternalRequests": true
+      }
+    }
+  },
+  "compression_restoration": {
+    "format": "restored conversation tool-result envelope, not source file bytes",
+    "bytes": 21373,
+    "source_rows": 100,
+    "decoded_output_matches_source_ignoring_trailing_newlines": true,
+    "tool_exit": 0,
+    "restored_sha256": "bad5f0e5cdec1eb42a03b1257b08f57bc9d6fc2f6be28d63b365cd31bd0dd97e",
+    "source_sha256": "0753fe6e90470b130871685d03625798f3328006301464e836e9bd524238af84"
+  },
+  "protected_state_unchanged": true,
+  "evidence_sha256": {
+    "evidence/base-S.json": "d6e7147ad99766f14575b6a93fd6892d44b353a8298cfe424fb010ffcccd4685",
+    "evidence/base-SR.json": "49afca24b4e21a381af37ac94f035127ef8a77351ed9394e2bbad4a2b63d1228",
+    "evidence/candidate-product-tests.json": "6363ea9150161cad10151fff406668676d8e5e5d76cecdb4a5105c08c6d67b48",
+    "evidence/cli-button.json": "dfa85f82f2118b903581e9595b6ad2cc1f543106b59870a4dc7cc8ef036e6631",
+    "evidence/cli-doctor.json": "633ab8a5b1757fb3103cdcc351a0f8efa35a5ff767df73e7d3c657084b0140f2",
+    "evidence/cli-help.json": "7e6d335bf5324a6a1b00349e3bf8511e2844d7b83c354902c80a01038972820a",
+    "evidence/cli-init-help.json": "adff12fa76d19c9e56e4fd922309e5052463634a9d92166faf83e6ef06a06440",
+    "evidence/cli-input.json": "ee696097fa1f6f9cdfb9e3398ade975049c0febd02da59b8542a466d4da04479",
+    "evidence/cli-layout.json": "1431ce57e4638250fde05853aa7106af21105ce4576b0cbe343be8dcb46c4749",
+    "evidence/cli-search.json": "7bd54f64735b6a216eb70d15358c399632823d63743747ff3cb881b8f277622a",
+    "evidence/cli-template-help.json": "a2091f9dbc10513befe83a2e9c7ef159fdf6b3728b37f78678d3e52496bc1225",
+    "evidence/cli-version.json": "bcbe2473fe3209433752edf14cb59c140a07db29064f56adf33daa77cfd20f2b",
+    "evidence/compression/api-events.jsonl": "dc82798835b357a099c5bf0ad643261f8aa940090627d666bef4220033ca93b4",
+    "evidence/compression/api-input.json": "c592b1253a7961a6632424da084cc907b82d7b226ad1fed73343fd896f0f539e",
+    "evidence/compression/api-result.json": "11c5f3dcab0eeefc68c3774d710ed8e6419b9219b6d9300f91d44ce6853ade02",
+    "evidence/compression/api-stderr.txt": "c3cb97cf1f4cfa273a335911664b8f2bbaab0b0168cab92a0f03dfda6e28e240",
+    "evidence/compression/exercise-events.jsonl": "bd31823bbcc504e4ca6dfd5c99845f19d736e5b83805b6172a47f049a98cb95e",
+    "evidence/compression/exercise-input.json": "468f50dadeda07628dfbee920c92a5c703c47748e6d3775f12f3e0861ed09223",
+    "evidence/compression/exercise-result.json": "52b3ecf79e9302ef374bb0bac537ca314a227e2c4ce67e862f79ee6fe33b2527",
+    "evidence/compression/exercise-stderr.txt": "e5af724ea26ba14e76cd883049b2328bddd2c4ac114c111fa92444937c477470",
+    "evidence/compression/restoration-verification.json": "698d30e3376dae1494cd4f461f45b314d70f501718f6762711ae5e7f56e0ca72",
+    "evidence/compression/resume-events.jsonl": "6be4ae259b5245c743d48eebfda1566f63085b8f0b7bc8c001472b14c744ce28",
+    "evidence/compression/resume-input.json": "a5d886469090706c2421d3f4ee7f6bae6a14c1d054fa790cbc84b1a1dc195153",
+    "evidence/compression/resume-result.json": "92664766b5e6295b0349d1890f6487d3ec1d0402c7aa04285f9e883c4a01151c",
+    "evidence/compression/resume-stderr.txt": "be1798130c990c8cd4eb34ebfa76e7528ca4a6f254339f2b5b37cc71991d1c4e",
+    "evidence/fake-home-edited-repeat.json": "b89c836078904303c547b4c03001eccfaaeeefc06a6bac50f6dc5bb002bcd218",
+    "evidence/fake-home-foreign.json": "574e84811301324cc60516f476dc62ad52b74b44c81fc0e72b6adfe8757959ea",
+    "evidence/fake-home-init.json": "9fa594f433cb082c08333bc2f093c0f65e8f231a96a2381156b26f864d12b64c",
+    "evidence/git-S.json": "2ff92a251ec730fba7c9758ca8be7a861eb4da0b0f4f6f8186f79c40b1b3b090",
+    "evidence/git-SR.json": "825a0d8062a1cfabc3f8eb60cdcc8527ddc432733fb3e05a222c048201fd2424",
+    "evidence/handoff-independent-final.json": "7f9cac1f05817a25974ed5f7858cad50dd41a960969213147a3ac3e75e092c4d",
+    "evidence/handoff-prompts/init-and-handoff.txt": "2b50696306581ff7557299a91121a4c9eddc7e48d0b460b9f0597e6e329c1e3d",
+    "evidence/handoff-prompts/new-thread-resume.txt": "52583f4badefb9fcd801be7be8892ebe6035b3ddbe7391887d6e5f194dc4977e",
+    "evidence/handoff-S-result.json": "4c837fab534a1204501a9919816ee5e44dc1a4860df2f2d93049988c87549d48",
+    "evidence/handoff-S-strict.json": "303b2a213527bafac9b5981cd3142d65e2b1d9a404fa52e9a2e5a2b7d24c5d19",
+    "evidence/handoff-SA-result.json": "e299c44e8c9de2c7a2b130756309a856da97d7ca11108dca42a5ccbbe3466792",
+    "evidence/handoff-SA-strict.json": "9b4f004f767b78f26fcecc52e2aca2e399600c08304a2a530b3c5e93d0627c55",
+    "evidence/independent-final.json": "5959dc4309e54f2feb71989144ac8c90161a8379e13b211a4a2479549e4258ea",
+    "evidence/independent-round1.json": "a11a3ad65abc57f60e022e44f506fe5fb43b737d7ad730e09c3af3deeded3d51",
+    "evidence/independent-round2.json": "1929bb6a01da2136e31fa168cd1dc266604328ca91e3a342d0c233eff337e44e",
+    "evidence/independent-round3.json": "2024fb2bcde64d8726df9eaa0feccefa580d43ae94fd7c900bccc4a7e29c8fc3",
+    "evidence/independent-S-init-1-independent-final.json": "1ea0bdda978952e5082625cc237252debdb5034a5206e111779120e8635e74a2",
+    "evidence/independent-S-init-1-independent-round1.json": "14bfb47f50f360c8f04ee798dc263fc8dc73cc813bd8f38ad240767727cd3759",
+    "evidence/independent-S-init-1-independent-round2.json": "4ba726b97187563f2e12f9e418ddab39f2aa64ea15c06998e6026cbce1dd3f1a",
+    "evidence/independent-S-init-1-independent-round3.json": "ba5a00e0e10e0c10990ac8e18facd0801078c1bae84f18b6ae95e42214d2a87a",
+    "evidence/independent-S-python-1-independent-final.json": "dd8e69202b295ec7c97b788efe6f6a72be16359a6d878d15039bd3b001f0b79a",
+    "evidence/independent-S-python-1-independent-round1.json": "973b736b99ae4c3cacd98d4ad81ba3a93e7693f2e45bfd305c89511b7025b577",
+    "evidence/independent-S-python-1-independent-round2.json": "dd8e69202b295ec7c97b788efe6f6a72be16359a6d878d15039bd3b001f0b79a",
+    "evidence/independent-S-python-1-independent-round3.json": "735f53a0e10725b8b26d889fb753361e09dc716e070d035799dd0b014f6b4fc3",
+    "evidence/independent-SA-init-1-independent-final.json": "c5c800eab07c18f3f57d2afa4c809a5663ff021ea7b70cd08d5ba3667361dd9e",
+    "evidence/independent-SA-init-1-independent-round1.json": "998e6199370f3861c5f245d61f8d4b72b187b54dc366aeb03098288c58cd3a67",
+    "evidence/independent-SA-init-1-independent-round2.json": "df14000bf95f591c3606b5a4118d7d45e51e973fd372aad53e22bb38f9e9bcce",
+    "evidence/independent-SA-init-1-independent-round3.json": "c5c800eab07c18f3f57d2afa4c809a5663ff021ea7b70cd08d5ba3667361dd9e",
+    "evidence/independent-SA-python-1-independent-final.json": "cf9edc2c66361f1d1083495b50f07e91b23a6e03db9d9e93bb0d26e815a41296",
+    "evidence/independent-SA-python-1-independent-round1.json": "31b70654e48d828e44e1ac50f5208db607374494e5f20c69cc1e6c91b9551135",
+    "evidence/independent-SA-python-1-independent-round2.json": "061626eced10007ad4a8ea88cfe1acc9e5c5d3126614da91e74803199584844c",
+    "evidence/independent-SA-python-1-independent-round3.json": "4eb6c68172e3f0fc416a8fa609a6f0e6cfee78a86f9c5c36a50e0a3662b14ca3",
+    "evidence/init-codex-1.json": "b6d7550324c62b50c431d3a53296540971c6915120aebc7afb4bee4131da489c",
+    "evidence/init-codex-2.json": "b6d7550324c62b50c431d3a53296540971c6915120aebc7afb4bee4131da489c",
+    "evidence/init-default-1.json": "ce4de6e1078cc8d6d079f4634586aa8d6e58d2cb1da1e9b219431afdb0f4ff75",
+    "evidence/init-default-2.json": "000723e37a5b8deefb41eafe3b908a857a31d52b25ef2b3de5e673459f69f529",
+    "evidence/init-malformed-1.json": "0bfb6772678ecff3eeb72a7e1d0f8acdfb342ebf7ea5527ba41921bfe109b9ac",
+    "evidence/init-malformed-2.json": "2bd8380cf404f20f8eb5d7ccb285109478bbef4f2cdae9fc35a9368ce61d1bff",
+    "evidence/install-probe-results.json": "382c6e370cc6b062fb5f5d70983bb3fd77da6d6eef37262d13960be59f15f652",
+    "evidence/next-baseline-source.json": "0c8cf537c2019bbddb3147c114ee45cb0c2c0bb521663ab1522e38597751a70c",
+    "evidence/next-candidate-source.json": "8dfaf49b3244b6497786ba6f1f5bfd944b169bc1627b401578b9b898de8b18b9",
+    "evidence/npm-install.json": "0a80b53e3583f078d8afe985ff62012ad4f0609b44830e496f5acde0d412c71a",
+    "evidence/offline-browser-r2.json": "34d4e4c6e152cd0768536b46059de51dce13a8bfdd0d57f08c5328c26e069cfc",
+    "evidence/offline-browser.json": "34d4e4c6e152cd0768536b46059de51dce13a8bfdd0d57f08c5328c26e069cfc",
+    "evidence/package-build.json": "36b6de874a494a8888cdf17d13cd06a7ea002b9c916b6bfcec3b4b75ed6c5b2a",
+    "evidence/packaging-results.json": "299295cb3524acb33e3e457e294b8dcebba391c0d5aa65e5bec558323711911f",
+    "evidence/postinstall-cli.json": "f6b0d3539dbe910fb7cab69d4f90d8fa2c6148313fa31b0304119b5f43c692f9",
+    "evidence/postinstall-core.json": "6c4c4a761cedb339ef6ef3712cb12570928791ef341c6894f11a07e9499f50af",
+    "evidence/protected-after-install.json": "3d12c847faa322250ff5e1df5c17b9a3e9b75765357ce0a887d9445f4c7123ac",
+    "evidence/protected-after-probes.json": "3d12c847faa322250ff5e1df5c17b9a3e9b75765357ce0a887d9445f4c7123ac",
+    "evidence/protected-before.json": "3d12c847faa322250ff5e1df5c17b9a3e9b75765357ce0a887d9445f4c7123ac",
+    "evidence/protected-final.json": "3d12c847faa322250ff5e1df5c17b9a3e9b75765357ce0a887d9445f4c7123ac",
+    "evidence/protected-midpoint.json": "3d12c847faa322250ff5e1df5c17b9a3e9b75765357ce0a887d9445f4c7123ac",
+    "evidence/raw-managed-install.json": "f8f49c973baf7e7eddaaf9f2b3434b4aaa2c0ee24f932a062ea58241fac51b53",
+    "evidence/skills-SA.json": "e041e0480e744e4d8949820d88cab99373104117be8c7961133dafe5034048f7",
+    "evidence/skills-SR.json": "03d7d8f3e480feb05259a8eaa194c5b9c8fa48a3f00d2419357f2edaa553c9b4",
+    "evidence/template-build.json": "9fa95b117c360f7ed32ed9552d8b3c129f7aefe8bcfbdb7f65b7a0209e82e5f3",
+    "evidence/template-install.json": "2abd9650cf2dda12050f5ce569ba90f19c39e8f7cac1020337717bf4029e5cd3",
+    "evidence/template-recommend.json": "509241f9d7088852424564ea1fa5def85681a68533567b14625aa21764848fa9",
+    "evidence/template-repeat.json": "a1ceae0c3513f2f9d290d2b20a329b35ed1dd199dcc909fc0b37aafbb902bcab",
+    "evidence/template-results.json": "cd9e9d26331e0ba9a3d471bf361d759f5f3a6cc6e5c3a9cd37c1d0fa2c5a2b3f",
+    "evidence/template-scaffold.json": "00c9ebf824641f2703008d744896e4bde543b8d2c40983eb5fc0b751a4256d54",
+    "evidence/ui/next-baseline/browser/1280.png": "69b9f19a1695bd0a58a3dbf2378f82a01b0309b2937f045b5c10b49838027c55",
+    "evidence/ui/next-baseline/browser/1920.png": "d6b0c71a4a2df556bbaeb66dd625ba0c7611a7a0f2fb08e0043a6b4243527eeb",
+    "evidence/ui/next-baseline/browser/360.png": "7f81e928bb1c9fde5e093309a43eaf62119804b4fb11fa8a9ce87398aeed67d6",
+    "evidence/ui/next-baseline/browser/768.png": "ab4d319da38a42dd3db68a28f24d2efebd7b5d28743406993235ec748098717c",
+    "evidence/ui/next-baseline/browser/browser.json": "ca99e641840b499b147002e115df189011f0c9c8b6d4dbc6b32fe3a7cee71195",
+    "evidence/ui/next-baseline/browser-process.json": "ee956f37fd753c1626910b0c59c96a4102629c39a95c73245a5603c8d9978b73",
+    "evidence/ui/next-baseline/build.json": "ede63ac50cedaef22943557f591529293e2a47fa78eff9ea4f7c1ffc68dea01d",
+    "evidence/ui/next-baseline/server.txt": "fc6426bf9753b78045de72165b57f9933fc981cacce8d25463002f2777259843",
+    "evidence/ui/next-baseline-r2/browser/1280.png": "69b9f19a1695bd0a58a3dbf2378f82a01b0309b2937f045b5c10b49838027c55",
+    "evidence/ui/next-baseline-r2/browser/1920.png": "d6b0c71a4a2df556bbaeb66dd625ba0c7611a7a0f2fb08e0043a6b4243527eeb",
+    "evidence/ui/next-baseline-r2/browser/360.png": "7f81e928bb1c9fde5e093309a43eaf62119804b4fb11fa8a9ce87398aeed67d6",
+    "evidence/ui/next-baseline-r2/browser/768.png": "ab4d319da38a42dd3db68a28f24d2efebd7b5d28743406993235ec748098717c",
+    "evidence/ui/next-baseline-r2/browser/browser.json": "ff3c869f234316a14a7e6951baf51cc0dafae3afa84cc79e1d0378c8e2acc2da",
+    "evidence/ui/next-baseline-r2/browser-process.json": "76aca60ed211f0e90d754218375fbc338190ee7a52d7554bd2acd3772c56464c",
+    "evidence/ui/next-baseline-r2/build.json": "857fb7d9a4b67925c19e773ac85baeab50ec8bd440c08d5ea99f7e9f9fb9cc74",
+    "evidence/ui/next-baseline-r2/server.txt": "612f364ece3c0c7b134517dee02f4728d904bf87b000d8a98136a1e71648efc7",
+    "evidence/ui/next-candidate/browser/1280.png": "373d8b47c93ae5960543f5241e4f4f654b20ff93af39b0906944fd1294bf7b52",
+    "evidence/ui/next-candidate/browser/1920.png": "76fae8140a4f0bf0ce25251067c93a6fd42e9e58a8b891dfd5ca72d7be7abeb6",
+    "evidence/ui/next-candidate/browser/360.png": "8b0077e68c8fcc756dfeac04a4b97c76b3b85b0b456992c0b1b1d5b6fd30559a",
+    "evidence/ui/next-candidate/browser/768.png": "21af38205ea3588ac2e2fab63193db34ca6a35e36f3724721a33146370a49e34",
+    "evidence/ui/next-candidate/browser/browser.json": "a0975a1c2ee923f9354a800734385e87998b7d96bcd2c41dce5c889bf7dce234",
+    "evidence/ui/next-candidate/browser-process.json": "18212bf077480782e2f138014acc6195cd248e2d2efe154d1232e3fee39a20bc",
+    "evidence/ui/next-candidate/build.json": "506a8695bdd98c59fb3d0f7d326b9312d630205dc678c5d210f6b0eee04a46f4",
+    "evidence/ui/next-candidate/server.txt": "c8902005b3283657ef9ccb2d511d03280a387aca39b165908a68ce26a538c717",
+    "evidence/ui/next-candidate-r2/browser/1280.png": "373d8b47c93ae5960543f5241e4f4f654b20ff93af39b0906944fd1294bf7b52",
+    "evidence/ui/next-candidate-r2/browser/1920.png": "76fae8140a4f0bf0ce25251067c93a6fd42e9e58a8b891dfd5ca72d7be7abeb6",
+    "evidence/ui/next-candidate-r2/browser/360.png": "8b0077e68c8fcc756dfeac04a4b97c76b3b85b0b456992c0b1b1d5b6fd30559a",
+    "evidence/ui/next-candidate-r2/browser/768.png": "21af38205ea3588ac2e2fab63193db34ca6a35e36f3724721a33146370a49e34",
+    "evidence/ui/next-candidate-r2/browser/browser.json": "0176648d8520072ae625c978e6e8959c35c8490eb3686407c2cf0d216326a130",
+    "evidence/ui/next-candidate-r2/browser-process.json": "a5655356065cabb3222da04eea03249c84b8a24c31f3b03b29fea1b2fe63a407",
+    "evidence/ui/next-candidate-r2/build.json": "be25426698cb73aef8dc35d6eb59969012f97bfc27c6e9d49a4e751f9c8cee6b",
+    "evidence/ui/next-candidate-r2/server.txt": "325557ef8fb384bc0d5b26df88dd37ab9b5e57b7bacdd11f5db367024fe48d8b",
+    "evidence/ui/template-library/browser/1280.png": "9aed487ba671399507eae9c84756b1700913d8ba39fe32c18899d36a968395ce",
+    "evidence/ui/template-library/browser/1920.png": "165842ecf70870f5fa2d268b8ab5c679474ed2e8627eaf302447b994bd9614f4",
+    "evidence/ui/template-library/browser/360.png": "a71b04a5fdd7fca99fd2af039b0718026b7db3b5eaf52384ee650a5ccd1817b6",
+    "evidence/ui/template-library/browser/768.png": "5af3e01b616c6ba104824f1f0175e806f809a48b3717c5951469a005196cefe2",
+    "evidence/ui/template-library/browser/browser.json": "7c46a9492f7e60d68702649e0dc10657a8fb8a0dde536724f7a6847515595934",
+    "evidence/ui/template-library/browser-process.json": "7136a3d435e6573e491160642059552b6017ee08c94e995057f9e014e3f68f98",
+    "evidence/ui/template-library/build.json": "573f6d564c26ec73fae2a5ce941884c4418e9562739dcdb2cbcef8824312fd42",
+    "evidence/ui/template-library/server.txt": "ac0c68e5b53aa36b7b7eda420611d48ca13717c3207afd09decf5f32216df747",
+    "evidence/ui/template-library-r2/browser/1280.png": "9aed487ba671399507eae9c84756b1700913d8ba39fe32c18899d36a968395ce",
+    "evidence/ui/template-library-r2/browser/1920.png": "165842ecf70870f5fa2d268b8ab5c679474ed2e8627eaf302447b994bd9614f4",
+    "evidence/ui/template-library-r2/browser/360.png": "a71b04a5fdd7fca99fd2af039b0718026b7db3b5eaf52384ee650a5ccd1817b6",
+    "evidence/ui/template-library-r2/browser/768.png": "5af3e01b616c6ba104824f1f0175e806f809a48b3717c5951469a005196cefe2",
+    "evidence/ui/template-library-r2/browser/browser.json": "c1240970c0f2e1495520f84987288a8d9cc240cfc89fd3069f5a924530c92291",
+    "evidence/ui/template-library-r2/browser-process.json": "4481c2379a98cb5f67c00b90a80344f84ccf9a62588bcf4810642efac04a9ac9",
+    "evidence/ui/template-library-r2/build.json": "2c55f09ad352fd4132e4bcbb07e6ad0c3132460798f9d0ed0851613570de033a",
+    "evidence/ui/template-library-r2/server.txt": "a0501c76ccaaa6dcb54c998dcd5fbf4a4067d7e7b795aafbd13f1b4ebfd4e35c",
+    "evidence/ui/vite-baseline/browser/1280.png": "44dab6e8cd27fb6f68d19ae4862ddcd73404a4f5ed0f0056563c1fb0c8a42fbd",
+    "evidence/ui/vite-baseline/browser/1920.png": "ddbfcbb77a53bb6a01de72d482c69ffba0692e5bd80bb986ead9689c737d817d",
+    "evidence/ui/vite-baseline/browser/360.png": "221c37881f4b5b43a2099374f7f113dcbce2f6e1df5fc3bcf2d7196e9e0c423e",
+    "evidence/ui/vite-baseline/browser/768.png": "eaece1a1a8ce4b187342cd746e73975a14ffe5f042bd089e3026b19d230334f5",
+    "evidence/ui/vite-baseline/browser/browser.json": "acd865af8988047483c7e63ed65905e500dcb9ab49f2d6925252bc2919eec111",
+    "evidence/ui/vite-baseline/browser-process.json": "45472a7bfb2b94e71834e7c25a289d54db5e97db46b0bc7fbe6c8b8ae530d4d0",
+    "evidence/ui/vite-baseline/build.json": "bc83ccd20fa002ac3cccb2149b73f887c9a4476d688e74c6e02484b00c2371a4",
+    "evidence/ui/vite-baseline/server.txt": "b51573ce7e8d0891f8f99f73dc5cf56336178a4e638ac307309c3f1744b81db3",
+    "evidence/ui/vite-baseline-metrics/browser/1280.png": "44dab6e8cd27fb6f68d19ae4862ddcd73404a4f5ed0f0056563c1fb0c8a42fbd",
+    "evidence/ui/vite-baseline-metrics/browser/1920.png": "ddbfcbb77a53bb6a01de72d482c69ffba0692e5bd80bb986ead9689c737d817d",
+    "evidence/ui/vite-baseline-metrics/browser/360.png": "221c37881f4b5b43a2099374f7f113dcbce2f6e1df5fc3bcf2d7196e9e0c423e",
+    "evidence/ui/vite-baseline-metrics/browser/768.png": "eaece1a1a8ce4b187342cd746e73975a14ffe5f042bd089e3026b19d230334f5",
+    "evidence/ui/vite-baseline-metrics/browser/browser.json": "24d885efda28b28dc824b101164055c5c7c78f7149d0039f82549c979ab14666",
+    "evidence/ui/vite-baseline-metrics/browser-process.json": "7d03210cd5b93a4a7655aa795cb4fe59b6ddd3173aa099864cdb3a416566ca54",
+    "evidence/ui/vite-baseline-metrics/build.json": "cedf368bd207be0b9f8c7aeec552c17beccb137b417eba17e7cc27d7b39248d5",
+    "evidence/ui/vite-baseline-metrics/server.txt": "eefee34a839c2b9f80ec54a603a2b8b0653a818e2ac710a484958df403e98d95",
+    "evidence/ui/vite-baseline-r2/browser/1280.png": "44dab6e8cd27fb6f68d19ae4862ddcd73404a4f5ed0f0056563c1fb0c8a42fbd",
+    "evidence/ui/vite-baseline-r2/browser/1920.png": "ddbfcbb77a53bb6a01de72d482c69ffba0692e5bd80bb986ead9689c737d817d",
+    "evidence/ui/vite-baseline-r2/browser/360.png": "221c37881f4b5b43a2099374f7f113dcbce2f6e1df5fc3bcf2d7196e9e0c423e",
+    "evidence/ui/vite-baseline-r2/browser/768.png": "eaece1a1a8ce4b187342cd746e73975a14ffe5f042bd089e3026b19d230334f5",
+    "evidence/ui/vite-baseline-r2/browser/browser.json": "c4c4e716abce9327ba33d42e268a58e19f04a817fe37124fd057be6ca43146cb",
+    "evidence/ui/vite-baseline-r2/browser-process.json": "5902abe7a9a137f394ea577baf39783fff1a373e10c178ae4d1ab78fef0b9bf8",
+    "evidence/ui/vite-baseline-r2/build.json": "b615059f062674ccc5cf9a36d68d008e10ab7915828339ec902c015c62bb62eb",
+    "evidence/ui/vite-baseline-r2/server.txt": "849785132e3c0a764a95874f919ae3e1c2e3b4380a0b6a3ecf1d728d0fe0c67a",
+    "evidence/ui/vite-candidate/browser/1280.png": "9db2f21d3d00e3909c884129ae25072b1199611b7a4abc64810cba9d2009c0b4",
+    "evidence/ui/vite-candidate/browser/1920.png": "6a451d1ecf002576526f7f0e125172e64c0ce171c87ace3bf7cd36cc80b38d56",
+    "evidence/ui/vite-candidate/browser/360.png": "04ba177a6345ca70585d5bdd18af27c787129db61caaba861babec14ac26710b",
+    "evidence/ui/vite-candidate/browser/768.png": "ba5dfa22af4af6c68dfbef11b8aebe423cfbe6d131f35259ff9938cef07f78d1",
+    "evidence/ui/vite-candidate/browser/browser.json": "5c6771cdab341b0085282f4b82fab63d051d0f5133048ceea753b8ddd319c1cc",
+    "evidence/ui/vite-candidate/browser-process.json": "727a5cda09e17a7bfb10259123cb08503a4fc930357b8017b58101b867c933db",
+    "evidence/ui/vite-candidate/build.json": "d4116d5039129044dba526e60a8aed79c894e41d76d6afd0847b8353a4b2db3f",
+    "evidence/ui/vite-candidate/server.txt": "c0a811dc84738a789b638882e226cc092e65b04203d9d2139f0a95bbd2262153",
+    "evidence/ui/vite-candidate-r2/browser/1280.png": "9db2f21d3d00e3909c884129ae25072b1199611b7a4abc64810cba9d2009c0b4",
+    "evidence/ui/vite-candidate-r2/browser/1920.png": "6a451d1ecf002576526f7f0e125172e64c0ce171c87ace3bf7cd36cc80b38d56",
+    "evidence/ui/vite-candidate-r2/browser/360.png": "04ba177a6345ca70585d5bdd18af27c787129db61caaba861babec14ac26710b",
+    "evidence/ui/vite-candidate-r2/browser/768.png": "ba5dfa22af4af6c68dfbef11b8aebe423cfbe6d131f35259ff9938cef07f78d1",
+    "evidence/ui/vite-candidate-r2/browser/browser.json": "671f716ae08248dbae82bab1da32bd92be85dfb8d16360fe8ac5bf9bb12a8a15",
+    "evidence/ui/vite-candidate-r2/browser-process.json": "8ace1c433206a88d044296709b778e96bdc4ba0413e3d382ebb07c3365f91e92",
+    "evidence/ui/vite-candidate-r2/build.json": "d19cea5c06432f56e9289ad18f7813087ceb29e40f3d7033940c95411e926a2d",
+    "evidence/ui/vite-candidate-r2/server.txt": "72ca88b187cd548b22f94dd9ab45ebe11de4462e09a5ea62ea37d7ddd3f7e051",
+    "evidence/ui/vite-model-S/browser/1280.png": "91d7052c6ec368144eb63c5d08531ca4787cc805041fc1873785accac107ff85",
+    "evidence/ui/vite-model-S/browser/1920.png": "9481183a95e0650b88208ccf299bb210f4d4da319ae632da7651df1579198a95",
+    "evidence/ui/vite-model-S/browser/360.png": "b7f905b094f9f9a32fec5bfd9327b883a134ce915c65a47c47b0be8f5515c6fe",
+    "evidence/ui/vite-model-S/browser/768.png": "527f7e88e72d2841391e9536bd34dce554f346376168e1194f946765d7e2cf22",
+    "evidence/ui/vite-model-S/browser/browser.json": "bcc7e718127fb9879f5b2b4cd9bf17ae094a56a91ce3d2bcaa695de25a05e043",
+    "evidence/ui/vite-model-S/browser-process.json": "a2cbc43bcae263221d848cb147ab09b6eae1b027fa9bfa57a3a5de74096389a1",
+    "evidence/ui/vite-model-S/build.json": "794e0d28de15b61ae2948c8d37e5f2935c1a45395372104c8bc1737d07431091",
+    "evidence/ui/vite-model-S/server.txt": "5deec8a724d0665bf82cb9bc2fb52bc90983e139a6e50b85676782e195b01e28",
+    "evidence/ui/vite-model-SA/browser/1280.png": "f2937ca14318537bbc05b913ad591b6e23b016560b8043c65a19ff70f97dcfca",
+    "evidence/ui/vite-model-SA/browser/1920.png": "45cb47758d9c2a0ed5c6376b5a440c635d6b2b267b6370de0d84934c00e72a2f",
+    "evidence/ui/vite-model-SA/browser/360.png": "c6fd1b3c309658bc5a97df4923485092eaa0349b6b8f59c02bfd4a970eb92890",
+    "evidence/ui/vite-model-SA/browser/768.png": "d972cc54b6c450461555102abade1d2411facce17d49ef835478c413227f729d",
+    "evidence/ui/vite-model-SA/browser/browser.json": "eb1c724ab575041472c6131ea147751dcc260f28b89c9d8d5a36b73fecc52f2a",
+    "evidence/ui/vite-model-SA/browser-process.json": "37c1a6b7ecac1dd83794c3d00c3ba95a39d4362fb8a7f00965f1d32071881828",
+    "evidence/ui/vite-model-SA/build.json": "c9bb857d4df81dce888028d85f8fef604f22ff2ef086b3f6c288a12b08845597",
+    "evidence/ui/vite-model-SA/server.txt": "0ba09d05009b506c89cb51deead30240ca51c7d682b51c3967727549c5d0f845",
+    "evidence/ui/vite-reset-metrics/browser/1280.png": "9db2f21d3d00e3909c884129ae25072b1199611b7a4abc64810cba9d2009c0b4",
+    "evidence/ui/vite-reset-metrics/browser/1920.png": "6a451d1ecf002576526f7f0e125172e64c0ce171c87ace3bf7cd36cc80b38d56",
+    "evidence/ui/vite-reset-metrics/browser/360.png": "04ba177a6345ca70585d5bdd18af27c787129db61caaba861babec14ac26710b",
+    "evidence/ui/vite-reset-metrics/browser/768.png": "ba5dfa22af4af6c68dfbef11b8aebe423cfbe6d131f35259ff9938cef07f78d1",
+    "evidence/ui/vite-reset-metrics/browser/browser.json": "c796d8166d4aa8eeee9aef2a3b6cea7d1fd3decd01d1ffc39d7319464ac86da3",
+    "evidence/ui/vite-reset-metrics/browser-process.json": "34b90438757680cc518cdf60e42aaf5f9e7dc27cbe3288a24f5f3d2046213f19",
+    "evidence/ui/vite-reset-metrics/build.json": "0bd41fc049bcf974439d932856d411ad71797a1881047c99453e3eb7ad0e52c3",
+    "evidence/ui/vite-reset-metrics/server.txt": "7a55545e0bb6e5adaaa9ad67c283e99fbbbb37d52ba204e5646ae803800381ef",
+    "evidence/ui/vite-scoped/browser/1280.png": "d97f6ffacb23a750a8d36f646ee83e5f2d1887f6a37b4492e453d5fa291088b1",
+    "evidence/ui/vite-scoped/browser/1920.png": "f63579f31b0c5bf0a129508f55b7721ddb32652be8d08ea8b960ddbcf79dba80",
+    "evidence/ui/vite-scoped/browser/360.png": "ae568fd190c076db150e74fe8fa41210e7874239cf6de5b6568210fb1074cdbd",
+    "evidence/ui/vite-scoped/browser/768.png": "51ef8bbd1ac97a55f3aa9f6a07be1c277a2651f9130a50d377c75c8f8ae725fc",
+    "evidence/ui/vite-scoped/browser/browser.json": "3a61b09270a0edc82dedd590bb414015ba456c8ca5e98b4e431527333630fef1",
+    "evidence/ui/vite-scoped/browser-process.json": "de4ff6771cd50393183c68c30c9610bd7a77652f24d658ea622e5c0a3f6ee633",
+    "evidence/ui/vite-scoped/build.json": "cbf8f8e45cb85c9fcc286bf067d70170c7b7123fc670ed18348e3c0dc86b3dcc",
+    "evidence/ui/vite-scoped/server.txt": "101ef095feca71de53a3938e50b56a29216f024bb456bf100376c58fe1ffc36e",
+    "evidence/ui/vite-scoped-r2/browser/1280.png": "d97f6ffacb23a750a8d36f646ee83e5f2d1887f6a37b4492e453d5fa291088b1",
+    "evidence/ui/vite-scoped-r2/browser/1920.png": "f63579f31b0c5bf0a129508f55b7721ddb32652be8d08ea8b960ddbcf79dba80",
+    "evidence/ui/vite-scoped-r2/browser/360.png": "ae568fd190c076db150e74fe8fa41210e7874239cf6de5b6568210fb1074cdbd",
+    "evidence/ui/vite-scoped-r2/browser/768.png": "51ef8bbd1ac97a55f3aa9f6a07be1c277a2651f9130a50d377c75c8f8ae725fc",
+    "evidence/ui/vite-scoped-r2/browser/browser.json": "3a61b09270a0edc82dedd590bb414015ba456c8ca5e98b4e431527333630fef1",
+    "evidence/ui/vite-scoped-r2/browser-process.json": "5dde8dc89edef2910192a3fb5c52b254adcb55b563786073976bc439bdf13b65",
+    "evidence/ui/vite-scoped-r2/build.json": "12fd8fb0ef204e34e8b02482597475d0c6e589cad06591dcce1be0a400122c65",
+    "evidence/ui/vite-scoped-r2/server.txt": "c32a4f6314247ab2f64814bfb8c05b178e8e4faa4d31082395c0b46eb43e50e9",
+    "evidence/upstream.json": "9a69bb6ec8df91ceac2762949d1affb6c46bc59ea1d6e70b377f799816cea94f",
+    "evidence/vite-baseline-source.json": "827bd613b2056fe8de738bf9d40bef85479902440e9d50c8c99350b62509a37b",
+    "evidence/vite-candidate-source.json": "04f5586378d8301113776b0207742f653857dbd2b502588ff41af9455053811e",
+    "evidence/vite-scoped-source.json": "a5e160159b6e7e9dc00c10198c4c14ff034880163c9e8027055cdf9e989544e6",
+    "evidence/zip-clean-apply.json": "057c477996a0afcc666de9222705cb0fee637ae3afac238f74d05e00d5d1efa3",
+    "evidence/zip-clean-dry.json": "2f1172a8ec46a4a1059cf2aa1cf970cd64538191fcdd9320afb30033ad170c4f",
+    "evidence/zip-clean-repeat.json": "2d77eb0b1bcfd6a88a04b463828f6265dae7080c67ee83725c4710f34e96546e",
+    "evidence/zip-clean-validate.json": "7439a176a1b32beab08d6b9e647488811a877caf832bc8f6ac0022fa015a6c5b",
+    "evidence/zip-edited-collision-apply.json": "955d6fc8341729086b4d9a722b8ea143f36ae6523b1edf28725aa9303fcf5964",
+    "evidence/zip-edited-collision-dry.json": "bb5419fa343bdb488d4bdfff570fe8ece16589d02d0398faa532d1260e490442",
+    "evidence/zip-edited-collision-repeat.json": "1a704c0491ecc456f0d665d620dc71668f35e5afbb51ffe1662e11d6016f737b",
+    "evidence/zip-edited-collision-validate.json": "ec59d7ca836e80c991fed7c88553fb9ca098c48d7c6c95f3d91e7b051f2f7e0a",
+    "evidence/zip-edited-conflict.json": "0a89ad65d13b5f0c4f1ce6213ddfa0356efe2eabdd9b3acfdfae8a0c4e69639c",
+    "evidence/zip-existing-apply.json": "e85ca434982709f2c89146f3c9d4b48181c0c7402bfab9ee01a2cc7c0729dc60",
+    "evidence/zip-existing-dry.json": "35fb3418b43eae6a7e8fd00105efa57376160e91bbf1c25ac5366939ea8b741a",
+    "evidence/zip-existing-repeat.json": "30c06a68d53875094567eaa7e12908f8b288a0ff080510016da30c976b84b6cb",
+    "evidence/zip-existing-validate.json": "2141bd9e1f6352b645beb251b34f388d932abe005f074e747dc67403550b6bab",
+    "evidence/zip-foreign-skill-apply.json": "c477ea51e9db33b624465675bbb751a0c128fdf9e16ba50926a699aaeb4b5682",
+    "evidence/zip-foreign-skill-dry.json": "91caa0c39428e03e96b59c9fc40cca52bfc5de3be0f3c283aa46ace4f36a24a5"
+  },
+  "harness_sha256": {
+    "tools/evaluations/astryx/apps.py": "831ce9811006a2f078392a4b20c2a025fd6be8d7ce2b416c2e0eac884c78d0ea",
+    "tools/evaluations/astryx/batch.py": "1412fae3faba5ba7f5714570d9bed8474cda37401e88c3efc118cdb94be547b2",
+    "tools/evaluations/astryx/browser_check.cjs": "7eba1e4ac5c3653ec6881efd1d87fda33fbbe668d2013ecdcddb3d923c63d893",
+    "tools/evaluations/astryx/candidate/agents/openai.yaml": "a1499d95abd8447558c535fe5554adcc3c9b988a0a39264a6283d430effe1e94",
+    "tools/evaluations/astryx/candidate/SKILL.md": "1bc76023bedbef9a7d134fd7b4fcc6280ab47c642b1de76e6bf99ff209f41e5e",
+    "tools/evaluations/astryx/collect.py": "6a9f88e5d6dc607ec0b5b2401f752f43e357883e85ca277632870a1bd2b143d9",
+    "tools/evaluations/astryx/common.py": "61a470a0a2c921b318ac0f8a1a628a829a535077cb68afe3b2d5db00c0119f1e",
+    "tools/evaluations/astryx/compression_probe.py": "38869db3cd5bc8483707c9fc3d54b0ede762cf91e9e6659ca1ac6daf95a0335e",
+    "tools/evaluations/astryx/handoff_probe.py": "cd88f4d24909e5631d82c3933a68ff636e82813eee3b9f3a2593a5a3c1ad9ba5",
+    "tools/evaluations/astryx/install_probe.py": "c848809cd8a0659bae17ef77c5f98cf16b464048d5b8b54aeb48aea57f66ade9",
+    "tools/evaluations/astryx/model_runs.py": "a47761dcf7415908e3c94e3c4b6e880264572738d9df094d5dd6701fcef8473d",
+    "tools/evaluations/astryx/offline_check.cjs": "115d18b2855d39202bda7b6406075ecfc82bfebe80ac335e9659959fbbf2d737",
+    "tools/evaluations/astryx/package_probe.py": "168ff82e6ddc7e0bdef2c33c90474fe3dd3030398600dfe53faaa1eb03ce8a18",
+    "tools/evaluations/astryx/prepare.py": "88d510d3e5955b0e3bff4d0cd350c225bf3aeb3fbda605cd789aa57ed708417b",
+    "tools/evaluations/astryx/scoped_probe.py": "3b53d7978e677f320d9d33c21167f0f349a005f328b299c04ff0d5cfe8e21946",
+    "tools/evaluations/astryx/summarize.py": "69c71754c9c2c869b713bf098b91ab6fdebe14df62ef604be0d96a36450e7d46",
+    "tools/evaluations/astryx/template_browser.cjs": "f4929e27c0d20d98d8c036803eae5abd1f6c87f2da6ae759d3aa895f3fedabd1",
+    "tools/evaluations/astryx/template_probe.py": "4f01a50dda9575e62d6992d36668e4394b3a5687bacd0cb015888d50abac37c7",
+    "tools/evaluations/astryx/ui_probe.py": "d9ebee79a28eb51d99f46f3f853e32bed4fadf9885f01181959e37feebc82dc8",
+    "tools/evaluations/astryx/verify_cases.py": "d12f1ffeff933046205b7de470ca8dd9b130fbf42fe0cb757605fd39bfd1af56",
+    "tools/evaluations/hallmark/browser_check.cjs": "d9adaa5cac97c74eb49e0d1dd007e3551db56d4cf052bb93cddaf85b7a64efc7",
+    "tools/evaluations/hallmark/cases.json": "3fd15dfc09a50fd2ed042a43e7ae7b3eb0b0351af90735fcc957369d3087a2b5",
+    "tools/evaluations/hallmark/checks.py": "ee67c8b874d149eb914bed2aa8a94491638c0dfba833b04ea291fb0ca559b935",
+    "tools/evaluations/hallmark/collect.py": "c583ccf108af9c921cb26e39e405a787d8e253178050669624026824908f47d9",
+    "tools/evaluations/hallmark/human_check.py": "c1d67bb665b291b179283862368288db5477a92f924036e2e3456b29c5e98875",
+    "tools/evaluations/hallmark/package_probe.py": "654b34067dd5acdf65c9b5d36f4d14f60741b25c51395d4161b4b8ff2eefbbc1",
+    "tools/evaluations/hallmark/release_verify.py": "67c002e20ff3a95ecfea1e1ee386d029a1082fe1affe5da2946415d0057749f3",
+    "tools/evaluations/hallmark/reproduce.py": "2bc19bff7ad43cc576253e085acbfa0a1a14dab3b7f26529f7697251e2130e82",
+    "tools/evaluations/hallmark/run.py": "ccda54c6ddb47c7a373e2bb5c2fdadfbee7dbe33ad9856ab02bb9ccf6d427352",
+    "tools/evaluations/hallmark/verdicts.json": "0b34baf008d94b6669cb079de7c788fc0b92d2eb3bd314dc6062c3d05ba78e9f"
+  }
+}

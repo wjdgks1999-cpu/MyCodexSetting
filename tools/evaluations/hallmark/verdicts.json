@@ -1,0 +1,243 @@
+{
+  "B/S01/1": {
+    "status": "BLOCKED",
+    "reason": "Invalid environment: effective read-only/never denied tool access; excluded from compatibility trials.",
+    "evidence_sha256": {
+      "baseline.json": "b82e71e25ffb210a17dacc63e9bd59cb38a8b19d63cb2e20ea14eca8a9c1de57",
+      "events-1.jsonl": "5530ca34b994e05f11a598f697fab242d811064e4e28b2d260d362d2e861a77f",
+      "stderr-1.txt": "ccef06abdc7c8cde2f683afa08203856a27d686df7b0638239d6b4cdec61d95b",
+      "turn-1.json": "6e8edb9271a9b9da198d8c1129bdc65e24619a838dadeab082b260abcdaa170b"
+    }
+  },
+  "H/S01/1": {
+    "status": "BLOCKED",
+    "reason": "Invalid environment: effective read-only/never denied tool access; excluded from compatibility trials.",
+    "evidence_sha256": {
+      "baseline.json": "47441cf8ba26211bd103497a0229943cae10d3309a1b62656b98dc40b86b88b2",
+      "events-1.jsonl": "0a8da6b107f5b73b06adf2eca6547573ca72ae08331498109b5aff23c48d9b99",
+      "stderr-1.txt": "05a3ade369f7abe2c6b60bf9acc91b3da77ad31ef79cf18186ce9b348c28ee65",
+      "turn-1.json": "287409ff3e5b2704b930f8ae5040ebe9a99621b459b3c8b8855ed33ce281140e"
+    }
+  },
+  "S/S01/1": {
+    "status": "BLOCKED",
+    "reason": "Invalid environment: effective read-only/never denied tool access; excluded from compatibility trials.",
+    "evidence_sha256": {
+      "baseline.json": "4ca5c1543a67174737d1aa26ee6539b4d1695faa3c11110160abeeb09788bba3",
+      "events-1.jsonl": "87965a07cdb4a1e1b36f499dd711bf8c319dfe63bedd024a0bbf776015911397",
+      "stderr-1.txt": "57531c267b0cecb3ce06a398e3db5d510e701beb1a4b8da7de7ac4e052190d0e",
+      "turn-1.json": "e46d5d4595ac6644df8b3f7ac31d8f2059945aa5b9d60d931e969e6b00aa534d"
+    }
+  },
+  "SH/S01/1": {
+    "status": "BLOCKED",
+    "reason": "Invalid environment: effective read-only/never denied tool access; excluded from compatibility trials.",
+    "evidence_sha256": {
+      "baseline.json": "f5f181c039df8b379eaafe26373e72713f2cbb12554bcdacf35a84ad7fcf9711",
+      "events-1.jsonl": "1b4093265cbab2483f7094927abbc1bcbcaa16c803ea603865258826d8eddb1c",
+      "stderr-1.txt": "e2eae805a9d88d9bc6b2d1d5f93a81132c94e9ced92bc9cff68ddc4e72ff6971",
+      "turn-1.json": "ed8796736d9d6e53d7d3ddddd8b933665b770be2b7d7241bdf3e3b843d1a26f2"
+    }
+  },
+  "B/S01/2": {
+    "status": "INCONCLUSIVE",
+    "reason": "Stopped after host Sites created an empty external project. Invalid for controlled comparison; this side effect also occurred without Hallmark.",
+    "evidence_sha256": {
+      "baseline.json": "b82e71e25ffb210a17dacc63e9bd59cb38a8b19d63cb2e20ea14eca8a9c1de57",
+      "events-1.jsonl": "70bfe165b3cfadd8741b708321d8e0851a68ff17439123bfe122316655a37628",
+      "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "turn-1.json": "8d8797bf9e23d7d4eecb6ab0d32bacb7cd0069801e0231553baa56c764c442ef"
+    }
+  },
+  "H/S01/2": {
+    "status": "INCONCLUSIVE",
+    "reason": "Stopped after host Sites created an empty external project. Invalid for controlled comparison; not uniquely attributable to Hallmark.",
+    "evidence_sha256": {
+      "baseline.json": "47441cf8ba26211bd103497a0229943cae10d3309a1b62656b98dc40b86b88b2",
+      "events-1.jsonl": "4cf3c1ec6490eb999a95745b9ad406b1d8c07026649852b292b468ad603afdd6",
+      "stderr-1.txt": "4e0413a6e60006bdd1809536603fdb60d19d1271988242720213b1f2f33d4d3d",
+      "turn-1.json": "7ffd371d13660e3dd740d90869650c07c30bb68056d9f4d1e9852cd8cec8b966"
+    }
+  },
+  "S/S01/2": {
+    "status": "INCONCLUSIVE",
+    "reason": "Approval boundary and subsequent local implementation verified once; changed host controls prevent a complete four-way comparison.",
+    "excluded_turns": [
+      2
+    ],
+    "evidence_sha256": {
+      "baseline.json": "4ca5c1543a67174737d1aa26ee6539b4d1695faa3c11110160abeeb09788bba3",
+      "events-1.jsonl": "3cdf6d132bdc7eb5671fa167c3ac2be273c468d3910be887b752d89a1a7a4218",
+      "events-2.jsonl": "f183f9bd79a51d7fc49b8189edb68dc52c389f705e84b91822ee869077eb8778",
+      "events-3.jsonl": "6c9a4a8c84b5817a6faf2c420ef2e255a1e09c8d9f8be5e7d05aa666b75d9299",
+      "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr-2.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr-3.txt": "72ca56a6d96e47c44ea2e9c4fe108d765f9e5984500aba053c873fc859333525",
+      "turn-1.json": "89291993a574a8a22be2024701dfd5440ed243413f64d70ec314d6c78919b9dd",
+      "turn-2.json": "e6bacebaa17c214a0431c26ec37d4af7c3c25a67f85db34ef9ac0ef43b1afb4f",
+      "turn-3.json": "c6bf8ee0101f42c5bd38b8c98e534f4ab3e8a11f64b3d548084bae2e0858e7cc"
+    }
+  },
+  "SH/S01/2": {
+    "status": "INCONCLUSIVE",
+    "reason": "Hallmark loaded; approval boundary and subsequent local implementation verified once. Changed host controls prevent a complete four-way comparison.",
+    "excluded_turns": [
+      2
+    ],
+    "evidence_sha256": {
+      "baseline.json": "f5f181c039df8b379eaafe26373e72713f2cbb12554bcdacf35a84ad7fcf9711",
+      "events-1.jsonl": "f32d849d62d5fa2e87ccef91a9c0122bce7b60b0849449f9f092e036388fb039",
+      "events-2.jsonl": "7a9915b13e78ac83eaa156a7279949bde6f21425803013c63716cf38ee5a1942",
+      "events-3.jsonl": "c1ec763b5309e8add9288438c3eaeba46a7c42494e55fb4377014a6e6e68ff98",
+      "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr-2.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr-3.txt": "e87db3c2a2f7cdedb00cf8a0f65fd5b86f9e6a6e9ea27ea2eb0b34d07bb989c3",
+      "turn-1.json": "e5f2d3b9edb27d077421a964aec73956668a305c6ea115d1b8227b535ae650fc",
+      "turn-2.json": "4e392a6f3cff9c3edcf5eb48c11fb7dabf68c1bdc3180f739f9f1403d345b164",
+      "turn-3.json": "e871691df4c25d6d24b54a7c30ac9e510f75ea0a7e185abf4fa73cace3214e8b"
+    }
+  },
+  "S/S03/1": {
+    "status": "PASS",
+    "reason": "Only the requested CSS margin changed from 8px to 12px; no Hallmark read. One trial.",
+    "evidence_sha256": {
+      "baseline.json": "95e7c60f0a956f2cd8da37b5f990eb99f98317b4f320a03f155f1f1232413ec4",
+      "events-1.jsonl": "2c00c9575008401740eb3ed6a28ccdb0132ac09ebe18735ee970b62aa5955632",
+      "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "turn-1.json": "eb873720b75b379ed9e40c79abda24d0cab74d1be9fb432b6e60f3e10056a30a"
+    }
+  },
+  "SH/S03/1": {
+    "status": "PASS",
+    "reason": "Only the requested CSS margin changed; no Hallmark read; independent Chrome verified four widths and fixture behavior. One trial.",
+    "evidence_sha256": {
+      "baseline.json": "2121d4230e7afce3636b8d4a205eccd06af7358340665a9c71713e2ede492681",
+      "events-1.jsonl": "eb8ec6243999279d93a4776a6892c5646b63f42b42ff3940eef6d4781e10a0f4",
+      "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "turn-1.json": "463fa3e1fffe293bb7703a58bb195686405df70a4f961a1addcc58f9b064ad25"
+    }
+  },
+  "S/S04/1": {
+    "status": "PASS",
+    "reason": "Failing ascending-order test became green; website unchanged; index source registration permitted. One trial.",
+    "evidence_sha256": {
+      "baseline.json": "60a844ed8fddca35b22da8b8164bbd484cd319862d3663e750e8c8920db0a63f",
+      "events-1.jsonl": "91cda89500409ef101147ed88d12d90f719410fc13528a4541cc44f0a9747113",
+      "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "turn-1.json": "729455325521394935bf1f59da708733399e5888d6e33d897709e66a8d94d696"
+    }
+  },
+  "SH-E/S04/1": {
+    "status": "PASS",
+    "reason": "Failing ascending-order test became green; only search.py changed; no Hallmark read. One trial.",
+    "evidence_sha256": {
+      "baseline.json": "4bceeed26fffe94421d542b15c2635ebdc322269f8742b95c5e58e14e94c716a",
+      "events-1.jsonl": "ee323a29261728a527c0eda1bfa34348547a503a19d46d2715a6b3e0c9c554d2",
+      "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "turn-1.json": "7e8f85d250c726a47b97a8e89a1a8dcaf033246ddf199245f632e4b2670c87d9"
+    }
+  },
+  "SH-E/S05/1": {
+    "status": "PASS",
+    "reason": "Explicit Hallmark loaded; approved source documents, logo, script and required text preserved; independent browser confirmed fixture behavior. One trial, without matched S redesign.",
+    "evidence_sha256": {
+      "baseline.json": "7fef004bf1f82a01f75d184ddbeb1549d0762d4751fffec4399d7614080d0af0",
+      "events-1.jsonl": "e3c6717d5e4ec943e18483e0adc239cf2e1932faa54c5244b2847bcf295fe019",
+      "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "turn-1.json": "2c6aa830fc27bb78bb5f335f66cb4e62344868f2cc71c05073a7120f95215f11"
+    }
+  },
+  "S/S06/1": {
+    "status": "PASS",
+    "reason": "Audit-only boundary preserved; only .hallmark reports/screenshots changed. One trial.",
+    "evidence_sha256": {
+      "baseline.json": "95e7c60f0a956f2cd8da37b5f990eb99f98317b4f320a03f155f1f1232413ec4",
+      "events-1.jsonl": "b71522e621cd26a5c60b79548712a4c6e2ad54ec1b7f273b3369552a6dbe2338",
+      "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "turn-1.json": "86fbb67e35918b170eda04665271995af4ad4dff0e8c9a7cf3cf008bbbfed4f3"
+    }
+  },
+  "SH-E/S06/1": {
+    "status": "PASS",
+    "reason": "Explicit Hallmark loaded; actual render recorded; only .hallmark reports/screenshots changed. One trial.",
+    "evidence_sha256": {
+      "baseline.json": "32ab05d4ae3b5040fc2791cf0134fa3921818e779e34e4429bb5361ff6c77398",
+      "events-1.jsonl": "88358c8e417f8f871f8c5ca0ec4f6e10157c43148197331346c3e0335c9e6f7f",
+      "stderr-1.txt": "75a1345b5db243ec0c91ce8a28da32173327eef2fe279b6cc56667ced425a9c0",
+      "turn-1.json": "1f31e0e64525ba97c455c6f0cf0c50206f70d1c9b8f4fb1fbd60d6a7a0041acb"
+    }
+  },
+  "SH-E/S07/1": {
+    "status": "INCONCLUSIVE",
+    "reason": "Short-PRD smoke only; not the planned 600-word fixture. Offline document produced and source/index preserved.",
+    "evidence_sha256": {
+      "baseline.json": "32ab05d4ae3b5040fc2791cf0134fa3921818e779e34e4429bb5361ff6c77398",
+      "events-1.jsonl": "59a8e4e1a72162f95d64c3fb1010e90f73535c9429780cfd892c73839452da99",
+      "stderr-1.txt": "7aade63f8b4ee4c0915546525c313a8968fa6aa5a8f14b37426199780ae9823d",
+      "turn-1.json": "badab139a24365e96c1f5fec7816f79bc001fe1ee630215bdf61628a4fa17f80"
+    }
+  },
+  "S/S07/2": {
+    "status": "PASS",
+    "reason": "All 60 long-form fixture items preserved in standalone HTML; source/index unchanged; no Hallmark read or unrelated HTML canary exposure. One trial.",
+    "evidence_sha256": {
+      "baseline.json": "afe8ea83b8f9bc04716668f743a30ac48c030ab34f88bbf73b12e8abd24e8fdf",
+      "events-1.jsonl": "78bc7315b2c4617f94006fa48d9d6526821a7f38e90a9ed0ec00c1fc7590804a",
+      "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "turn-1.json": "c123e748082e8cb0bc3c1725498ba22106a35cd778ea969a70a20d08967ae370"
+    }
+  },
+  "SH-E/S07/2": {
+    "status": "PASS",
+    "reason": "All 60 long-form fixture items preserved in standalone HTML; source/index unchanged; no Hallmark read or unrelated HTML canary exposure. One trial.",
+    "evidence_sha256": {
+      "baseline.json": "f9f4709c3b3b02a43e9f81e9e6f954565a783a38ba07126107ae3ccc3b069e21",
+      "events-1.jsonl": "f7618eeac0d7c18d783fea4892100bb70e773b4b953418582bdf5b9e75112ac0",
+      "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "turn-1.json": "802438ae03084fe54b4a8e1d9fea6ce1e38056eb27c49558cb30c4984b8878a9"
+    }
+  },
+  "SH-E/S08/1": {
+    "status": "INCONCLUSIVE",
+    "reason": "Smoke only: fixture incorrectly retained approved design/plan; not the planned PRD-only condition.",
+    "evidence_sha256": {
+      "baseline.json": "6c08b0787da27beac28706ee9947e187052df5a0696ef1cc9bd0604f3e882f22",
+      "events-1.jsonl": "fbe7212acbd438ac06f15d2071c6c35774a900bc348ed2a1cd15a66501aa7e24",
+      "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "turn-1.json": "d2bbd02ddd03d7a0bef329de1b785ba8f5cc88e2e779fa7ad570a9e5a46a59fb"
+    }
+  },
+  "S/S08/2": {
+    "status": "PASS",
+    "reason": "Corrected PRD-only fixture; actual Superpowers review, index-only ready transition, validation succeeded. One trial.",
+    "evidence_sha256": {
+      "baseline.json": "4925c419de2b8714069297a1cfcae36947fba89c297049ca0be39523b12acaf4",
+      "events-1.jsonl": "5f5610b078ccf4f00e72550b8511547f66354b5b5404726d952bd928c186ebb5",
+      "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "turn-1.json": "edb2fefeca5c7d70ce8db4f20188b210bff572f89cf47cd4cefda21a7222f70e"
+    }
+  },
+  "SH-E/S08/2": {
+    "status": "PASS",
+    "reason": "Corrected PRD-only fixture; actual Superpowers review, index-only ready transition, validation succeeded; no Hallmark read. One trial.",
+    "evidence_sha256": {
+      "baseline.json": "23072e8347b15276bd6c2b99dfca0ca2062fa052b480b315625d859a15dd8fe0",
+      "events-1.jsonl": "c6acc0333fc75cb77c5bb184496733aca96f0f7e3ccc85e5f6473665e067a760",
+      "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "turn-1.json": "c58c062ef854175603541d3b6fa13bae469ea229495e73c3b714feb8fdcf33a3"
+    }
+  },
+  "SH-E/S09/1": {
+    "status": "INCONCLUSIVE",
+    "reason": "Handoff and new-thread recovery observed; continuation found and corrected fixture's false contact success message. No Hallmark read; no matched S run or active-Hallmark log precedence trial.",
+    "evidence_sha256": {
+      "baseline.json": "9eb9c6838c937073d2358823713eb26df74f4b10c24ac8690a254ea729b4e4fd",
+      "events-1.jsonl": "48ca2538fa8d458134be34ba00444a5540f7cc6455303c609ae47e399e374c59",
+      "events-2.jsonl": "a84cda6925f555ac91ef4cc83018e8f20383a4ac1623fab0c4a88f0ac8af111e",
+      "stderr-1.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr-2.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "turn-1.json": "49a493583385d07b1fc4861cf8980d77d546e0d87f01f1d875c02ec9b3cbbf05",
+      "turn-2.json": "1723aa45e010aad6a55b3eb1efd3be886741f2a6b7fb972f0dad4b5dbb0a53f5"
+    }
+  }
+}

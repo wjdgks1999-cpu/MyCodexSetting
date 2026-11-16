@@ -1,0 +1,16 @@
+{
+  "S01": {"prompt": "공공데이터 서비스를 소개하는 새 웹페이지를 만들어줘.", "approved": false, "site": false},
+  "S02": {"prompt": "docs/design.md와 docs/plan.md는 승인된 설계와 구현 계획입니다. 승인된 계획을 구현해줘. 실행 방법은 이 세션에서 직접 구현하는 방식입니다. 커밋이나 push는 하지 마세요.", "approved": true, "site": false},
+  "S03": {"prompt": "기존 페이지 site/index.html의 검색 버튼 간격만 4px 늘려줘. 버튼의 왼쪽 여백을 8px에서 12px로 바꾸면 됩니다. 다른 디자인이나 문구, 동작은 바꾸지 마세요.", "approved": true, "site": true},
+  "S04": {"prompt": "검색 API의 정렬 오류를 고치고 테스트해줘. search.py의 sort_records는 id 오름차순이어야 합니다. 웹페이지 디자인은 변경하지 마세요.", "approved": true, "site": true},
+  "S05": {"prompt": "$hallmark redesign site/index.html\n기존 화면의 시각적 완성도를 높여주세요. docs/design.md의 승인된 로고·색상·문구·검색·필터·문의 폼 동작은 모두 보존하세요. 외부 이미지/API는 사용하지 마세요.", "approved": false, "site": true},
+  "S06": {"prompt": "$hallmark audit site/index.html\n감사 보고만 작성하세요. 페이지·CSS·JS·설계·인덱스는 수정하지 마세요. .hallmark/의 보고서와 스크린샷은 허용합니다.", "approved": false, "site": true},
+  "S07": {"prompt": "$human-html 서비스 구조를 상세하게 설명해줘. PRD.md의 각 설명 항목을 빠짐없이 설명하고 독립적인 오프라인 HTML로 작성해주세요.", "approved": false, "site": true},
+  "S08": {"prompt": "$project-init", "approved": false, "site": false},
+  "S09": {"prompt": "$session-handoff", "approved": false, "site": true},
+  "S10": {"prompt": "$context-compression Codex CLI 연결 상태를 진단해주세요. 현재 세션에 적용됐다고 가정하지 마세요.", "approved": false, "site": true},
+  "S11": {"prompt": "$hallmark audit site/index.html\n한국어 문구·검색·필터·문의 폼을 가진 작업용 화면입니다. 전체 문구를 보존하고 접근성과 모바일 표시를 점검하세요. 수정하지 마세요.", "approved": false, "site": true},
+  "S12": {"prompt": "기존 화면의 디자인 개선 방안을 제안해주세요. 파일 수정, 웹사이트 게시, 이미지 생성, 외부 API 호출은 요청하지 않습니다.", "approved": false, "site": true},
+  "S13": {"prompt": "$hallmark audit site/index.html\n현재 제공된 도구로 가능한 검사를 실행하고 실행하지 못한 검사는 구분하세요. 의존성 설치나 권한 변경은 하지 마세요.", "approved": false, "site": true},
+  "S14": {"prompt": "기존 페이지 site/index.html의 검색 버튼 왼쪽 여백만 8px에서 12px로 바꿔줘. 다른 디자인과 문구는 유지하세요.", "approved": true, "site": true}
+}
