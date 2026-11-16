@@ -19,6 +19,7 @@ status: ready
 
 | path | purpose |
 |---|---|
+| `PURPOSE.md` | 기능별 도입 목적과 해결하려는 문제 |
 | `AGENTS.md` | MyCodexSetting 자체 개발 지침 |
 | `kit/templates/AGENTS.md` | 새 프로젝트에 설치하는 배포용 지침 원본 |
 | `docs/superpowers/specs/2026-11-16-development-agents-design.md` | 개발용 지침과 배포용 템플릿 분리 승인 설계 |
