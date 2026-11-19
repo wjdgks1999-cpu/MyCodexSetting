@@ -10,9 +10,9 @@ status: ready
 |---|---|---|
 | requirements | `README.md` | 프로젝트의 기능과 사용 기준 |
 | decisions | `none` |  |
-| active-spec | `docs/superpowers/specs/2026-11-16-astryx-opt-in-design.md` | 승인된 Astryx 선택 기능 도입 구조 |
-| active-plan | `docs/superpowers/plans/2026-11-16-astryx-opt-in.md` | 완료된 선택 기능 도입·검증 계획 |
-| active-ledger | `docs/superpowers/validation/2026-11-16-astryx-opt-in.md` | 0.5.0 통합·실행·배포 결과와 제한 |
+| active-spec | `none` | |
+| active-plan | `docs/superpowers/plans/2026-11-19-v1-feature-evaluation.md` | JIT 원본 탐색·세션 인계·문맥 압축의 Context Rot 완화 효과 평가, 파일럿 중단 |
+| active-ledger | `docs/superpowers/validation/2026-11-19-context-rot-pilot.md` | 실제 파일럿 중단 시점의 관측값과 미검증 범위 |
 | latest-handoff | `none` |  |
 
 ## 추가 문서
@@ -22,6 +22,9 @@ status: ready
 | `PURPOSE.md` | 기능별 도입 목적과 해결하려는 문제 |
 | `AGENTS.md` | MyCodexSetting 자체 개발 지침 |
 | `kit/templates/AGENTS.md` | 새 프로젝트에 설치하는 배포용 지침 원본 |
+| `docs/superpowers/specs/2026-11-16-astryx-opt-in-design.md` | 승인된 Astryx 선택 기능 도입 구조 |
+| `docs/superpowers/plans/2026-11-16-astryx-opt-in.md` | 완료된 선택 기능 도입·검증 계획 |
+| `docs/superpowers/validation/2026-11-16-astryx-opt-in.md` | 0.5.0 통합·실행·배포 결과와 제한 |
 | `docs/superpowers/specs/2026-11-16-development-agents-design.md` | 개발용 지침과 배포용 템플릿 분리 승인 설계 |
 | `docs/superpowers/plans/2026-11-16-development-agents.md` | 개발용 AGENTS 분리·축약 완료 기록과 실제 검증 결과 |
 | `docs/superpowers/plans/2026-11-16-hallmark-compatibility-tests.md` | 사용자 결정으로 도입 보류한 Hallmark 시험 계획·1차 원장·미실행 범위 |

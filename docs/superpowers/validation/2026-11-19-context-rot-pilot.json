@@ -1,0 +1,420 @@
+{
+  "stage": "pilot",
+  "state": "stopped_on_repeated_windows_elevation_prompts",
+  "group_complete": false,
+  "end_checked": "2026-11-19T12:05:44+09:00",
+  "journal_sha256": {
+    "pilot01-gpt-6-luna.jsonl": "10e13e0250dc34e3c5e91994c446b5e92c56f1009a880050ab2f35c65066aee2",
+    "pilot01-gpt-6.1-terra.jsonl": "20c7e793be7f17ac6a28f6c085962f03df6b07b1f90856613b1b8f9ad1ae34fc",
+    "pilot01-gpt-6.2-sol.jsonl": "1ed1265ff2335b2573efb5be9f397b8a6d43c550671e427f245ac08adb1aa509"
+  },
+  "partial_usage_only": true,
+  "rows": [
+    {
+      "id": "ba05e59e-b7f1-4c76-80e4-a7b76bc8cb9f",
+      "model": "gpt-6-luna",
+      "feature": "compression",
+      "long": false,
+      "on": true,
+      "material_tokens": 7976,
+      "status": "incomplete",
+      "sessions": [
+        {
+          "usage": {
+            "totalTokens": 195745,
+            "inputTokens": 194040,
+            "cachedInputTokens": 153472,
+            "cacheWriteInputTokens": 0,
+            "outputTokens": 1705,
+            "reasoningOutputTokens": 862
+          },
+          "commands": [
+            [
+              "other"
+            ],
+            [
+              "other"
+            ],
+            [
+              "other"
+            ],
+            [
+              "other"
+            ],
+            [
+              "other"
+            ],
+            [
+              "other"
+            ],
+            [
+              "shift-"
+            ],
+            [
+              "shift-"
+            ],
+            [
+              "shift-"
+            ],
+            [
+              "shift-"
+            ],
+            [
+              "shift-"
+            ]
+          ],
+          "compression_tools": [],
+          "model": "gpt-6-luna",
+          "effort": "xhigh",
+          "tier": "default",
+          "turn_pending": true,
+          "effective_window": 258400,
+          "replay_seen": false
+        }
+      ],
+      "error": "TIME_LIMIT",
+      "scores": {
+        "current": false,
+        "exception": false,
+        "prior_status": false,
+        "next_action": false
+      },
+      "protected_changes": [],
+      "seconds": 155.109,
+      "usd_estimate": 0.006444020000000001,
+      "unsettled_reserve_usd": 0.132
+    },
+    {
+      "id": "67c0509a-6b77-4ead-85d8-e8341ab34ddd",
+      "model": "gpt-6.1-terra",
+      "feature": "handoff",
+      "long": true,
+      "on": true,
+      "material_tokens": 64040,
+      "status": "incomplete",
+      "sessions": [
+        {
+          "usage": {
+            "totalTokens": 918372,
+            "inputTokens": 916323,
+            "cachedInputTokens": 826240,
+            "cacheWriteInputTokens": 0,
+            "outputTokens": 2049,
+            "reasoningOutputTokens": 168
+          },
+          "commands": [
+            [
+              "other"
+            ],
+            [
+              "other"
+            ],
+            [
+              "context-policy"
+            ],
+            [
+              "index.md"
+            ],
+            [
+              "other"
+            ],
+            [
+              "other"
+            ],
+            [
+              "current.md"
+            ],
+            [
+              "other"
+            ],
+            [
+              "shift-"
+            ],
+            [
+              "replay.py"
+            ],
+            [
+              "evidence.md"
+            ],
+            [
+              "retired.md"
+            ],
+            [
+              "other"
+            ],
+            [
+              "shift-"
+            ],
+            [
+              "replay.py",
+              "evidence.md",
+              "retired.md",
+              "shift-"
+            ],
+            [
+              "evidence.md"
+            ],
+            [
+              "retired.md"
+            ],
+            [
+              "other"
+            ],
+            [
+              "shift-"
+            ],
+            [
+              "replay.py"
+            ],
+            [
+              "shift-"
+            ],
+            [
+              "replay.py",
+              "retired.md",
+              "shift-"
+            ],
+            [
+              "handoffs"
+            ],
+            [
+              "replay.py",
+              "index.md",
+              "current.md",
+              "evidence.md",
+              "retired.md",
+              "handoffs"
+            ],
+            [
+              "record-handoff",
+              "handoffs"
+            ]
+          ],
+          "compression_tools": [],
+          "model": "gpt-6.1-terra",
+          "effort": "xhigh",
+          "tier": "default",
+          "turn_pending": true,
+          "effective_window": 258400,
+          "replay_seen": true
+        }
+      ],
+      "error": "TIME_LIMIT",
+      "scores": {
+        "current": false,
+        "exception": false,
+        "prior_status": false,
+        "next_action": false
+      },
+      "protected_changes": [],
+      "seconds": 159.063,
+      "usd_estimate": 0.14164,
+      "unsettled_reserve_usd": 1.32
+    },
+    {
+      "id": "b17a7c44-263d-4769-953c-4ba51fd823be",
+      "model": "gpt-6.2-sol",
+      "feature": "jit",
+      "long": false,
+      "on": false,
+      "material_tokens": 7976,
+      "status": "completed",
+      "sessions": [
+        {
+          "usage": {
+            "totalTokens": 232652,
+            "inputTokens": 231641,
+            "cachedInputTokens": 189312,
+            "cacheWriteInputTokens": 0,
+            "outputTokens": 1011,
+            "reasoningOutputTokens": 245
+          },
+          "commands": [
+            [
+              "other"
+            ],
+            [
+              "other"
+            ],
+            [
+              "shift-"
+            ],
+            [
+              "replay.py",
+              "current.md",
+              "evidence.md",
+              "retired.md"
+            ],
+            [
+              "other"
+            ],
+            [
+              "other"
+            ],
+            [
+              "other"
+            ],
+            [
+              "other"
+            ],
+            [
+              "status.json"
+            ],
+            [
+              "replay.py"
+            ],
+            [
+              "status.json"
+            ]
+          ],
+          "compression_tools": [],
+          "model": "gpt-6.2-sol",
+          "effort": "xhigh",
+          "tier": "default",
+          "turn_pending": false,
+          "effective_window": 258400,
+          "replay_seen": true
+        }
+      ],
+      "scores": {
+        "current": true,
+        "exception": true,
+        "prior_status": true,
+        "next_action": true
+      },
+      "protected_changes": [],
+      "seconds": 77.026,
+      "usd_estimate": 0.1136992,
+      "unsettled_reserve_usd": 0
+    },
+    {
+      "id": "75023f12-bd52-4e45-a576-6e78367e8202",
+      "model": "gpt-6.2-sol",
+      "feature": "jit",
+      "long": true,
+      "on": true,
+      "material_tokens": 64040,
+      "status": "completed",
+      "sessions": [
+        {
+          "usage": {
+            "totalTokens": 73376,
+            "inputTokens": 72779,
+            "cachedInputTokens": 42880,
+            "cacheWriteInputTokens": 0,
+            "outputTokens": 597,
+            "reasoningOutputTokens": 124
+          },
+          "commands": [
+            [
+              "other"
+            ],
+            [
+              "index.md"
+            ],
+            [
+              "current.md",
+              "evidence.md"
+            ],
+            [
+              "replay.py"
+            ],
+            [
+              "other"
+            ],
+            [
+              "replay.py",
+              "status.json"
+            ],
+            [
+              "status.json"
+            ]
+          ],
+          "compression_tools": [],
+          "model": "gpt-6.2-sol",
+          "effort": "xhigh",
+          "tier": "default",
+          "turn_pending": false,
+          "effective_window": 258400,
+          "replay_seen": true
+        }
+      ],
+      "scores": {
+        "current": true,
+        "exception": true,
+        "prior_status": true,
+        "next_action": true
+      },
+      "protected_changes": [],
+      "seconds": 42.327,
+      "usd_estimate": 0.070056,
+      "unsettled_reserve_usd": 0
+    },
+    {
+      "id": "fad161c8-4201-4b22-8ec8-62e4e9875e67",
+      "model": "gpt-6.2-sol",
+      "feature": "jit",
+      "long": false,
+      "on": true,
+      "material_tokens": 7976,
+      "status": "completed",
+      "sessions": [
+        {
+          "usage": {
+            "totalTokens": 72437,
+            "inputTokens": 71799,
+            "cachedInputTokens": 65408,
+            "cacheWriteInputTokens": 0,
+            "outputTokens": 638,
+            "reasoningOutputTokens": 21
+          },
+          "commands": [
+            [
+              "index.md"
+            ],
+            [
+              "other"
+            ],
+            [
+              "current.md",
+              "evidence.md"
+            ],
+            [
+              "other"
+            ],
+            [
+              "replay.py"
+            ],
+            [
+              "replay.py",
+              "status.json"
+            ]
+          ],
+          "compression_tools": [],
+          "model": "gpt-6.2-sol",
+          "effort": "xhigh",
+          "tier": "default",
+          "turn_pending": false,
+          "effective_window": 258400,
+          "replay_seen": true
+        }
+      ],
+      "scores": {
+        "current": true,
+        "exception": true,
+        "prior_status": true,
+        "next_action": true
+      },
+      "protected_changes": [],
+      "seconds": 55.693,
+      "usd_estimate": 0.025702799999999998,
+      "unsettled_reserve_usd": 0
+    }
+  ],
+  "started_without_final_journal": [
+    "gpt-6-luna-compression-long-off",
+    "gpt-6.1-terra-handoff-short-on",
+    "gpt-6.2-sol-jit-long-off"
+  ],
+  "total_confirmed_row_usd": 0.35754201999999996
+}
