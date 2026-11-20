@@ -91,8 +91,8 @@ class AstryxInstallTests(unittest.TestCase):
         self.assertEqual(self.install(True).returncode, 0)
         path = self.target / '.mycodex/manifest.json'
         data = json.loads(path.read_text(encoding='utf-8'))
-        self.assertNotEqual(data['kit_version'], '0.5.0')
-        data['kit_version'] = '0.5.0'
+        self.assertEqual(data['kit_version'], '0.5.0')
+        data['kit_version'] = '0.4.0'
         path.write_text(json.dumps(data), encoding='utf-8')
         before = self.snapshot()
         result = self.install(True)

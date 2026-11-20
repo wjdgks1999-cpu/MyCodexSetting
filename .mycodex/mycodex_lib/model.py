@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Literal
 
-KIT_VERSION = '0.5.1'
+KIT_VERSION = '0.5.0'
 SCHEMA_VERSION = 1
 OPTIONAL_KEYS = ('decisions', 'active-spec', 'active-plan', 'active-ledger', 'latest-handoff')
 HANDOFF_SECTIONS = ('목표', '작성 시점', '관련 원본', '작업 상태', '검증', '다음 행동', '재확인 사항')
