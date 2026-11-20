@@ -3,7 +3,7 @@
 Codex 프로젝트를 시작할 때 필요한 작업 지침, 설정, 문서 탐색과 세션 인계 흐름을 준비하는 도구입니다. 개발은 Superpowers 절차로 진행하고, 필요할 때 HTML 설명 문서와 Codex CLI·Paseo 문맥 압축을 함께 사용합니다.
 
 <!-- source-only:start -->
-**최신 버전 0.5.0** · [배포 ZIP](dist/MyCodexSetting-0.5.0.zip) · [배포 폴더](dist/MyCodexSetting-0.5.0/README.md)
+**최신 버전 0.5.1** · [배포 ZIP](dist/MyCodexSetting-0.5.1.zip) · [배포 폴더](dist/MyCodexSetting-0.5.1/README.md)
 
 배포 원본은 `kit/`입니다. `python tools/build_release.py`로 배포본을 만들며, 같은 버전의 내용이 다르면 기존 산출물을 보존하고 충돌을 보고합니다. 실제 검증 기록은 [CLI](docs/superpowers/validation/2026-11-12-billion-context-cli.md)와 [Paseo](docs/superpowers/validation/2026-11-12-billion-context-paseo.md)에 있습니다.
 <!-- source-only:end -->

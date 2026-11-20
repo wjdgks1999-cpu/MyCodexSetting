@@ -10,18 +10,23 @@ status: ready
 |---|---|---|
 | requirements | `README.md` | 프로젝트의 기능과 사용 기준 |
 | decisions | `none` |  |
-| active-spec | `docs/superpowers/specs/2026-11-16-astryx-opt-in-design.md` | 승인된 Astryx 선택 기능 도입 구조 |
-| active-plan | `docs/superpowers/plans/2026-11-16-astryx-opt-in.md` | 완료된 선택 기능 도입·검증 계획 |
-| active-ledger | `docs/superpowers/validation/2026-11-16-astryx-opt-in.md` | 0.5.0 통합·실행·배포 결과와 제한 |
-| latest-handoff | `none` |  |
+| active-spec | `docs/superpowers/specs/2026-11-20-codex-cli-context-evaluation.md` | JIT·인계·압축의 Codex CLI 실효성 평가 설계 |
+| active-plan | `none` |  |
+| active-ledger | `none` |  |
+| latest-handoff | `.context/handoffs/2026-11-20-170756.md` | 다른 컴퓨터의 실험 환경 준비와 재개 지점 |
 
 ## 추가 문서
 
 | path | purpose |
 |---|---|
 | `PURPOSE.md` | 기능별 도입 목적과 해결하려는 문제 |
+| `CHANGELOG.md` | 0.5.1 모델·컨텍스트 설정 변경과 버전별 배포 이력 |
 | `AGENTS.md` | MyCodexSetting 자체 개발 지침 |
 | `kit/templates/AGENTS.md` | 새 프로젝트에 설치하는 배포용 지침 원본 |
+| `kit/templates/config.toml` | 새 프로젝트에 설치하는 Codex 설정 기본값 |
+| `docs/superpowers/specs/2026-11-16-astryx-opt-in-design.md` | 승인된 Astryx 선택 기능 도입 구조 |
+| `docs/superpowers/plans/2026-11-16-astryx-opt-in.md` | 완료된 선택 기능 도입·검증 계획 |
+| `docs/superpowers/validation/2026-11-16-astryx-opt-in.md` | 0.5.0 통합·실행·배포 결과와 제한 |
 | `docs/superpowers/specs/2026-11-16-development-agents-design.md` | 개발용 지침과 배포용 템플릿 분리 승인 설계 |
 | `docs/superpowers/plans/2026-11-16-development-agents.md` | 개발용 AGENTS 분리·축약 완료 기록과 실제 검증 결과 |
 | `docs/superpowers/plans/2026-11-16-hallmark-compatibility-tests.md` | 사용자 결정으로 도입 보류한 Hallmark 시험 계획·1차 원장·미실행 범위 |
@@ -33,7 +38,6 @@ status: ready
 | `kit/integrations/astryx/README.md` | 선택 기능의 설치·명시 호출·사용 중지·호환 범위 |
 | `docs/superpowers/plans/2026-11-16-astryx-compatibility-tests.md` | 도입 전 격리 호환성 시험 계획 |
 | `docs/superpowers/validation/2026-11-16-astryx-compatibility.md` | 도입 전 실제 시험·조건부 후보 판정·미검증 범위 |
-| `CHANGELOG.md` | 배포 버전별 변경 이력 |
 | `docs/usage.md` | 설치·파일 역할·인계·설정·문제 해결 상세 안내 |
 | `kit/integrations/billion-context/README.md` | 정식 문맥 압축 기능의 사용법·호환 범위·이전 안내 |
 | `docs/superpowers/validation/2026-11-12-billion-context-paseo.md` | 실제 Paseo 연결·압축·복원·workflow·배포 검증과 미검증 항목 |

@@ -1,9 +1,18 @@
-model = "gpt-6.1-sol"
+# GPT-6.2 Astra — 메인 모델
+model = "gpt-6.2-astra"
 model_reasoning_effort = "xhigh"
 plan_mode_reasoning_effort = "xhigh"
 
+# 최대 100만 토큰 컨텍스트
+model_context_window = 1000000
+
+# 컨텍스트 85% 사용 시 자동 압축
+model_auto_compact_token_limit = 850000
+
+# 실시간 웹 검색
 web_search = "live"
 
+# 샌드박스 및 승인
 sandbox_mode = "workspace-write"
 approval_policy = "on-request"
 approvals_reviewer = "auto_review"
@@ -24,8 +33,9 @@ generate_memories = true
 use_memories = true
 disable_on_external_context = false
 
+# GPT-6.2 Sol — 서브 에이전트
 [agents]
 enabled = true
 max_concurrent_threads_per_session = 3
-default_subagent_model = "gpt-6.1-sol"
+default_subagent_model = "gpt-6.2-sol"
 default_subagent_reasoning_effort = "high"
