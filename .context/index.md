@@ -20,6 +20,7 @@ status: ready
 | path | purpose |
 |---|---|
 | `PURPOSE.md` | 기능별 도입 목적과 해결하려는 문제 |
+| `Effectiveness.md` | 문맥 기능 파일럿의 실패 재현·세션 인계 효과와 비용 |
 | `CHANGELOG.md` | 0.5.1 모델·컨텍스트 설정 변경과 버전별 배포 이력 |
 | `AGENTS.md` | MyCodexSetting 자체 개발 지침 |
 | `kit/templates/AGENTS.md` | 새 프로젝트에 설치하는 배포용 지침 원본 |

@@ -1,0 +1,14 @@
+# 저장소 루트에 복사한 로컬 평가 폴더와 개별 Luna 실행 사본
+/MyCodexSetting-Eval/
+/20??-??-??-luna-[0-9]*/
+
+# 인계 작성 중 생기는 초안과 로컬 미리보기 세션
+/.context/handoffs/draft-*.md
+/.superpowers/brainstorm/
+
+# Python·Node 실행 시 생성되는 캐시와 로컬 의존성
+__pycache__/
+*.pyc
+.venv/
+node_modules/
+npm-cache/
